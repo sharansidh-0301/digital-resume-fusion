@@ -47,12 +47,12 @@ const Hero = () => {
           </h1>
           
           <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 animate-fade-in">
-            Full Stack Developer & UI/UX Designer
+            Aspiring Full Stack Developer & Recent Graduate
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 animate-fade-in">
-            Passionate about creating beautiful, functional, and user-centered digital experiences. 
-            I bring ideas to life through clean code and intuitive design.
+            Passionate about learning and building amazing web applications. Ready to start my journey 
+            in tech and contribute to innovative projects with fresh ideas and enthusiasm.
           </p>
 
           {/* CTA Buttons */}

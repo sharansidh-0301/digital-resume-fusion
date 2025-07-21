@@ -34,8 +34,8 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold text-gradient mb-4">Alex Johnson</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Full Stack Developer passionate about creating beautiful, functional, 
-              and user-centered digital experiences through clean code and intuitive design.
+              Recent Computer Science graduate passionate about web development and excited to start my 
+              journey in tech. Ready to learn, grow, and contribute to innovative projects.
             </p>
             
             {/* Social Links */}

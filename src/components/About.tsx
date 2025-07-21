@@ -4,17 +4,17 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const stats = [
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Projects Completed', value: '50+' },
-    { label: 'Happy Clients', value: '30+' },
-    { label: 'Coffee Cups', value: '1000+' },
+    { label: 'Months Learning', value: '18+' },
+    { label: 'Projects Built', value: '12+' },
+    { label: 'Technologies', value: '15+' },
+    { label: 'GitHub Commits', value: '500+' },
   ];
 
   const interests = [
-    { icon: Coffee, label: 'Coffee Enthusiast' },
-    { icon: Heart, label: 'Open Source Contributor' },
+    { icon: Coffee, label: 'Tech Enthusiast' },
+    { icon: Heart, label: 'Open Source Explorer' },
     { icon: Calendar, label: 'Continuous Learner' },
-    { icon: MapPin, label: 'Digital Nomad' },
+    { icon: MapPin, label: 'Problem Solver' },
   ];
 
   return (
@@ -33,20 +33,19 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6 animate-fade-in">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground">
-              Crafting Digital Experiences with Passion
+              Ready to Start My Tech Journey
             </h3>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With over 5 years of experience in web development, I specialize in creating 
-              modern, responsive, and user-friendly applications. My journey began with a 
-              curiosity for how websites work, and it has evolved into a deep passion for 
-              crafting exceptional digital experiences.
+              As a recent Computer Science graduate, I'm excited to begin my career in web development. 
+              My journey started with curiosity about how websites work, and through dedicated learning 
+              and hands-on projects, I've developed strong skills in modern web technologies.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I believe in the power of clean code, thoughtful design, and continuous learning. 
-              When I'm not coding, you'll find me exploring new technologies, contributing to 
-              open-source projects, or sharing knowledge with the developer community.
+              I believe in writing clean, efficient code and creating user-friendly interfaces. 
+              I'm always eager to learn new technologies and take on challenges that help me grow 
+              as a developer while contributing meaningful value to projects.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-8">
@@ -89,27 +88,27 @@ const About = () => {
               {[
                 {
                   year: '2024',
-                  title: 'Senior Full Stack Developer',
-                  company: 'Tech Innovators Inc.',
-                  description: 'Leading development of enterprise-level applications using React, Node.js, and cloud technologies.'
+                  title: 'Computer Science Graduate',
+                  company: 'State University',
+                  description: 'Graduated with Bachelor\'s in Computer Science. Specialized in web development and software engineering principles.'
+                },
+                {
+                  year: '2023',
+                  title: 'Full Stack Development Bootcamp',
+                  company: 'TechEducation Institute',
+                  description: 'Completed intensive 6-month bootcamp focusing on MERN stack development and modern web technologies.'
+                },
+                {
+                  year: '2023',
+                  title: 'Frontend Development Intern',
+                  company: 'Local Tech Startup',
+                  description: 'Gained hands-on experience building responsive websites and learning industry best practices.'
                 },
                 {
                   year: '2022',
-                  title: 'Full Stack Developer',
-                  company: 'Digital Solutions Ltd.',
-                  description: 'Developed and maintained multiple client projects, focusing on performance optimization and user experience.'
-                },
-                {
-                  year: '2020',
-                  title: 'Frontend Developer',
-                  company: 'StartUp Studio',
-                  description: 'Specialized in creating responsive web applications and implementing modern design systems.'
-                },
-                {
-                  year: '2019',
-                  title: 'Web Developer',
-                  company: 'Creative Agency',
-                  description: 'Started my professional journey building websites and learning the fundamentals of web development.'
+                  title: 'Started Learning Programming',
+                  company: 'Self-taught Journey',
+                  description: 'Began my coding journey with HTML, CSS, and JavaScript. Built my first websites and discovered my passion for development.'
                 }
               ].map((item, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>

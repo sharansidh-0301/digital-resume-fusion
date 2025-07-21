@@ -81,9 +81,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+              <h3 className="text-2xl font-bold mb-6">Let's Connect!</h3>
               <p className="text-muted-foreground mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                I'm excited to start my career and would love to discuss entry-level opportunities, internships, or collaborate on interesting projects!
               </p>
             </div>
 
@@ -132,15 +132,15 @@ const Contact = () => {
               <CardContent className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Response Time:</span>
-                  <span className="font-medium">Within 24 hours</span>
+                  <span className="font-medium">Within 12 hours</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Availability:</span>
-                  <span className="font-medium">Open to opportunities</span>
+                  <span className="font-medium">Ready for opportunities</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Time Zone:</span>
-                  <span className="font-medium">PST (UTC-8)</span>
+                  <span className="text-muted-foreground">Looking for:</span>
+                  <span className="font-medium">Entry-level positions</span>
                 </div>
               </CardContent>
             </Card>
@@ -242,17 +242,17 @@ const Contact = () => {
         <div className="text-center mt-16">
           <Card className="max-w-2xl mx-auto hover-lift shadow-card">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
+              <h3 className="text-2xl font-bold mb-4">Ready to Learn and Contribute?</h3>
               <p className="text-muted-foreground mb-6">
-                Let's discuss how I can help bring your ideas to life with modern web technologies.
+                I'm eager to start my career and contribute fresh ideas to innovative projects. Let's discuss how I can add value to your team!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="lg">
                   <Mail className="h-5 w-5 mr-2" />
-                  Start a Conversation
+                  Let's Connect
                 </Button>
                 <Button variant="outline" size="lg">
-                  Schedule a Call
+                  View My Resume
                 </Button>
               </div>
             </CardContent>

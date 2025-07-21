@@ -9,48 +9,48 @@ const Skills = () => {
       icon: Code2,
       title: 'Frontend Development',
       skills: [
-        { name: 'React/Next.js', level: 95 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Vue.js', level: 85 },
-        { name: 'Tailwind CSS', level: 95 },
+        { name: 'React/Next.js', level: 80 },
+        { name: 'JavaScript', level: 85 },
+        { name: 'HTML/CSS', level: 90 },
+        { name: 'Tailwind CSS', level: 85 },
       ],
     },
     {
       icon: Server,
       title: 'Backend Development',
       skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Python/Django', level: 85 },
-        { name: 'PostgreSQL', level: 80 },
-        { name: 'MongoDB', level: 85 },
+        { name: 'Node.js', level: 75 },
+        { name: 'Express.js', level: 70 },
+        { name: 'MongoDB', level: 70 },
+        { name: 'PostgreSQL', level: 65 },
       ],
     },
     {
       icon: Database,
       title: 'DevOps & Tools',
       skills: [
-        { name: 'Docker', level: 80 },
-        { name: 'AWS/Azure', level: 75 },
-        { name: 'Git/GitHub', level: 95 },
-        { name: 'Linux', level: 85 },
+        { name: 'Git/GitHub', level: 80 },
+        { name: 'VS Code', level: 85 },
+        { name: 'Linux Basics', level: 60 },
+        { name: 'Deployment', level: 65 },
       ],
     },
     {
       icon: Palette,
       title: 'Design & UX',
       skills: [
-        { name: 'Figma', level: 90 },
-        { name: 'UI/UX Design', level: 85 },
-        { name: 'Adobe Creative Suite', level: 80 },
-        { name: 'Prototyping', level: 85 },
+        { name: 'Figma Basics', level: 70 },
+        { name: 'UI/UX Principles', level: 65 },
+        { name: 'Responsive Design', level: 80 },
+        { name: 'Color Theory', level: 60 },
       ],
     },
   ];
 
   const technologies = [
-    'JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'Node.js',
-    'Python', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Figma',
-    'Tailwind CSS', 'GraphQL', 'REST APIs', 'Git', 'Linux', 'Adobe XD'
+    'JavaScript', 'React', 'Node.js', 'HTML5', 'CSS3', 'MongoDB',
+    'Express.js', 'Git', 'GitHub', 'Tailwind CSS', 'Bootstrap',
+    'REST APIs', 'JSON', 'Responsive Design', 'VS Code', 'Figma'
   ];
 
   return (

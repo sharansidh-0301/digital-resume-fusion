@@ -7,49 +7,49 @@ const Achievements = () => {
   const achievements = [
     {
       icon: Trophy,
-      title: 'Hackathon Winner',
-      description: 'First place at TechCrunch Disrupt 2023 for innovative AI-powered solution',
-      date: '2023',
-      category: 'Competition',
+      title: 'Dean\'s List Achievement',
+      description: 'Maintained 3.8+ GPA throughout Computer Science degree program',
+      date: '2024',
+      category: 'Academic',
       color: 'text-yellow-500',
     },
     {
       icon: Award,
-      title: 'Top Developer Award',
-      description: 'Recognized as top 1% developer on Stack Overflow with 50K+ reputation',
+      title: 'Bootcamp Graduate',
+      description: 'Successfully completed intensive 6-month Full Stack Development Bootcamp',
       date: '2023',
-      category: 'Recognition',
+      category: 'Education',
       color: 'text-orange-500',
     },
     {
-      icon: Users,
-      title: 'Team Leadership',
-      description: 'Successfully led a team of 8 developers in delivering enterprise project',
-      date: '2022',
-      category: 'Leadership',
-      color: 'text-blue-500',
-    },
-    {
       icon: Code,
-      title: 'Open Source Contributor',
-      description: 'Contributed to 25+ open source projects with 500+ GitHub stars',
-      date: '2022',
+      title: 'First Open Source Contribution',
+      description: 'Made first meaningful contribution to an open source React component library',
+      date: '2023',
       category: 'Community',
       color: 'text-green-500',
     },
     {
+      icon: Users,
+      title: 'Study Group Leader',
+      description: 'Led weekly coding study sessions for 15+ fellow students during university',
+      date: '2023',
+      category: 'Leadership',
+      color: 'text-blue-500',
+    },
+    {
       icon: Star,
-      title: 'Client Excellence Award',
-      description: 'Achieved 98% client satisfaction rate across 30+ projects',
-      date: '2022',
-      category: 'Client Work',
+      title: 'Hackathon Participant',
+      description: 'Participated in local 48-hour hackathon, built functional web app in team of 4',
+      date: '2023',
+      category: 'Competition',
       color: 'text-purple-500',
     },
     {
       icon: Target,
-      title: 'Performance Optimization',
-      description: 'Improved application performance by 300% through code optimization',
-      date: '2021',
+      title: 'Personal Project Milestone',
+      description: 'Built and deployed 6+ personal projects showcasing different technologies',
+      date: '2023',
       category: 'Technical',
       color: 'text-red-500',
     },
@@ -78,19 +78,19 @@ const Achievements = () => {
       description: 'Professional Cloud Developer Certification',
     },
     {
-      name: 'React Expert Certification',
-      issuer: 'Meta',
-      date: '2021',
+      name: 'Frontend Development Certificate',
+      issuer: 'FreeCodeCamp',
+      date: '2023',
       badge: 'https://images.credly.com/size/340x340/images/0c6d9839-f468-4adc-987d-5cfae4a9ee67/image.png',
-      description: 'Meta Front-End Developer Professional Certificate',
+      description: 'Responsive Web Design and JavaScript Algorithms Certification',
     },
   ];
 
   const githubStats = [
-    { label: 'Public Repositories', value: '45+' },
-    { label: 'Total Stars', value: '500+' },
-    { label: 'Followers', value: '200+' },
-    { label: 'Contributions (2023)', value: '800+' },
+    { label: 'Public Repositories', value: '12+' },
+    { label: 'Total Commits', value: '500+' },
+    { label: 'Followers', value: '25+' },
+    { label: 'Learning Streak', value: '200+ days' },
   ];
 
   return (
@@ -197,8 +197,8 @@ const Achievements = () => {
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Trophy className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h4 className="text-xl font-bold mb-2">Awards Won</h4>
-              <div className="text-3xl font-bold text-gradient">5+</div>
+              <h4 className="text-xl font-bold mb-2">Learning Achievements</h4>
+              <div className="text-3xl font-bold text-gradient">6+</div>
             </CardContent>
           </Card>
           
@@ -208,7 +208,7 @@ const Achievements = () => {
                 <Award className="h-8 w-8 text-primary-foreground" />
               </div>
               <h4 className="text-xl font-bold mb-2">Certifications</h4>
-              <div className="text-3xl font-bold text-gradient">8+</div>
+              <div className="text-3xl font-bold text-gradient">4+</div>
             </CardContent>
           </Card>
           
@@ -217,8 +217,8 @@ const Achievements = () => {
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Star className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h4 className="text-xl font-bold mb-2">GitHub Stars</h4>
-              <div className="text-3xl font-bold text-gradient">500+</div>
+              <h4 className="text-xl font-bold mb-2">Projects Built</h4>
+              <div className="text-3xl font-bold text-gradient">12+</div>
             </CardContent>
           </Card>
         </div>
