@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Trophy, Award, Mail } from 'lucide-react';
+import { Menu, X, Home, User, Code, Trophy, Award, Mail, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,21 +17,20 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setIsOpen(false);
   };
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: Home },
-    { id: 'about', label: 'About', icon: User },
-    { id: 'skills', label: 'Skills', icon: Code },
-    { id: 'projects', label: 'Projects', icon: Trophy },
-    { id: 'achievements', label: 'Achievements', icon: Award },
-    { id: 'contact', label: 'Contact', icon: Mail },
+    { path: '/', label: 'Home', icon: Home },
+    { path: '/overview', label: 'Overview', icon: Eye },
+    { path: '/about', label: 'About', icon: User },
+    { path: '/skills', label: 'Skills', icon: Code },
+    { path: '/skills-enhanced', label: 'Skills Enhanced', icon: Code },
+    { path: '/projects', label: 'Projects', icon: Trophy },
+    { path: '/achievements', label: 'Achievements', icon: Award },
+    { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
   return (
@@ -47,9 +49,13 @@ const Navigation = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               {navItems.map((item) => (
                 <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-foreground hover:text-primary transition-smooth hover:bg-accent"
+                  key={item.path}
+                  onClick={() => handleNavigation(item.path)}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-smooth hover:bg-accent ${
+                    location.pathname === item.path 
+                      ? 'text-primary bg-accent' 
+                      : 'text-foreground hover:text-primary'
+                  }`}
                 >
                   <item.icon className="w-4 h-4" />
                   {item.label}
@@ -76,9 +82,13 @@ const Navigation = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/90 backdrop-blur-md rounded-lg mt-2 shadow-card">
               {navItems.map((item) => (
                 <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="flex items-center gap-3 w-full px-3 py-2 rounded-md text-base font-medium text-foreground hover:text-primary transition-smooth hover:bg-accent"
+                  key={item.path}
+                  onClick={() => handleNavigation(item.path)}
+                  className={`flex items-center gap-3 w-full px-3 py-2 rounded-md text-base font-medium transition-smooth hover:bg-accent ${
+                    location.pathname === item.path 
+                      ? 'text-primary bg-accent' 
+                      : 'text-foreground hover:text-primary'
+                  }`}
                 >
                   <item.icon className="w-5 h-5" />
                   {item.label}
