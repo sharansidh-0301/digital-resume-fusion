@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import { ExternalLink, Github, Calendar, Star, GitFork } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -18,6 +18,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Dec 2023',
+      stars: 24,
+      forks: 8,
       featured: true,
     },
     {
@@ -29,6 +31,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Oct 2023',
+      stars: 18,
+      forks: 12,
       featured: true,
     },
     {
@@ -40,6 +44,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Aug 2023',
+      stars: 15,
+      forks: 5,
       featured: false,
     },
     {
@@ -51,6 +57,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Jun 2023',
+      stars: 9,
+      forks: 3,
       featured: false,
     },
     {
@@ -62,6 +70,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Apr 2023',
+      stars: 6,
+      forks: 2,
       featured: false,
     },
     {
@@ -73,6 +83,8 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#',
       date: 'Feb 2023',
+      stars: 4,
+      forks: 1,
       featured: false,
     },
   ];
@@ -127,6 +139,17 @@ const Projects = () => {
                       {tech}
                     </Badge>
                   ))}
+                </div>
+                
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <Star className="h-4 w-4" />
+                    {project.stars}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <GitFork className="h-4 w-4" />
+                    {project.forks}
+                  </div>
                 </div>
               </CardContent>
               
@@ -188,6 +211,17 @@ const Projects = () => {
                         +{project.technologies.length - 3}
                       </Badge>
                     )}
+                  </div>
+                  
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                    <div className="flex items-center gap-1">
+                      <Star className="h-3 w-3" />
+                      {project.stars}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <GitFork className="h-3 w-3" />
+                      {project.forks}
+                    </div>
                   </div>
                 </CardContent>
                 

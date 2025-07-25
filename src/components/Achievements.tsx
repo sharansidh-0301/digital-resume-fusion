@@ -64,20 +64,6 @@ const Achievements = () => {
       description: 'Cisco Certified Network Associate - Routing and Switching',
     },
     {
-      name: 'AWS Solutions Architect',
-      issuer: 'Amazon Web Services',
-      date: '2022',
-      badge: 'https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png',
-      description: 'AWS Certified Solutions Architect - Associate Level',
-    },
-    {
-      name: 'Google Cloud Professional',
-      issuer: 'Google Cloud',
-      date: '2022',
-      badge: 'https://images.credly.com/size/340x340/images/71ccc1ab-e8d2-4d67-b58b-58e80e5c942d/image.png',
-      description: 'Professional Cloud Developer Certification',
-    },
-    {
       name: 'Frontend Development Certificate',
       issuer: 'FreeCodeCamp',
       date: '2023',
@@ -86,11 +72,45 @@ const Achievements = () => {
     },
   ];
 
+  const githubBadges = [
+    {
+      name: 'Pull Shark',
+      description: 'Opened multiple pull requests',
+      badge: 'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png',
+      rarity: 'Bronze'
+    },
+    {
+      name: 'Quickdraw',
+      description: 'Closed an issue or pull request within 5 minutes',
+      badge: 'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png',
+      rarity: 'Silver'
+    },
+    {
+      name: 'YOLO',
+      description: 'Merged a pull request without code review',
+      badge: 'https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png',
+      rarity: 'Bronze'
+    },
+    {
+      name: 'Arctic Code Vault Contributor',
+      description: 'Contributed code to repositories in 2020 GitHub Archive Program',
+      badge: 'https://github.githubassets.com/images/modules/profile/achievements/arctic-code-vault-contributor-default.png',
+      rarity: 'Special'
+    },
+  ];
+
   const githubStats = [
     { label: 'Public Repositories', value: '12+' },
     { label: 'Total Commits', value: '500+' },
     { label: 'Followers', value: '25+' },
     { label: 'Learning Streak', value: '200+ days' },
+  ];
+
+  const codingStats = [
+    { platform: 'LeetCode', label: 'Problems Solved', value: '150+', color: 'text-orange-500' },
+    { platform: 'SkillRack', label: 'Challenges Solved', value: '75+', color: 'text-blue-500' },
+    { platform: 'HackerRank', label: 'Badges Earned', value: '8+', color: 'text-green-500' },
+    { platform: 'CodeChef', label: 'Contest Rating', value: '1200+', color: 'text-purple-500' },
   ];
 
   return (
@@ -135,10 +155,10 @@ const Achievements = () => {
         {/* Certifications Section */}
         <div className="mb-16">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            Certifications & Badges
+            Certifications
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {certifications.map((cert, index) => (
               <Card key={index} className="text-center hover-lift shadow-card group">
                 <CardHeader>
@@ -157,6 +177,55 @@ const Achievements = () => {
                     {cert.date}
                   </Badge>
                   <p className="text-xs text-muted-foreground">{cert.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* GitHub Achievement Badges */}
+          <h4 className="text-xl md:text-2xl font-bold text-center mb-8 text-gradient">
+            GitHub Achievement Badges
+          </h4>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {githubBadges.map((badge, index) => (
+              <Card key={index} className="text-center hover-lift shadow-card group p-4">
+                <div className="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-smooth">
+                  <img
+                    src={badge.badge}
+                    alt={badge.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h5 className="text-sm font-bold mb-1">{badge.name}</h5>
+                <Badge variant="secondary" className="text-xs mb-2">
+                  {badge.rarity}
+                </Badge>
+                <p className="text-xs text-muted-foreground">{badge.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Coding Platform Statistics */}
+        <div className="mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
+            Coding Platform Stats
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {codingStats.map((stat, index) => (
+              <Card key={index} className="text-center hover-lift shadow-card">
+                <CardContent className="p-6">
+                  <div className="text-sm font-bold text-muted-foreground mb-2">
+                    {stat.platform}
+                  </div>
+                  <div className={`text-3xl font-bold mb-2 ${stat.color}`}>
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </div>
                 </CardContent>
               </Card>
             ))}

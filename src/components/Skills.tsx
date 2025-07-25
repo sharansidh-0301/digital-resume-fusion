@@ -37,12 +37,12 @@ const Skills = () => {
     },
     {
       icon: Palette,
-      title: 'Design & UX',
+      title: 'AI/ML & Data Science',
       skills: [
-        { name: 'Figma Basics', level: 70 },
-        { name: 'UI/UX Principles', level: 65 },
-        { name: 'Responsive Design', level: 80 },
-        { name: 'Color Theory', level: 60 },
+        { name: 'Machine Learning', level: 65 },
+        { name: 'Generative AI', level: 60 },
+        { name: 'Python for AI', level: 70 },
+        { name: 'Agentic AI', level: 55 },
       ],
     },
   ];
@@ -50,7 +50,7 @@ const Skills = () => {
   const technologies = [
     'JavaScript', 'React', 'Node.js', 'HTML5', 'CSS3', 'MongoDB',
     'Express.js', 'Git', 'GitHub', 'Tailwind CSS', 'Bootstrap',
-    'REST APIs', 'JSON', 'Responsive Design', 'VS Code', 'Figma'
+    'REST APIs', 'Python', 'Machine Learning', 'Generative AI', 'Gen AI'
   ];
 
   return (

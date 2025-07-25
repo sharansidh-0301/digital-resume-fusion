@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Coffee, Heart } from 'lucide-react';
+import { Calendar, MapPin, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
@@ -75,54 +75,72 @@ const About = () => {
           </div>
         </div>
 
-        {/* Timeline */}
+        {/* Modern Fresher Features */}
         <div className="mt-20">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            My Journey
+            What Sets Me Apart
           </h3>
           
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-primary"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Code2 className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Clean Code Advocate</h4>
+              <p className="text-sm text-muted-foreground">
+                I prioritize writing maintainable, well-documented code following industry best practices and coding standards.
+              </p>
+            </Card>
             
-            <div className="space-y-12">
-              {[
-                {
-                  year: '2024',
-                  title: 'Computer Science Graduate',
-                  company: 'State University',
-                  description: 'Graduated with Bachelor\'s in Computer Science. Specialized in web development and software engineering principles.'
-                },
-                {
-                  year: '2023',
-                  title: 'Full Stack Development Bootcamp',
-                  company: 'TechEducation Institute',
-                  description: 'Completed intensive 6-month bootcamp focusing on MERN stack development and modern web technologies.'
-                },
-                {
-                  year: '2023',
-                  title: 'Frontend Development Intern',
-                  company: 'Local Tech Startup',
-                  description: 'Gained hands-on experience building responsive websites and learning industry best practices.'
-                },
-                {
-                  year: '2022',
-                  title: 'Started Learning Programming',
-                  company: 'Self-taught Journey',
-                  description: 'Began my coding journey with HTML, CSS, and JavaScript. Built my first websites and discovered my passion for development.'
-                }
-              ].map((item, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                  <Card className={`w-full max-w-md hover-lift shadow-card ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                    <CardContent className="p-6">
-                      <div className="text-sm text-primary font-bold mb-2">{item.year}</div>
-                      <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
-                      <div className="text-sm text-muted-foreground font-medium mb-3">{item.company}</div>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Zap className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Fast Learner</h4>
+              <p className="text-sm text-muted-foreground">
+                Quickly adapt to new technologies and frameworks. Always eager to expand my skill set and take on new challenges.
+              </p>
+            </Card>
+            
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Users className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Team Collaborator</h4>
+              <p className="text-sm text-muted-foreground">
+                Experience working in team environments through group projects, hackathons, and open source contributions.
+              </p>
+            </Card>
+            
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Lightbulb className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Problem Solver</h4>
+              <p className="text-sm text-muted-foreground">
+                Strong analytical thinking with 150+ LeetCode problems solved and consistent practice on coding platforms.
+              </p>
+            </Card>
+            
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Rocket className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Innovation Focused</h4>
+              <p className="text-sm text-muted-foreground">
+                Passionate about emerging technologies like AI/ML and always exploring new ways to solve problems efficiently.
+              </p>
+            </Card>
+            
+            <Card className="text-center hover-lift shadow-card p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Target className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-3">Goal Oriented</h4>
+              <p className="text-sm text-muted-foreground">
+                Committed to continuous learning with clear career goals and a structured approach to skill development.
+              </p>
+            </Card>
           </div>
         </div>
       </div>
