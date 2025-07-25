@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Download, ChevronRight, Sparkles, Code2, Brain, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import profilePhoto from '@/assets/my_pic.jpg';
+import resume from '@/assets/SHARANSIDH_Jr_Software_Developer_Resume.pdf';
 
 const HeroEnhanced = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -62,7 +63,7 @@ const HeroEnhanced = () => {
   ));
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section id='home' className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {particles}
@@ -84,7 +85,7 @@ const HeroEnhanced = () => {
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-foreground">Hi, I'm</span>
-                <span className="block text-gradient">Alex Johnson</span>
+                <span className="block text-gradient">Sharansidh Jr</span>
               </h1>
               
               <div className="h-16 flex items-center justify-center lg:justify-start">
@@ -95,7 +96,7 @@ const HeroEnhanced = () => {
               </div>
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Passionate Computer Science graduate ready to make an impact in tech. 
+                Passionate software developer skilled in building efficient, scalable applications. Always eager to learn, solve real-world problems, and create meaningful user experiences.
                 Specializing in modern web development with a growing interest in AI/ML technologies.
               </p>
             </div>
@@ -117,31 +118,41 @@ const HeroEnhanced = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="group">
-                <Mail className="w-5 h-5 mr-2" />
-                Get In Touch
-                <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="group">
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
-                <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button variant="hero" size="lg" className="group" asChild>
+                  <a href="mailto:sharansidh0301@gmail.com">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Get In Touch
+                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+                <Button variant="outline" size="lg" className="group" asChild>
+                  <a href={resume} download>
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Resume
+                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+              </div>
 
             {/* Social Links */}
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <Button variant="ghost" size="icon" className="hover-scale">
-                <Github className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="hover-scale">
-                <Linkedin className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="hover-scale">
-                <Mail className="w-5 h-5" />
-              </Button>
-            </div>
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <Button variant="ghost" size="icon" className="hover-scale">
+                  <a href="https://github.com/sharansidh-0301" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5" />
+                  </a>
+                </Button>
+                <Button variant="ghost" size="icon" className="hover-scale">
+                  <a href="https://www.linkedin.com/in/sharansidh0301/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                </Button>
+                <Button variant="ghost" size="icon" className="hover-scale">
+                  <a href="mailto:sharansidh0301@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <Mail className="w-5 h-5" />
+                  </a>
+                </Button>
+              </div>
           </div>
 
           {/* Profile Photo with enhanced effects */}
@@ -156,7 +167,7 @@ const HeroEnhanced = () => {
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
                 <img
                   src={profilePhoto}
-                  alt="Alex Johnson - Full Stack Developer"
+                  alt="Sharansidh - Software Developer"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 

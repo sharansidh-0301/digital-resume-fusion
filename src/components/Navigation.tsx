@@ -24,10 +24,10 @@ const Navigation = () => {
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/overview', label: 'Overview', icon: Eye },
+    // { path: '/overview', label: 'Overview', icon: Eye },
     { path: '/about', label: 'About', icon: User },
-    { path: '/skills', label: 'Skills', icon: Code },
-    { path: '/skills-enhanced', label: 'Skills Enhanced', icon: Code },
+    // { path: '/skills', label: 'Skills', icon: Code },
+    { path: '/skills-enhanced', label: 'Skills', icon: Code },
     { path: '/projects', label: 'Projects', icon: Trophy },
     { path: '/achievements', label: 'Achievements', icon: Award },
     { path: '/contact', label: 'Contact', icon: Mail },
@@ -53,8 +53,8 @@ const Navigation = () => {
                   onClick={() => handleNavigation(item.path)}
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-smooth hover:bg-accent ${
                     location.pathname === item.path 
-                      ? 'text-primary bg-accent' 
-                      : 'text-foreground hover:text-primary'
+                      ? 'text-white bg-accent ' 
+                      : 'text-foreground hover:text-primary hover:text-white'
                   }`}
                 >
                   <item.icon className="w-4 h-4" />

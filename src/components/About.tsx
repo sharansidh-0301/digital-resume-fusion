@@ -4,10 +4,10 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
   const stats = [
-    { label: 'Months Learning', value: '18+' },
-    { label: 'Projects Built', value: '12+' },
-    { label: 'Technologies', value: '15+' },
-    { label: 'GitHub Commits', value: '500+' },
+    { label: 'Problem Solved', value: '150+' },
+    { label: 'Projects Built', value: '8+' },
+    { label: 'Technologies', value: '10+' },
+    { label: 'GitHub Commits', value: '400+' },
   ];
 
   const interests = [
@@ -18,7 +18,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-hero">
+    <section id="aboutt" className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">

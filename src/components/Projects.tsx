@@ -74,19 +74,19 @@ const Projects = () => {
       forks: 2,
       featured: false,
     },
-    {
-      id: 6,
-      title: 'Landing Page Clone',
-      description: 'A pixel-perfect recreation of a popular company\'s landing page as a practice project. Focus on responsive design and modern CSS techniques.',
-      image: project3,
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Flexbox'],
-      liveUrl: '#',
-      githubUrl: '#',
-      date: 'Feb 2023',
-      stars: 4,
-      forks: 1,
-      featured: false,
-    },
+    // {
+    //   id: 6,
+    //   title: 'Landing Page Clone',
+    //   description: 'A pixel-perfect recreation of a popular company\'s landing page as a practice project. Focus on responsive design and modern CSS techniques.',
+    //   image: project3,
+    //   technologies: ['HTML5', 'CSS3', 'JavaScript', 'Flexbox'],
+    //   liveUrl: '#',
+    //   githubUrl: '#',
+    //   date: 'Feb 2023',
+    //   stars: 4,
+    //   forks: 1,
+    //   featured: false,
+    // },
   ];
 
   const featuredProjects = projects.filter(project => project.featured);
