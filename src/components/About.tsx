@@ -20,39 +20,39 @@ const About = () => {
     { label: 'GitHub Commits', value: '400+', icon: Globe, trend: 'Daily active' },
   ];
 
-  const personalMetrics = [
-    { label: 'Learning Hours/Week', value: 25, max: 40, color: 'bg-blue-500' },
-    { label: 'Code Quality Score', value: 85, max: 100, color: 'bg-green-500' },
-    { label: 'Project Completion', value: 90, max: 100, color: 'bg-purple-500' },
-    { label: 'Team Collaboration', value: 95, max: 100, color: 'bg-orange-500' },
-  ];
+  // const personalMetrics = [
+  //   { label: 'Learning Hours/Week', value: 25, max: 40, color: 'bg-blue-500' },
+  //   { label: 'Code Quality Score', value: 85, max: 100, color: 'bg-green-500' },
+  //   { label: 'Project Completion', value: 90, max: 100, color: 'bg-purple-500' },
+  //   { label: 'Team Collaboration', value: 95, max: 100, color: 'bg-orange-500' },
+  // ];
 
-  const timeline = [
-    {
-      year: '2024',
-      title: 'Graduation & Job Search',
-      description: 'Completed CSE degree with distinction. Building portfolio and seeking opportunities.',
-      status: 'current'
-    },
-    {
-      year: '2023',
-      title: 'Advanced Learning Phase',
-      description: 'Focused on full-stack development, AI/ML, and competitive programming.',
-      status: 'completed'
-    },
-    {
-      year: '2022',
-      title: 'Project Development',
-      description: 'Built multiple web applications and participated in hackathons.',
-      status: 'completed'
-    },
-    {
-      year: '2021',
-      title: 'Foundation Building',
-      description: 'Learned core programming concepts and started web development journey.',
-      status: 'completed'
-    }
-  ];
+  // const timeline = [
+  //   {
+  //     year: '2024',
+  //     title: 'Graduation & Job Search',
+  //     description: 'Completed CSE degree with distinction. Building portfolio and seeking opportunities.',
+  //     status: 'current'
+  //   },
+  //   {
+  //     year: '2023',
+  //     title: 'Advanced Learning Phase',
+  //     description: 'Focused on full-stack development, AI/ML, and competitive programming.',
+  //     status: 'completed'
+  //   },
+  //   {
+  //     year: '2022',
+  //     title: 'Project Development',
+  //     description: 'Built multiple web applications and participated in hackathons.',
+  //     status: 'completed'
+  //   },
+  //   {
+  //     year: '2021',
+  //     title: 'Foundation Building',
+  //     description: 'Learned core programming concepts and started web development journey.',
+  //     status: 'completed'
+  //   }
+  // ];
 
   const interests = [
     { icon: Coffee, label: 'Tech Enthusiast' },
@@ -64,13 +64,13 @@ const About = () => {
   const tabs = [
     { id: 'overview', label: 'Overview', icon: User },
     { id: 'education', label: 'Education', icon: BookOpen },
-    { id: 'metrics', label: 'Metrics', icon: TrendingUp },
-    { id: 'timeline', label: 'Journey', icon: Clock }
+    // { id: 'metrics', label: 'Metrics', icon: TrendingUp },
+    // { id: 'timeline', label: 'Journey', icon: Clock }
   ];
 
   return (
-    <section id="about" className="py-3 bg-gradient-hero">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-3 bg-gradient-hero ">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20 ">
         {/* Header with Live Status */}
         <div className="text-center mb-5">
           {/* <div className="flex items-center justify-center gap-2 mb-4">
