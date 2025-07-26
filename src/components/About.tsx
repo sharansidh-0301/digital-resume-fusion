@@ -176,33 +176,76 @@ const About = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="bg-gradient-hero p-6 rounded-lg border">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h5 className="text-xl font-bold text-foreground">Bachelor of Electronics and Communication Engineering (Hons.)</h5>
-                      <p className="text-muted-foreground">IFET College Of Engineering • 2022-2026</p>
-                    </div>
-                    <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
-                      First Class with Distinction
-                    </Badge>
+               <div className="bg-gradient-hero p-6 rounded-lg border">
+                  <div className="flex items-start justify-between ">
+                        <div>
+                          <h5 className="text-xl font-bold text-foreground">B.E. Electronics And Communication Engineering (Hons.)</h5>
+                              <p className="text-muted-foreground">IFET College Of Engineering  • 2022- 2026</p>   
+                              <p className="text-muted-foreground">Villupuram - 605108</p>
+
+                        </div>
+                        <div className=" ">
+                        <div className="text-center p-5 bg-card rounded-lg">
+                          <div className="text-2xl font-bold text-gradient">8.25</div>
+                          <div className="text-sm text-muted-foreground">CGPA / 10.0</div>
+                        </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="text-center p-3 bg-card rounded-lg">
-                      <div className="text-2xl font-bold text-gradient">8.25</div>
-                      <div className="text-sm text-muted-foreground">CGPA / 10.0</div>
-                    </div>
-                    <div className="text-center p-3 bg-card rounded-lg">
-                      <div className="text-2xl font-bold text-gradient">4</div>
-                      <div className="text-sm text-muted-foreground">Years</div>
-                    </div>
-                    <div className="text-center p-3 bg-card rounded-lg">
-                      <div className="text-2xl font-bold text-gradient">Top 10%</div>
-                      <div className="text-sm text-muted-foreground">Class Rank</div>
-                    </div>
+                      {/* <div className='text-end'>
+                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
+                          {/* First Class with Distinction 
+                        </Badge>
+                      </div> */}
                   </div>
                 </div>
 
-                <div>
+             <div className="bg-gradient-hero p-6 rounded-lg border">
+                  <div className="flex items-start justify-between ">
+                        <div>
+                          <h5 className="text-xl font-bold text-foreground">Higher Secondary</h5>
+                              <p className="text-muted-foreground">Vivekananda Hr Sec School  • 2020- 2022</p>   
+                              <p className="text-muted-foreground">Sholavandan, Madurai - 625214</p>
+
+                        </div>
+                        <div className=" ">
+                        <div className="text-center p-5 bg-card rounded-lg">
+                          <div className="text-2xl font-bold text-gradient">83.33%</div>
+                          <div className="text-sm text-muted-foreground">Percentage / 100</div>
+                        </div>
+                  </div>
+                      {/* <div className='text-end'>
+                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
+                          {/* First Class with Distinction 
+                        </Badge>
+                      </div> */}
+                  </div>
+                </div>
+
+
+
+                <div className="bg-gradient-hero p-6 rounded-lg border">
+                  <div className="flex items-start justify-between ">
+                        <div>
+                          <h5 className="text-xl font-bold text-foreground">SSLC</h5>
+                              <p className="text-muted-foreground">Saraswathi Matric Hr Sec School • 2019-2020</p>   
+                              <p className="text-muted-foreground">Villupuram - 605602</p>
+
+                        </div>
+                        <div className=" ">
+                        <div className="text-center p-5 bg-card rounded-lg">
+                          <div className="text-2xl font-bold text-gradient">75.2%</div>
+                          <div className="text-sm text-muted-foreground">Percentage / 100</div>
+                        </div>
+                  </div>
+                      {/* <div className='text-end'>
+                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
+                          {/* First Class with Distinction 
+                        </Badge>
+                      </div> */}
+                  </div>
+                </div>
+
+
+                {/* <div>
                   <h6 className="font-semibold text-foreground mb-3">Core Subjects & Grades:</h6>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {[
@@ -221,9 +264,9 @@ const About = () => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
-                <div>
+                {/* <div>
                   <h6 className="font-semibold text-foreground mb-3">Academic Achievements:</h6>
                   <div className="space-y-2">
                     {[
@@ -237,8 +280,8 @@ const About = () => {
                         <span className="text-sm text-muted-foreground">{achievement}</span>
                       </div>
                     ))}
-                  </div>
-                </div>
+                  </div> 
+                </div>*/}
               </CardContent>
             </Card>
           </div>

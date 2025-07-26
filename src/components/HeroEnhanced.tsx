@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Download, ChevronRight, Sparkles, Code2, Brain, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import profilePhoto from '@/assets/my_pic.jpg';
+import profilePhoto from '@/assets/myPic.png';
 import resume from '@/assets/SHARANSIDH_Jr_Software_Developer_Resume.pdf';
 
 const HeroEnhanced = () => {
@@ -11,9 +11,9 @@ const HeroEnhanced = () => {
   const [isTyping, setIsTyping] = useState(true);
 
   const roles = [
-    'Full Stack Developer',
+    'Software Developer',
     'Frontend Enthusiast', 
-    'AI/ML Explorer',
+    'AI Generalist',
     'Problem Solver',
     'Tech Innovator'
   ];
@@ -78,20 +78,20 @@ const HeroEnhanced = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <Badge className="bg-primary/10 text-primary border-primary/20 mb-4">
+              <Badge className="bg-primary/10 text-primary border-primary/20 mb-4  hover:text-white hover:shadow-lg hover:bg-primary">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Available for Opportunities
               </Badge>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-foreground">Hi, I'm</span>
-                <span className="block text-gradient">Sharansidh Jr</span>
+                <span className="block text-gradient">Sharansidh.<span className='text-red-600'>Jr</span> </span>
               </h1>
               
               <div className="h-16 flex items-center justify-center lg:justify-start">
                 <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground">
                   <span className="text-primary">{displayText}</span>
-                  <span className={`inline-block w-1 h-8 bg-primary ml-1 ${isTyping ? 'animate-pulse' : 'animate-none'}`}></span>
+                  <span className={`inline-block w-1 h-8 bg-black ml-1 ${isTyping ? 'animate-pulse' : 'animate-none'}`}></span>
                 </div>
               </div>
               
@@ -163,7 +163,7 @@ const HeroEnhanced = () => {
               <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-hero rounded-full opacity-30 group-hover:scale-110 transition-transform duration-700"></div>
               
               {/* Main photo container */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-all duration-500">
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 bg-primary-glow/30  rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-10"></div>
                 <img
                   src={profilePhoto}
@@ -173,13 +173,13 @@ const HeroEnhanced = () => {
                 
                 {/* Floating tech icons */}
                 <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-8 right-8 w-12 h-12 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '0s'}}>
+                  <div className="absolute top-20 right-20 w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '0s'}}>
                     <Code2 className="w-6 h-6 text-primary" />
                   </div>
-                  <div className="absolute bottom-12 left-8 w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '1s'}}>
+                  <div className="absolute top-1/2 left-14 w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '1s'}}>
                     <Brain className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="absolute top-1/2 -right-2 w-8 h-8 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '2s'}}>
+                  <div className="absolute top-1/2 right-8 w-10 h-10 bg-primary/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-primary/20 animate-bounce" style={{animationDelay: '2s'}}>
                     <Rocket className="w-4 h-4 text-primary" />
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const HeroEnhanced = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom- left-1/2 transform -translate-x-1/2 animate-bounce">
           <Button
             variant="ghost"
             size="icon"
