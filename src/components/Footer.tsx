@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
             <span>Made with</span>
             <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-            <span>using React & Tailwind CSS</span>
+            <span>using React & Tailwind</span>
           </div>
         </div>
 
