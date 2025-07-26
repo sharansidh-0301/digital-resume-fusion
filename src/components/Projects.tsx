@@ -247,8 +247,10 @@ const Projects = () => {
             Check out my GitHub profile for more projects and contributions
           </p>
           <Button variant="hero" size="lg">
-            <Github className="h-5 w-5 mr-2" />
+            <a href="https://github.com/sharansidh-0301?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Github className="h-5 w-5 mr-2" />
             View All Projects on GitHub
+            </a>
           </Button>
         </div>
       </div>

@@ -69,14 +69,14 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-hero">
+    <section id="about" className="py-3 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Live Status */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
+        <div className="text-center mb-5">
+          {/* <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm text-muted-foreground">Currently available for opportunities</span>
-          </div>
+          </div> */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
             About Me
           </h2>
@@ -121,7 +121,7 @@ const About = () => {
               </div>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                As a recent Computer Science graduate, I'm excited to begin my career in web development. 
+                Pursuing Electronic and Communication Engineering, I'm excited to begin my career in Software development. 
                 My journey started with curiosity about how websites work, and through dedicated learning 
                 and hands-on projects, I've developed strong skills in modern web technologies.
               </p>
@@ -179,8 +179,8 @@ const About = () => {
                 <div className="bg-gradient-hero p-6 rounded-lg border">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h5 className="text-xl font-bold text-foreground">Bachelor of Computer Science and Engineering</h5>
-                      <p className="text-muted-foreground">University Name • 2020-2024</p>
+                      <h5 className="text-xl font-bold text-foreground">Bachelor of Electronics and Communication Engineering (Hons.)</h5>
+                      <p className="text-muted-foreground">IFET College Of Engineering • 2022-2026</p>
                     </div>
                     <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
                       First Class with Distinction
@@ -188,7 +188,7 @@ const About = () => {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="text-center p-3 bg-card rounded-lg">
-                      <div className="text-2xl font-bold text-gradient">8.5</div>
+                      <div className="text-2xl font-bold text-gradient">8.25</div>
                       <div className="text-sm text-muted-foreground">CGPA / 10.0</div>
                     </div>
                     <div className="text-center p-3 bg-card rounded-lg">

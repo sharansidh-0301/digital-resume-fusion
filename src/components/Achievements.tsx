@@ -7,41 +7,41 @@ const Achievements = () => {
   const achievements = [
     {
       icon: Trophy,
-      title: 'National Level Symposium Winner',
-      description: 'Won 1st place in Web Development competition at National Technical Symposium 2024',
-      date: '2024',
+      title: 'National Level Technical Symposium Winner',
+      description: 'Awarded 1st Prize for Paper Presentation at a National Level Symposium hosted by Mailam Engineering College.',
+      date: '2025',
       category: 'Competition',
       color: 'text-yellow-500',
     },
     {
       icon: Award,
-      title: 'Best Project Award',
-      description: 'Awarded Best Final Year Project for AI-powered Web Application at college level',
-      date: '2024',
-      category: 'Academic',
+      title: 'Smart India Hackathon Finalist',
+      description: 'Shortlisted as one of 1028 teams from over 50,000 teams for the Smart India Hackathon 2023 – Hardware Edition ',
+      date: '2023',
+      category: 'Innovation Cell',
       color: 'text-orange-500',
     },
-    {
-      icon: Star,
-      title: 'Coding Competition Champion',
-      description: 'Won intra-college coding competition with 150+ participants for algorithmic problem solving',
-      date: '2023',
-      category: 'Competition',
-      color: 'text-purple-500',
-    },
+    // {
+    //   icon: Star,
+    //   title: 'Coding Competition Champion',
+    //   description: 'Won intra-college coding competition with 150+ participants for algorithmic problem solving',
+    //   date: '2023',
+    //   category: 'Competition',
+    //   color: 'text-purple-500',
+    // },
     {
       icon: Target,
-      title: 'Hackathon Runner-up',
-      description: 'Secured 2nd place in 48-hour inter-college hackathon with innovative AI solution',
-      date: '2023',
+      title: 'Ideathon Runner-up',
+      description: 'Secured 2nd place in intra-college ideathon with innovative AI solution',
+      date: '2025',
       category: 'Competition',
       color: 'text-blue-500',
     },
     {
       icon: Users,
-      title: 'Technical Society Lead',
-      description: 'Led college coding club and organized multiple technical workshops for 200+ students',
-      date: '2023-2024',
+      title: 'Class  Representative & IV Coordinator',
+      description: 'Served as the Class Representative and Student Coordinator of Industrial Visit for the department.',
+      date: '2022-2024',
       category: 'Leadership',
       color: 'text-green-500',
     },
@@ -53,18 +53,18 @@ const Achievements = () => {
       category: 'Community',
       color: 'text-red-500',
     },
-    {
-      icon: Trophy,
-      title: 'Dean\'s List Recognition',
-      description: 'Consistently maintained 8.5+ CGPA and featured in Dean\'s List for academic excellence',
-      date: '2022-2024',
-      category: 'Academic',
-      color: 'text-indigo-500',
-    },
+    // {
+    //   icon: Trophy,
+    //   title: 'Dean\'s List Recognition',
+    //   description: 'Consistently maintained 8.5+ CGPA and featured in Dean\'s List for academic excellence',
+    //   date: '2022-2024',
+    //   category: 'Academic',
+    //   color: 'text-indigo-500',
+    // },
     {
       icon: Award,
       title: 'Paper Presentation Award',
-      description: 'Won Best Paper Award at national conference for research on Machine Learning applications',
+      description: '3rd Prize – Paper Presentation at Velammal Engineering College, Ambattur',
       date: '2024',
       category: 'Research',
       color: 'text-pink-500',
@@ -100,23 +100,23 @@ const Achievements = () => {
   ];
 
   const githubStats = [
-    { label: 'Public Repositories', value: '12+' },
-    { label: 'Total Commits', value: '500+' },
-    { label: 'Followers', value: '25+' },
-    { label: 'Learning Streak', value: '200+ days' },
+    { label: 'Public Repositories', value: '30+' },
+    { label: 'Total Commits', value: '400+' },
+    { label: 'Followers', value: '5+' },
+    { label: 'Learning Streak', value: '50+ days' },
   ];
 
   const codingStats = [
-    { platform: 'LeetCode', label: 'Problems Solved', value: '150+', color: 'text-orange-500' },
-    { platform: 'SkillRack', label: 'Challenges Solved', value: '75+', color: 'text-blue-500' },
+    { platform: 'LeetCode', label: 'Problems Solved', value: '20+', color: 'text-orange-500' },
+    { platform: 'SkillRack', label: 'Challenges Solved', value: '115+', color: 'text-blue-500' },
     { platform: 'HackerRank', label: 'Badges Earned', value: '8+', color: 'text-green-500' },
     { platform: 'CodeChef', label: 'Contest Rating', value: '1200+', color: 'text-purple-500' },
   ];
 
   return (
-    <section id="achievements" className="py-20 bg-background">
+    <section id="achievements" className="py-5 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
             Achievements & Recognition
           </h2>

@@ -10,7 +10,7 @@ const CertificationsPage = () => {
       <div className="pt-16">
         <Certifications />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

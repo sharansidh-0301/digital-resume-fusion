@@ -10,7 +10,7 @@ const AchievementsPage = () => {
       <div className="pt-16">
         <Achievements />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
