@@ -7,70 +7,70 @@ const Achievements = () => {
   const achievements = [
     {
       icon: Trophy,
-      title: 'Dean\'s List Achievement',
-      description: 'Maintained 3.8+ GPA throughout Computer Science degree program',
+      title: 'National Level Symposium Winner',
+      description: 'Won 1st place in Web Development competition at National Technical Symposium 2024',
       date: '2024',
-      category: 'Academic',
+      category: 'Competition',
       color: 'text-yellow-500',
     },
     {
       icon: Award,
-      title: 'Bootcamp Graduate',
-      description: 'Successfully completed intensive 6-month Full Stack Development Bootcamp',
-      date: '2023',
-      category: 'Education',
+      title: 'Best Project Award',
+      description: 'Awarded Best Final Year Project for AI-powered Web Application at college level',
+      date: '2024',
+      category: 'Academic',
       color: 'text-orange-500',
     },
     {
-      icon: Code,
-      title: 'First Open Source Contribution',
-      description: 'Made first meaningful contribution to an open source React component library',
-      date: '2023',
-      category: 'Community',
-      color: 'text-green-500',
-    },
-    {
-      icon: Users,
-      title: 'Study Group Leader',
-      description: 'Led weekly coding study sessions for 15+ fellow students during university',
-      date: '2023',
-      category: 'Leadership',
-      color: 'text-blue-500',
-    },
-    {
       icon: Star,
-      title: 'Hackathon Participant',
-      description: 'Participated in local 48-hour hackathon, built functional web app in team of 4',
+      title: 'Coding Competition Champion',
+      description: 'Won intra-college coding competition with 150+ participants for algorithmic problem solving',
       date: '2023',
       category: 'Competition',
       color: 'text-purple-500',
     },
     {
       icon: Target,
-      title: 'Personal Project Milestone',
-      description: 'Built and deployed 6+ personal projects showcasing different technologies',
+      title: 'Hackathon Runner-up',
+      description: 'Secured 2nd place in 48-hour inter-college hackathon with innovative AI solution',
       date: '2023',
-      category: 'Technical',
+      category: 'Competition',
+      color: 'text-blue-500',
+    },
+    {
+      icon: Users,
+      title: 'Technical Society Lead',
+      description: 'Led college coding club and organized multiple technical workshops for 200+ students',
+      date: '2023-2024',
+      category: 'Leadership',
+      color: 'text-green-500',
+    },
+    {
+      icon: Code,
+      title: 'Open Source Contributor',
+      description: 'Active contributor to multiple open source projects with 50+ merged pull requests',
+      date: '2023-2024',
+      category: 'Community',
       color: 'text-red-500',
+    },
+    {
+      icon: Trophy,
+      title: 'Dean\'s List Recognition',
+      description: 'Consistently maintained 8.5+ CGPA and featured in Dean\'s List for academic excellence',
+      date: '2022-2024',
+      category: 'Academic',
+      color: 'text-indigo-500',
+    },
+    {
+      icon: Award,
+      title: 'Paper Presentation Award',
+      description: 'Won Best Paper Award at national conference for research on Machine Learning applications',
+      date: '2024',
+      category: 'Research',
+      color: 'text-pink-500',
     },
   ];
 
-  const certifications = [
-    {
-      name: 'CCNA Certification',
-      issuer: 'Cisco',
-      date: '2023',
-      badge: 'https://images.credly.com/size/340x340/images/683783d8-eaac-4c37-a14d-11bd8a36321d/CCNAv7.png',
-      description: 'Cisco Certified Network Associate - Routing and Switching',
-    },
-    {
-      name: 'Frontend Development Certificate',
-      issuer: 'FreeCodeCamp',
-      date: '2023',
-      badge: 'https://images.credly.com/size/340x340/images/0c6d9839-f468-4adc-987d-5cfae4a9ee67/image.png',
-      description: 'Responsive Web Design and JavaScript Algorithms Certification',
-    },
-  ];
 
   const githubBadges = [
     {
@@ -152,40 +152,11 @@ const Achievements = () => {
           ))}
         </div>
 
-        {/* Certifications Section */}
+        {/* GitHub Achievement Badges */}
         <div className="mb-16">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            Certifications
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {certifications.map((cert, index) => (
-              <Card key={index} className="text-center hover-lift shadow-card group">
-                <CardHeader>
-                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-smooth">
-                    <img
-                      src={cert.badge}
-                      alt={cert.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardTitle className="text-lg">{cert.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                </CardHeader>
-                <CardContent>
-                  <Badge variant="outline" className="mb-3">
-                    {cert.date}
-                  </Badge>
-                  <p className="text-xs text-muted-foreground">{cert.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* GitHub Achievement Badges */}
-          <h4 className="text-xl md:text-2xl font-bold text-center mb-8 text-gradient">
             GitHub Achievement Badges
-          </h4>
+          </h3>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {githubBadges.map((badge, index) => (
@@ -259,15 +230,15 @@ const Achievements = () => {
           </div>
         </div>
 
-        {/* Professional Highlights */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Achievement Highlights */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
           <Card className="text-center hover-lift shadow-card">
             <CardContent className="p-6">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Trophy className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h4 className="text-xl font-bold mb-2">Learning Achievements</h4>
-              <div className="text-3xl font-bold text-gradient">6+</div>
+              <h4 className="text-xl font-bold mb-2">Competition Wins</h4>
+              <div className="text-3xl font-bold text-gradient">5+</div>
             </CardContent>
           </Card>
           
@@ -276,8 +247,8 @@ const Achievements = () => {
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Award className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h4 className="text-xl font-bold mb-2">Certifications</h4>
-              <div className="text-3xl font-bold text-gradient">4+</div>
+              <h4 className="text-xl font-bold mb-2">Awards Received</h4>
+              <div className="text-3xl font-bold text-gradient">8+</div>
             </CardContent>
           </Card>
           
@@ -286,8 +257,18 @@ const Achievements = () => {
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
                 <Star className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h4 className="text-xl font-bold mb-2">Projects Built</h4>
-              <div className="text-3xl font-bold text-gradient">12+</div>
+              <h4 className="text-xl font-bold mb-2">GitHub Badges</h4>
+              <div className="text-3xl font-bold text-gradient">4+</div>
+            </CardContent>
+          </Card>
+          
+          <Card className="text-center hover-lift shadow-card">
+            <CardContent className="p-6">
+              <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center">
+                <Users className="h-8 w-8 text-primary-foreground" />
+              </div>
+              <h4 className="text-xl font-bold mb-2">Leadership Roles</h4>
+              <div className="text-3xl font-bold text-gradient">3+</div>
             </CardContent>
           </Card>
         </div>

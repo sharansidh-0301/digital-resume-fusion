@@ -47,10 +47,87 @@ const Skills = () => {
     },
   ];
 
-  const technologies = [
-    'JavaScript', 'React', 'Node.js', 'HTML5', 'CSS3', 'MongoDB',
-    'Express.js', 'Git', 'GitHub', 'Tailwind CSS', 'Bootstrap',
-    'REST APIs', 'Python', 'Machine Learning', 'Generative AI', 'Gen AI'
+  const technologyStack = [
+    {
+      name: 'JavaScript',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+      category: 'Language'
+    },
+    {
+      name: 'React',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      category: 'Frontend'
+    },
+    {
+      name: 'Node.js',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+      category: 'Backend'
+    },
+    {
+      name: 'HTML5',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+      category: 'Frontend'
+    },
+    {
+      name: 'CSS3',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+      category: 'Frontend'
+    },
+    {
+      name: 'MongoDB',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      category: 'Database'
+    },
+    {
+      name: 'Express.js',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+      category: 'Backend'
+    },
+    {
+      name: 'Git',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+      category: 'Tools'
+    },
+    {
+      name: 'GitHub',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+      category: 'Tools'
+    },
+    {
+      name: 'Tailwind CSS',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
+      category: 'Frontend'
+    },
+    {
+      name: 'Bootstrap',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+      category: 'Frontend'
+    },
+    {
+      name: 'Python',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+      category: 'Language'
+    },
+    {
+      name: 'TypeScript',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      category: 'Language'
+    },
+    {
+      name: 'VS Code',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+      category: 'Tools'
+    },
+    {
+      name: 'PostgreSQL',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+      category: 'Database'
+    },
+    {
+      name: 'Linux',
+      image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+      category: 'OS'
+    }
   ];
 
   return (
@@ -90,20 +167,32 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Technology Cloud */}
+        {/* Technology Stack with Images */}
         <div className="text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient">
-            Technologies I Work With
+            Technology Stack
           </h3>
           
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-4 py-2 bg-card text-card-foreground rounded-full text-sm font-medium hover-lift shadow-card transition-smooth hover:bg-primary hover:text-primary-foreground cursor-default"
-              >
-                {tech}
-              </span>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+            {technologyStack.map((tech, index) => (
+              <Card key={index} className="p-4 hover-lift shadow-card group transition-smooth">
+                <div className="flex flex-col items-center space-y-3">
+                  <div className="w-12 h-12 flex items-center justify-center">
+                    <img
+                      src={tech.image}
+                      alt={tech.name}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://via.placeholder.com/48/9333ea/ffffff?text=' + tech.name.charAt(0);
+                      }}
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-sm font-semibold text-foreground">{tech.name}</h4>
+                    <p className="text-xs text-muted-foreground">{tech.category}</p>
+                  </div>
+                </div>
+              </Card>
             ))}
           </div>
         </div>

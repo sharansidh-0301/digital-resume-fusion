@@ -48,6 +48,28 @@ const About = () => {
               as a developer while contributing meaningful value to projects.
             </p>
 
+            {/* Educational Background */}
+            <div className="bg-card p-6 rounded-lg border hover-lift shadow-card">
+              <h4 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                <Target className="h-5 w-5 text-primary" />
+                Educational Background
+              </h4>
+              <div className="space-y-3">
+                <div>
+                  <h5 className="font-semibold text-foreground">Bachelor of Computer Science and Engineering</h5>
+                  <p className="text-sm text-muted-foreground">University Name • 2020-2024</p>
+                  <p className="text-sm text-muted-foreground">CGPA: 8.5/10.0 • First Class with Distinction</p>
+                </div>
+                <div className="pt-2">
+                  <p className="text-sm text-muted-foreground">
+                    <span className="font-medium">Relevant Coursework:</span> Data Structures & Algorithms, 
+                    Database Management Systems, Web Technologies, Software Engineering, Computer Networks, 
+                    Operating Systems, Machine Learning Fundamentals
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-4 mt-8">
               {interests.map((interest, index) => (
                 <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-card hover-lift">

@@ -30,6 +30,7 @@ const Navigation = () => {
     { path: '/skills-enhanced', label: 'Skills', icon: Code },
     { path: '/projects', label: 'Projects', icon: Trophy },
     { path: '/achievements', label: 'Achievements', icon: Award },
+    { path: '/certifications', label: 'Certifications', icon: Award },
     { path: '/contact', label: 'Contact', icon: Mail },
   ];
 
