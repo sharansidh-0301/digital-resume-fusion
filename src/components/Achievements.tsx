@@ -2,25 +2,29 @@ import React from 'react';
 import { Award, Trophy, Star, Target, Users, Code } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button'; // Make sure Button is imported
+
 
 const Achievements = () => {
   const achievements = [
     {
-      icon: Trophy,
-      title: 'National Level Technical Symposium Winner',
-      description: 'Awarded 1st Prize for Paper Presentation at a National Level Symposium hosted by Mailam Engineering College.',
-      date: '2025',
-      category: 'Competition',
-      color: 'text-yellow-500',
-    },
-    {
-      icon: Award,
-      title: 'Smart India Hackathon Finalist',
-      description: 'Shortlisted as one of 1028 teams from over 50,000 teams for the Smart India Hackathon 2023 – Hardware Edition ',
-      date: '2023',
-      category: 'Innovation Cell',
-      color: 'text-orange-500',
-    },
+    icon: Trophy,
+    title: 'National-Level Technical Symposium Winner',
+    description: 'Awarded 1st Prize for Paper Presentation at a National Level Symposium hosted by Mailam Engineering College.',
+    date: '2025',
+    category: 'Competition',
+    color: 'text-yellow-500',
+    link: 'https://www.linkedin.com/posts/sharansidh0301_paperpresentation-adzap-symposiumsuccess-activity-7346507758210293762-iP0U?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM', // Add your actual link
+  },
+  {
+    icon: Award,
+    title: 'Smart India Hackathon Finalist',
+    description: 'Shortlisted as one of 1028 teams from over 50,000 teams for the Smart India Hackathon 2023 – Hardware Edition ',
+    date: '2023',
+    category: 'Innovation Cell',
+    color: 'text-orange-500',
+    link: 'https://www.linkedin.com/posts/sharansidh0301_newabrdelhi-sihgrandfinale-hackathonexperience-activity-7151229167886307328-AcH3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM', // Add your actual link
+  },
     // {
     //   icon: Star,
     //   title: 'Coding Competition Champion',
@@ -36,6 +40,8 @@ const Achievements = () => {
       date: '2025',
       category: 'Competition',
       color: 'text-blue-500',
+      link: 'https://www.linkedin.com/posts/sharansidh0301_ideathon-decibalclub-teamwork-activity-7347247904077598722-Cuj8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM', 
+
     },
     {
       icon: Users,
@@ -63,11 +69,12 @@ const Achievements = () => {
     // },
     {
       icon: Award,
-      title: 'Paper Presentation Award',
+      title: 'Paper Presentation Winner',
       description: '3rd Prize – Paper Presentation at Velammal Engineering College, Ambattur',
       date: '2024',
       category: 'Research',
       color: 'text-pink-500',
+      link:'https://www.linkedin.com/posts/sharansidh0301_velammal-chennai-third-activity-7167464915434156032-B79o?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM' ,
     },
   ];
 
@@ -126,32 +133,63 @@ const Achievements = () => {
         </div>
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {achievements.map((achievement, index) => (
-            <Card key={index} className="hover-lift shadow-card group">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 rounded-full bg-gradient-primary`}>
-                    <achievement.icon className="h-6 w-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg">{achievement.title}</CardTitle>
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary" className="text-xs">
-                        {achievement.category}
-                      </Badge>
-                      <span className="text-xs text-muted-foreground">{achievement.date}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{achievement.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {achievements.map((achievement, index) => {
+              const CardContentElement = (
+                <Card key={index} className="hover-lift shadow-card group">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 h-20">
+                      <div className={`p-3 rounded-full bg-gradient-primary`}>
+                        <achievement.icon className="h-6 w-6 text-primary-foreground" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{achievement.title}</CardTitle>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="secondary" className="text-xs">
+                            {achievement.category}
+                          </Badge>
+                          <span className="text-xs text-muted-foreground">{achievement.date}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                    {achievement.link && (
+                      <div className="mt-4 flex justify-center">
+                        <Button
+                          asChild
+                          size="sm"
+                          variant="outline"
+                          className="group"
+                        >
+                          <a
+                            href={achievement.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex  absolute items-center gap-1 py-2"
+                          >
+                            View Details
+                            <svg
+                              className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </a>
+                        </Button>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+              return CardContentElement;
+            })}
+          </div>
         {/* GitHub Achievement Badges */}
         <div className="mb-16">
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">

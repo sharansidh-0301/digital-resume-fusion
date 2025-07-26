@@ -3,33 +3,33 @@ import { ExternalLink, Github, Calendar, Star, GitFork } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import project1 from '@/assets/project-1.jpg';
+import project1 from '@/assets/portFolio.png';
 import project2 from '@/assets/project-2.jpg';
-import project3 from '@/assets/project-3.jpg';
-
+import project3 from '@/assets/QRProject.png';
+import project4 from '@/assets/ChatBOx.png';
 const Projects = () => {
   const projects = [
     {
       id: 1,
       title: 'Personal Portfolio Website',
       description: 'A responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills. Features smooth animations, dark mode support, and mobile-first design.',
-      image: project2,
+      image: project1,
       technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
-      liveUrl: '#',
-      githubUrl: '#',
-      date: 'Dec 2023',
-      stars: 24,
-      forks: 8,
+      liveUrl: 'https://sidh-profolio.vercel.app/',
+      githubUrl: 'https://github.com/sharansidh-0301/PortFolio',
+      date: 'May 2025',
+      stars: 2,
+      forks: 1,
       featured: true,
     },
     {
       id: 2,
       title: 'Todo List Web App',
       description: 'A full-stack todo application with user authentication, CRUD operations, and real-time updates. Built as a learning project to understand React hooks and state management.',
-      image: project1,
+      image: project2,
       technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: '0',
+      githubUrl: '0',
       date: 'Oct 2023',
       stars: 18,
       forks: 12,
@@ -37,25 +37,23 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A responsive weather application that fetches real-time weather data using API integration. Features location search, 5-day forecast, and clean UI design.',
-      image: project3,
-      technologies: ['JavaScript', 'HTML5', 'CSS3', 'Weather API'],
-      liveUrl: '#',
-      githubUrl: '#',
-      date: 'Aug 2023',
-      stars: 15,
-      forks: 5,
+      title: 'AI Assistant Chat Application',
+      description: 'A real-time AI-assistant chat application build with python and Gemini API. It allows users to interact with an AI assistant for various tasks and queries.',      
+      image: project4,
+      technologies: ['Python', 'Gemini API', 'VS Code'],
+      githubUrl: 'https://github.com/sharansidh-0301/Pythom-Agents/tree/main/ChatBox%20Using%20Gemini',
+      date: 'June 2025',
+      stars: 1,
+      forks: 1,
       featured: false,
     },
     {
       id: 4,
-      title: 'Recipe Finder App',
+      title: 'QR Code Generator',
       description: 'A recipe search application built with React that allows users to search for recipes by ingredients. Integrated with external recipe API for dynamic content.',
-      image: project1,
-      technologies: ['React', 'Recipe API', 'CSS3', 'JavaScript'],
-      liveUrl: '#',
-      githubUrl: '#',
+      image: project3,
+      technologies: ['React', 'API', 'Tailwind', 'JavaScript'],
+      githubUrl: 'https://github.com/sharansidh-0301/QR-Code-Generator',
       date: 'Jun 2023',
       stars: 9,
       forks: 3,
@@ -67,8 +65,7 @@ const Projects = () => {
       description: 'A web-based calculator built with vanilla JavaScript, HTML, and CSS. Features basic arithmetic operations with a clean, intuitive interface.',
       image: project2,
       technologies: ['JavaScript', 'HTML5', 'CSS3', 'DOM Manipulation'],
-      liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: '',
       date: 'Apr 2023',
       stars: 6,
       forks: 2,
@@ -154,14 +151,18 @@ const Projects = () => {
               </CardContent>
               
               <CardFooter className="flex gap-3">
-                <Button variant="default" size="sm" className="flex-1">
+                <a href={project.liveUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
+                 <Button variant="default" size="sm"  className='flex-1'>
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  Live Demo
-                </Button>
-                <Button variant="outline" size="sm" className="flex-1">
+                    Live Demo
+                </Button> 
+                </a>
+                <a href={project.githubUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm" className='flex-1'>
                   <Github className="h-4 w-4 mr-2" />
                   Source Code
                 </Button>
+                </a>
               </CardFooter>
             </Card>
           ))}
@@ -226,14 +227,13 @@ const Projects = () => {
                 </CardContent>
                 
                 <CardFooter className="flex gap-2 pt-0">
-                  <Button variant="ghost" size="sm" className="flex-1 text-xs">
-                    <ExternalLink className="h-3 w-3 mr-1" />
-                    Demo
-                  </Button>
-                  <Button variant="ghost" size="sm" className="flex-1 text-xs">
-                    <Github className="h-3 w-3 mr-1" />
-                    Code
-                  </Button>
+                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex w-full">
+                     <Button variant="ghost" size="sm" className="flex-1 text-xs">
+                      <Github className="h-3 w-3 mr-1" />
+                       Code
+                     </Button>
+                 </a>
+                  
                 </CardFooter>
               </Card>
             ))}

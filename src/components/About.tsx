@@ -286,7 +286,7 @@ const About = () => {
             </Card>
           </div>
         )}
-
+{/* 
         {activeTab === 'metrics' && (
           <div className="max-w-6xl mx-auto animate-fade-in">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -332,9 +332,9 @@ const About = () => {
               </Card>
             </div>
           </div>
-        )}
+        )} */}
 
-        {activeTab === 'timeline' && (
+        {/* {activeTab === 'timeline' && (
           <div className="max-w-4xl mx-auto animate-fade-in">
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-primary"></div>
@@ -365,7 +365,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        )}
+        )}  */}
 
         {/* What Sets Me Apart - Always Visible */}
         <div className="mt-20">
