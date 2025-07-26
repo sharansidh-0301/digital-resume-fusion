@@ -13,64 +13,75 @@ const Certifications = () => {
       name: 'CCNA Certification',
       issuer: 'Cisco',
       date: '2023',
-      expiryDate: '2026',
-      badge: 'https://images.credly.com/size/340x340/images/683783d8-eaac-4c37-a14d-11bd8a36321d/CCNAv7.png',
+      expiryDate: 'no expiry',
+      badge: '',
       description: 'Cisco Certified Network Associate - Routing and Switching',
       credentialId: 'CSCO12345678',
       skills: ['Networking', 'Routing', 'Switching', 'Network Security'],
       status: 'Active'
     },
     {
-      name: 'Responsive Web Design',
-      issuer: 'FreeCodeCamp',
-      date: '2023',
+      name: 'Java Full Stack Developement',
+      issuer: 'Wipro',
+      date: '2025',
       expiryDate: 'No Expiry',
-      badge: 'https://images.credly.com/size/340x340/images/0c6d9839-f468-4adc-987d-5cfae4a9ee67/image.png',
-      description: 'Complete certification covering HTML, CSS, Flexbox, CSS Grid, and Responsive Design',
-      credentialId: 'fcc-rwd-2023',
-      skills: ['HTML5', 'CSS3', 'Responsive Design', 'Flexbox', 'CSS Grid'],
-      status: 'Active'
+      badge: '',
+      description: 'Currently pursuing a comprehensive Java Full Stack Development program',
+      credentialId: 'xxx',
+      skills: ['Java', 'Logic Building', 'Frontend', 'Spring Boot', 'Sql'],
+      status: 'Learning'
     },
     {
-      name: 'JavaScript Algorithms and Data Structures',
-      issuer: 'FreeCodeCamp',
-      date: '2023',
+      name: 'Sql Basics',
+      issuer: 'SkillRack',
+      date: '2025',
       expiryDate: 'No Expiry',
-      badge: 'https://www.freecodecamp.org/news/content/images/2021/08/js-cert.png',
-      description: 'Advanced JavaScript programming including ES6, algorithms, and data structures',
+      badge: '',
+      description: 'Solved SQL problems and queries',
       credentialId: 'fcc-jsad-2023',
-      skills: ['JavaScript', 'ES6+', 'Algorithms', 'Data Structures', 'Problem Solving'],
+      skills: ['Sql', 'Queries', 'Problem Solving'],
       status: 'Active'
     },
     {
-      name: 'Frontend Development Libraries',
-      issuer: 'FreeCodeCamp',
-      date: '2024',
+      name: 'Java Problem Solving',
+      issuer: 'SkillRack',
+      date: '2025',
       expiryDate: 'No Expiry',
-      badge: 'https://www.freecodecamp.org/news/content/images/2021/08/fe-libs-cert.png',
-      description: 'React, Redux, Bootstrap, jQuery, and Sass for modern frontend development',
-      credentialId: 'fcc-fedl-2024',
-      skills: ['React', 'Redux', 'Bootstrap', 'jQuery', 'Sass'],
+      badge: '',
+      description: 'Solved Java problems and algorithms',
+      credentialId: 'fcc-jsad-2023',
+      skills: ['Fundamentals', 'Logic Building', 'Problem Solving'],
       status: 'Active'
     },
     {
-      name: 'Git and GitHub Essentials',
+      name: 'Industry 4.0 and Embedded Systems',
+      issuer: 'TVS Training & Services Ltd ',
+      date: '2025',
+      expiryDate: 'No Expiry',
+      badge: '',
+      description: '10-day inplant training focused on Industry 4.0 concepts and Embedded Systems, including 8051 microcontroller architecture, electronics fundamentals, IoT device interfacing, and real-time applications.',
+      credentialId: '',
+      skills: ['IoT', 'Micro Controller', 'Embedded', 'Arduino', 'ESP8266'],
+      status: 'Active'
+    },
+    // {
+    //   name: 'Git and GitHub Essentials',
+    //   issuer: 'Coursera',
+    //   date: '2023',
+    //   expiryDate: 'No Expiry',
+    //   badge: '',
+    //   description: 'Version control, collaborative development, and Git workflow best practices',
+    //   credentialId: 'coursera-git-2023',
+    //   skills: ['Git', 'GitHub', 'Version Control', 'Collaboration'],
+    //   status: 'Active'
+    // },
+    {
+      name: 'Microsoft Excel Fundamentals',
       issuer: 'Coursera',
       date: '2023',
       expiryDate: 'No Expiry',
-      badge: 'https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/sMBzISAOQeKGrxqIL5dPiQ_1be5e1b2b0e0460b9e89f8c8ca4dc9a1_coursera_icon_rgb.png',
-      description: 'Version control, collaborative development, and Git workflow best practices',
-      credentialId: 'coursera-git-2023',
-      skills: ['Git', 'GitHub', 'Version Control', 'Collaboration'],
-      status: 'Active'
-    },
-    {
-      name: 'Introduction to Machine Learning',
-      issuer: 'edX',
-      date: '2024',
-      expiryDate: 'No Expiry',
-      badge: 'https://www.edx.org/images/logos/edx-logo-header.png',
-      description: 'Fundamentals of ML algorithms, data preprocessing, and model evaluation',
+      badge: '',
+      description: 'Ms Excel basics, formulas, data analysis, and visualization techniques',
       credentialId: 'edx-ml-intro-2024',
       skills: ['Machine Learning', 'Python', 'Data Analysis', 'Scikit-learn'],
       status: 'Active'
@@ -131,7 +142,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-background">
+    <section id="certifications" className="py-5 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import resume from '@/assets/SHARANSIDH_Jr_Software_Developer_Resume.pdf';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -42,26 +43,26 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: 'alex.johnson@email.com',
-      link: 'mailto:alex.johnson@email.com',
+      details: 'sharansidh0301@gmail.com',
+      link: 'mailto:sharansidh0301@gmai.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      details: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      details: '+91 9003721737',
+      link: 'tel:+919003721737',
     },
     {
       icon: MapPin,
       title: 'Location',
-      details: 'San Francisco, CA',
+      details: 'Villupuram, Tamil Nadu, India',
       link: 'https://maps.google.com',
     },
   ];
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', url: 'https://github.com' },
-    { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
+    { icon: Github, label: 'GitHub', url: 'https://github.com/sharansidh-0301' },
+    { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sharansidh0301/' },
     { icon: Twitter, label: 'Twitter', url: 'https://twitter.com' },
   ];
 
@@ -248,11 +249,11 @@ const Contact = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button variant="hero" size="lg">
-                  <Mail className="h-5 w-5 mr-2" />
-                  Let's Connect
+                  <a href="https://www.linkedin.com/in/sharansidh0301/" target='_blank'>  Let's Connect</a>
+                
                 </Button>
                 <Button variant="outline" size="lg">
-                  View My Resume
+                  <a href={resume} target='_blank'> View My Resume</a>
                 </Button>
               </div>
             </CardContent>
