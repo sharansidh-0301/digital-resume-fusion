@@ -27,11 +27,11 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}' # Provided automatically by GitHub Actions
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SIDH_JR }}'
+          # firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SIDH_JR }}'
           projectId: '312890115430' # <<< IMPORTANT: REPLACE THIS with your actual Firebase Project ID
           # channelId: live # Uncomment to deploy to 'live' channel (usually default)
           # only: hosting # Uncomment if you only want to deploy hosting
         env:
               ANOTHER_DEPLOY_CONFIG: 'production'
               # Accessing a secret to pass as an environment variable to a command
-              MY_CUSTOM_API_KEY: ${{ secrets.MY_SPECIAL_API_KEY }}
+              # MY_CUSTOM_API_KEY: ${{ secrets.MY_SPECIAL_API_KEY }}
