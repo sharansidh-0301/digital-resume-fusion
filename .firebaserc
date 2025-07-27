@@ -1,5 +1,4 @@
 {
-  "projects": {
-    "default": "sidh-jr"
-  }
+  "type": "service_account",
+  "project_id": "sidh-jr",
 }
