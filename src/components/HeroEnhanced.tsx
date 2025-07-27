@@ -85,7 +85,7 @@ const HeroEnhanced = () => {
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="block text-foreground">Hi, I'm</span>
-                <span className="block text-gradient">Sharansidh.<span className='text-red-600'>Jr</span> </span>
+                <span className="block text-gradient">Sharansidh.<span className='text-emerald-900'>Jr</span> </span>
               </h1>
               
               <div className="h-16 flex items-center justify-center lg:justify-start">
