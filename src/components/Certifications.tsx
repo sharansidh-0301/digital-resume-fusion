@@ -1,17 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Award, ExternalLink, Calendar, CheckCircle, Trophy, TrendingUp, Star, BookOpen, Target, Zap, Sparkles, Brain, Code, Database } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, ExternalLink, Calendar, CheckCircle, Trophy, TrendingUp, Star, BookOpen, Target, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { motion, useAnimation, useInView } from 'framer-motion';
 
 const Certifications = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const controls = useAnimation();
 
   const certifications = [
     {
@@ -146,153 +141,51 @@ const Certifications = () => {
     }
   ];
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.9
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const AnimatedParticles = () => (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(20)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-primary/20 rounded-full"
-          animate={{
-            x: [0, Math.random() * 100 - 50],
-            y: [0, Math.random() * 100 - 50],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 3 + 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-        />
-      ))}
-    </div>
-  );
-
   return (
-    <section id="certifications" className="relative py-20 overflow-hidden">
-      {/* Futuristic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/5"></div>
-      <AnimatedParticles />
-      
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-b from-transparent via-background/50 to-transparent"></div>
-      
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="text-center mb-20"
-        >
-          <motion.div variants={cardVariants} className="relative inline-block">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 relative">
-              <span className="bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent animate-pulse">
-                AI-Enhanced Certificates
-              </span>
-              <motion.div
-                className="absolute -top-2 -right-2 text-primary"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              >
-                <Sparkles className="w-8 h-8" />
-              </motion.div>
-            </h2>
-          </motion.div>
+    <section id="certifications" className="py-4 bg-indigo-600/20">
+      <div className="container mx-auto mb-14 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
+            Certifications
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+            Professional certifications, learning progress, and future learning goals
+          </p>
           
-          <motion.p 
-            variants={cardVariants}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            Neural network-powered learning pathway with quantum-encrypted credentials
-          </motion.p>
-          
-          {/* AI Dashboard Filter */}
-          <motion.div 
-            variants={cardVariants}
-            className="flex flex-wrap justify-center gap-3 mb-12"
-          >
+          {/* Certification Filter
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
             {[
-              { id: 'all', label: 'Neural Network', icon: Brain },
-              { id: 'web', label: 'Frontend Matrix', icon: Code },
-              { id: 'cloud', label: 'Cloud Systems', icon: Database },
-              { id: 'ai', label: 'AI Core', icon: Sparkles }
+              { id: 'all', label: 'All Certifications' },
+              { id: 'web', label: 'Web Development' },
+              { id: 'cloud', label: 'Cloud & Network' },
+              { id: 'ai', label: 'AI/ML' }
             ].map((filter) => (
-              <motion.button
+              <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`group relative px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full transition-smooth ${
                   activeFilter === filter.id 
-                    ? 'bg-gradient-to-r from-primary to-purple-500 text-primary-foreground shadow-2xl shadow-primary/25' 
-                    : 'bg-white/10 backdrop-blur-lg border border-white/20 text-muted-foreground hover:bg-white/20 hover:border-white/30'
+                    ? 'bg-gradient-primary text-primary-foreground shadow-glow' 
+                    : 'bg-muted hover:bg-muted/80'
                 }`}
               >
-                <div className="flex items-center gap-2">
-                  <filter.icon className="w-4 h-4" />
-                  {filter.label}
-                </div>
-                {activeFilter === filter.id && (
-                  <motion.div
-                    layoutId="activeFilter"
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-2xl blur-xl"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </motion.button>
+                {filter.label}
+              </button>
             ))}
-          </motion.div>
-        </motion.div>
+          </div> */}
+        </div>
 
         <Tabs defaultValue="certifications" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          {/* <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="certifications">My Certifications</TabsTrigger>
             <TabsTrigger value="progress">Learning Progress</TabsTrigger>
             <TabsTrigger value="upcoming">Future Goals</TabsTrigger>
             <TabsTrigger value="stats">Analytics</TabsTrigger>
-          </TabsList>
+          </TabsList> */}
 
           <TabsContent value="certifications" className="space-y-8">
 
-            {/* Enhanced Certification Stats */}
+            {/* Enhanced Certification Stats
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {certificationStats.map((stat, index) => (
                 <Card key={index} className="text-center hover-lift shadow-card group">
@@ -312,171 +205,75 @@ const Certifications = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </div> */}
 
-            {/* Futuristic Certificates Grid */}
-            <motion.div 
-              variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20"
-            >
+            {/* Enhanced Certifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6 mb-16">
               {filteredCertifications.map((cert, index) => (
-                <motion.div
-                  key={index}
-                  variants={cardVariants}
-                  whileHover={{ y: -10, rotateY: 5 }}
-                  onHoverStart={() => setHoveredCard(index)}
-                  onHoverEnd={() => setHoveredCard(null)}
-                  className="group perspective-1000"
-                >
-                  <div className="relative h-full">
-                    {/* Glassmorphism Card */}
-                    <div className="relative h-full bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-6 overflow-hidden transform-gpu transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-primary/10">
-                      
-                      {/* Floating particles inside card */}
-                      <div className="absolute inset-0 overflow-hidden">
-                        {hoveredCard === index && (
-                          <>
-                            {[...Array(8)].map((_, i) => (
-                              <motion.div
-                                key={i}
-                                className="absolute w-1 h-1 bg-primary/40 rounded-full"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ 
-                                  opacity: [0, 1, 0],
-                                  scale: [0, 1, 0],
-                                  x: Math.random() * 200 - 100,
-                                  y: Math.random() * 200 - 100,
-                                }}
-                                transition={{
-                                  duration: 2,
-                                  repeat: Infinity,
-                                  delay: i * 0.2
-                                }}
-                                style={{
-                                  left: `${Math.random() * 100}%`,
-                                  top: `${Math.random() * 100}%`,
-                                }}
-                              />
-                            ))}
-                          </>
-                        )}
-                      </div>
-
-                      {/* Status Badge */}
-                      <div className="absolute top-4 right-4 z-10">
-                        {['CCNA Certification', 'Java Full Stack Developement'].includes(cert.name) && (
-                          <motion.div
-                            animate={{ scale: [1, 1.1, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            <Badge className="bg-gradient-to-r from-green-400 to-blue-500 text-white border-0 shadow-lg">
-                              <Sparkles className="w-3 h-3 mr-1" />
-                              FEATURED
-                            </Badge>
-                          </motion.div>
-                        )}
-                      </div>
-
-                      {/* Certificate Icon */}
-                      <div className="text-center mb-6">
-                        <motion.div 
-                          className="relative w-20 h-20 mx-auto mb-4"
-                          whileHover={{ rotateY: 180 }}
-                          transition={{ duration: 0.6 }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-500 rounded-2xl shadow-2xl group-hover:shadow-primary/50 transition-all duration-500">
-                            <div className="absolute inset-1 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                              <Award className="w-8 h-8 text-white" />
-                            </div>
-                          </div>
-                          
-                          {/* Glow effect */}
-                          <motion.div
-                            className="absolute inset-0 bg-gradient-to-br from-primary to-purple-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-50"
-                            animate={hoveredCard === index ? { scale: [1, 1.2, 1] } : {}}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          />
-                        </motion.div>
-
-                        <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                          {cert.name}
-                        </h3>
-                        <p className="text-primary font-medium mb-4">{cert.issuer}</p>
-
-                        {/* Status Indicators */}
-                        <div className="flex items-center justify-center gap-3">
-                          <motion.div
-                            className={`px-3 py-1 rounded-full text-xs font-medium ${
-                              cert.status === 'Active' 
-                                ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-                                : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                            }`}
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            {cert.status === 'Active' && (
-                              <motion.div
-                                className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2"
-                                animate={{ opacity: [1, 0.3, 1] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                              />
-                            )}
-                            {cert.status}
-                          </motion.div>
-                          <div className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-muted-foreground">
-                            {cert.date}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Certificate Details */}
-                      <div className="space-y-4">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
-                        
-                        {/* Credential Info */}
-                        <div className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-2xl p-4 space-y-2">
-                          <div className="text-xs">
-                            <span className="text-primary font-medium">ID: </span>
-                            <span className="text-muted-foreground font-mono">{cert.credentialId}</span>
-                          </div>
-                          <div className="text-xs">
-                            <span className="text-primary font-medium">Expires: </span>
-                            <span className={cert.expiryDate === 'No Expiry' ? 'text-green-400' : 'text-muted-foreground'}>
-                              {cert.expiryDate}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        {/* Skills */}
-                        <div>
-                          <h5 className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
-                            <Star className="w-4 h-4 text-primary" />
-                            Neural Pathways:
-                          </h5>
-                          <div className="flex flex-wrap gap-2">
-                            {cert.skills.map((skill, skillIndex) => (
-                              <motion.div
-                                key={skillIndex}
-                                whileHover={{ scale: 1.05 }}
-                                className="px-3 py-1 bg-gradient-to-r from-primary/20 to-purple-500/20 border border-primary/30 rounded-full text-xs text-primary font-medium hover:from-primary/30 hover:to-purple-500/30 transition-all duration-300"
-                              >
-                                {skill}
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Hover Border Glow */}
-                      <motion.div
-                        className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-purple-500 to-primary opacity-0 group-hover:opacity-20 blur-xl"
-                        animate={hoveredCard === index ? { rotate: 360 } : {}}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                      />
-                    </div>
+                <Card key={index} className="hover-lift shadow-card  group relative overflow-hidden">
+                  <div className="absolute top-2 right-2 z-10">
+                    {['CCNA Certification', 'JavaScript Algorithms and Data Structures'].includes(cert.name) && (
+                      <Badge variant="destructive" className="text-xs animate-pulse">Featured</Badge>
+                    )}
                   </div>
-                </motion.div>
+                  <CardHeader className="text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-smooth relative">
+                      <img
+                        src={cert.badge}
+                        alt={cert.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://via.placeholder.com/80/9333ea/ffffff?text=' + cert.issuer.charAt(0);
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                    </div>
+                    <CardTitle className="text-lg">{cert.name}</CardTitle>
+                    <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
+                    <div className="flex items-center justify-center gap-2 mt-2">
+                      <Badge variant={cert.status === 'Active' ? 'default' : 'secondary'} className="relative">
+                        {cert.status === 'Active' && <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>}
+                        {cert.status}
+                      </Badge>
+                      <Badge variant="outline" className="text-xs">
+                        {cert.date}
+                      </Badge>
+                    </div>
+                  </CardHeader>
+              
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
+                    
+                    <div className="bg-gradient-hero p-3 rounded-lg space-y-2">
+                      <div className="text-xs">
+                        <span className="font-medium text-foreground">Credential ID: </span>
+                        <span className="text-muted-foreground font-mono">{cert.credentialId}</span>
+                      </div>
+                      <div className="text-xs">
+                        <span className="font-medium text-foreground">Expires: </span>
+                        <span className={`${cert.expiryDate === 'No Expiry' ? 'text-green-600' : 'text-muted-foreground'}`}>
+                          {cert.expiryDate}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h5 className="text-sm font-medium text-foreground mb-2 flex items-center gap-1">
+                        <Star className="h-3 w-3" />
+                        Skills Covered:
+                      </h5>
+                      <div className="flex flex-wrap gap-1">
+                        {cert.skills.map((skill, skillIndex) => (
+                          <Badge key={skillIndex} variant="secondary" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors">
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
-            </motion.div>
+            </div>
           </TabsContent>
 
           <TabsContent value="progress" className="space-y-8">

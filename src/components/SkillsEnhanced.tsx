@@ -79,10 +79,10 @@ const skillCategories = [
     color: 'from-orange-500 to-red-500',
     description: 'Development productivity & collaboration',
     skills: [
-      { name: 'Git', level: 90, experience: 'Expert', icon: '📚', trending: false },
+      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: '📚', trending: false },
       { name: 'VS Code', level: 95, experience: 'Expert', icon: '💻', trending: false },
-      { name: 'Figma', level: 85, experience: 'Advanced', icon: '🎯', trending: true },
-      { name: 'Postman', level: 80, experience: 'Advanced', icon: '📮', trending: false },
+      { name: 'Eclipse', level: 85, experience: 'Advanced', icon: '🎯', trending: true },
+      { name: 'Jupyter Notebook', level: 80, experience: 'Beginner', icon: '📮', trending: false },
       { name: 'Notion', level: 88, experience: 'Advanced', icon: '📝', trending: true },
     ]
   },
@@ -386,7 +386,7 @@ const SkillsEnhanced = () => {
   };
 
   return (
-    <section className="relative py-20 px-4 bg-gradient-to-br from-background via-background/50 to-muted/30 overflow-hidden">
+    <section className="relative py-12 px-4 bg-gradient-to-br from-background via-background/50 to-muted/30 overflow-hidden">
       {/* Animated background */}
       <CodeParticles />
       
