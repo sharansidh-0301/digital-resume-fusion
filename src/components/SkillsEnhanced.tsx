@@ -29,75 +29,62 @@ import {
 
 const skillCategories = [
   {
-    id: 'frontend',
-    icon: Code2,
-    title: 'Frontend Development',
+    id: 'web',
+    icon: Globe,
+    title: 'Web Technologies',
     color: 'from-blue-500 to-cyan-500',
-    description: 'Modern web interfaces & user experiences',
+    description: 'Frontend & Backend web development stack',
     skills: [
       { name: 'React', level: 90, experience: 'Expert', icon: '⚛️', trending: true },
+      { name: 'JavaScript', level: 92, experience: 'Expert', icon: '🟨', trending: false },
       { name: 'TypeScript', level: 85, experience: 'Advanced', icon: '🔷', trending: true },
-      { name: 'Next.js', level: 80, experience: 'Intermediate', icon: '▲', trending: true },
-      { name: 'Tailwind CSS', level: 95, experience: 'Expert', icon: '🎨', trending: false },
-      { name: 'JavaScript', level: 92, experience: 'Expert', icon: '📜', trending: false },
-      { name: 'Vue.js', level: 75, experience: 'Intermediate', icon: '💚', trending: true },
-    ]
-  },
-  {
-    id: 'backend',
-    icon: Server,
-    title: 'Backend Development',
-    color: 'from-green-500 to-emerald-500',
-    description: 'Scalable server-side solutions',
-    skills: [
-      { name: 'Node.js', level: 88, experience: 'Advanced', icon: '🟢', trending: true },
-      { name: 'Python', level: 85, experience: 'Advanced', icon: '🐍', trending: true },
-      { name: 'Express.js', level: 82, experience: 'Advanced', icon: '🚀', trending: false },
-      { name: 'MongoDB', level: 80, experience: 'Intermediate', icon: '🍃', trending: true },
-      { name: 'PostgreSQL', level: 78, experience: 'Intermediate', icon: '🐘', trending: false },
-      { name: 'GraphQL', level: 70, experience: 'Intermediate', icon: '📊', trending: true },
-    ]
-  },
-  {
-    id: 'devops',
-    icon: Cloud,
-    title: 'DevOps & Cloud',
-    color: 'from-purple-500 to-pink-500',
-    description: 'Infrastructure & deployment automation',
-    skills: [
-      { name: 'Docker', level: 75, experience: 'Intermediate', icon: '🐳', trending: true },
-      { name: 'AWS', level: 70, experience: 'Intermediate', icon: '☁️', trending: true },
-      { name: 'GitHub Actions', level: 80, experience: 'Advanced', icon: '⚡', trending: true },
-      { name: 'Nginx', level: 65, experience: 'Beginner', icon: '🌐', trending: false },
-      { name: 'Kubernetes', level: 60, experience: 'Beginner', icon: '☸️', trending: true },
+      { name: 'HTML5', level: 95, experience: 'Expert', icon: '🟧', trending: false },
+      { name: 'CSS3', level: 90, experience: 'Expert', icon: '🎨', trending: false },
+      { name: 'Tailwind CSS', level: 88, experience: 'Advanced', icon: '💨', trending: true },
+      { name: 'Node.js', level: 82, experience: 'Advanced', icon: '🟢', trending: true },
+      { name: 'Express.js', level: 80, experience: 'Intermediate', icon: '🚀', trending: false },
+      { name: 'Java', level: 85, experience: 'Advanced', icon: '☕', trending: false },
+      { name: 'Spring Boot', level: 75, experience: 'Intermediate', icon: '🍃', trending: true },
+      { name: 'SQL', level: 88, experience: 'Advanced', icon: '🗄️', trending: false },
+      { name: 'MongoDB', level: 70, experience: 'Intermediate', icon: '🍃', trending: true },
     ]
   },
   {
     id: 'tools',
     icon: Terminal,
-    title: 'Tools & Workflow',
-    color: 'from-orange-500 to-red-500',
-    description: 'Development productivity & collaboration',
+    title: 'Developer Tools',
+    color: 'from-green-500 to-emerald-500',
+    description: 'Development environment & productivity tools',
     skills: [
-      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: '📚', trending: false },
-      { name: 'VS Code', level: 95, experience: 'Expert', icon: '💻', trending: false },
-      { name: 'Eclipse', level: 85, experience: 'Advanced', icon: '🎯', trending: true },
-      { name: 'Jupyter Notebook', level: 80, experience: 'Beginner', icon: '📮', trending: false },
-      { name: 'Notion', level: 88, experience: 'Advanced', icon: '📝', trending: true },
+      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: '🐙', trending: false },
+      { name: 'VS Code', level: 95, experience: 'Expert', icon: '💙', trending: false },
+      { name: 'Eclipse IDE', level: 85, experience: 'Advanced', icon: '🌑', trending: false },
+      { name: 'IntelliJ IDEA', level: 78, experience: 'Intermediate', icon: '🧠', trending: true },
+      { name: 'Postman', level: 82, experience: 'Advanced', icon: '📮', trending: false },
+      { name: 'Docker', level: 70, experience: 'Intermediate', icon: '🐳', trending: true },
+      { name: 'Firebase', level: 75, experience: 'Intermediate', icon: '🔥', trending: true },
+      { name: 'Vercel', level: 80, experience: 'Advanced', icon: '▲', trending: true },
+      { name: 'Figma', level: 72, experience: 'Intermediate', icon: '🎨', trending: false },
+      { name: 'Adobe XD', level: 68, experience: 'Intermediate', icon: '🟣', trending: false },
     ]
   },
   {
     id: 'ai',
     icon: Brain,
-    title: 'AI & Machine Learning',
-    color: 'from-violet-500 to-purple-500',
-    description: 'Artificial intelligence & data science',
+    title: 'AI/ML',
+    color: 'from-purple-500 to-pink-500',
+    description: 'Artificial intelligence & machine learning technologies',
     skills: [
+      { name: 'Python', level: 85, experience: 'Advanced', icon: '🐍', trending: true },
       { name: 'TensorFlow', level: 65, experience: 'Beginner', icon: '🧠', trending: true },
       { name: 'OpenAI API', level: 75, experience: 'Intermediate', icon: '🤖', trending: true },
-      { name: 'Langchain', level: 70, experience: 'Intermediate', icon: '🔗', trending: true },
+      { name: 'Scikit-learn', level: 72, experience: 'Intermediate', icon: '📊', trending: true },
       { name: 'Pandas', level: 80, experience: 'Advanced', icon: '🐼', trending: false },
-      { name: 'Scikit-learn', level: 72, experience: 'Intermediate', icon: '📈', trending: true },
+      { name: 'NumPy', level: 78, experience: 'Advanced', icon: '🔢', trending: false },
+      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: '📓', trending: false },
+      { name: 'Machine Learning', level: 70, experience: 'Intermediate', icon: '🤯', trending: true },
+      { name: 'Data Analysis', level: 75, experience: 'Intermediate', icon: '📈', trending: true },
+      { name: 'Neural Networks', level: 60, experience: 'Beginner', icon: '🧮', trending: true },
     ]
   }
 ];
@@ -328,7 +315,7 @@ const CategoryTimeline = ({ categories, activeCategory, onCategoryChange }: any)
 };
 
 const SkillsEnhanced = () => {
-  const [activeCategory, setActiveCategory] = useState('frontend');
+  const [activeCategory, setActiveCategory] = useState('web');
   const [visibleSkills, setVisibleSkills] = useState<Set<string>>(new Set());
   const skillsRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
@@ -397,17 +384,24 @@ const SkillsEnhanced = () => {
           animate={controls}
           variants={containerVariants}
         >
-          <motion.h2 
-            className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+          <motion.div
+            className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full border border-primary/20"
             variants={itemVariants}
           >
-            Skills & Expertise
+            <Cpu className="h-6 w-6 text-primary" />
+            <span className="text-sm font-medium text-primary">Technical Expertise</span>
+          </motion.div>
+          <motion.h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+            variants={itemVariants}
+          >
+            Skills & Technologies
           </motion.h2>
           <motion.p 
-            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
-            Cutting-edge technologies and methodologies that power modern software development
+            A comprehensive overview of my technical capabilities across web development, developer tools, and artificial intelligence
           </motion.p>
         </motion.div>
 

@@ -1,12 +1,222 @@
-import React, { useState } from 'react';
-import { Award, ExternalLink, Calendar, CheckCircle, Trophy, TrendingUp, Star, BookOpen, Target, Zap } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
+import { Award, ExternalLink, Calendar, CheckCircle, Trophy, TrendingUp, Star, BookOpen, Target, Zap, Sparkles, Brain, Shield, Code, Database, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+// Floating particles animation
+const FloatingParticles = () => {
+  const particles = ['🎓', '📜', '🏆', '⭐', '💎', '🚀'];
+  
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((particle, index) => (
+        <motion.div
+          key={index}
+          className="absolute text-2xl opacity-20"
+          initial={{ 
+            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            rotate: 0
+          }}
+          animate={{
+            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
+            rotate: 360,
+          }}
+          transition={{
+            duration: 15 + Math.random() * 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          {particle}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
+
+// Enhanced Certificate Card Component
+const CertificateCard = ({ cert, index, isVisible }: { cert: any; index: number; isVisible: boolean }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'Active': return <CheckCircle className="h-4 w-4 text-green-500" />;
+      case 'Learning': return <BookOpen className="h-4 w-4 text-blue-500" />;
+      default: return <Award className="h-4 w-4 text-primary" />;
+    }
+  };
+
+  const getCategoryIcon = (issuer: string) => {
+    if (issuer.includes('Cisco')) return <Globe className="h-6 w-6" />;
+    if (issuer.includes('Wipro') || issuer.includes('SkillRack')) return <Code className="h-6 w-6" />;
+    if (issuer.includes('TVS')) return <Brain className="h-6 w-6" />;
+    if (issuer.includes('Coursera')) return <Database className="h-6 w-6" />;
+    return <Award className="h-6 w-6" />;
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60, scale: 0.8 }}
+      animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.15, type: "spring", bounce: 0.4 }}
+      whileHover={{ 
+        y: -10,
+        rotateY: 5,
+        transition: { duration: 0.3 }
+      }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="group relative"
+      style={{ perspective: '1000px' }}
+    >
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-background/80 via-background/90 to-muted/40 backdrop-blur-xl border border-border/30 hover:border-primary/40 transition-all duration-500 group-hover:shadow-2xl">
+        {/* Glassmorphism overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Animated glow effect */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-60 blur-2xl"
+          animate={isHovered ? { scale: [1, 1.2, 1] } : {}}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+
+        {/* Featured badge */}
+        <div className="absolute top-4 right-4 z-20">
+          {cert.name.includes('CCNA') && (
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <Badge variant="default" className="bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 shadow-lg">
+                <Sparkles className="h-3 w-3 mr-1" />
+                FEATURED
+              </Badge>
+            </motion.div>
+          )}
+        </div>
+
+        <CardHeader className="text-center pb-4 relative z-10">
+          {/* Certificate icon */}
+          <motion.div 
+            className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center backdrop-blur-sm border border-primary/30 group-hover:border-primary/50 transition-colors"
+            whileHover={{ rotate: 10, scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {getCategoryIcon(cert.issuer)}
+          </motion.div>
+
+          <CardTitle className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+            {cert.name}
+          </CardTitle>
+          
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Badge variant="outline" className="text-xs font-medium">
+              {cert.issuer}
+            </Badge>
+            <Badge variant="secondary" className="text-xs">
+              {cert.date}
+            </Badge>
+          </div>
+
+          <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center gap-1 text-sm">
+              {getStatusIcon(cert.status)}
+              <span className={cert.status === 'Active' ? 'text-green-500' : cert.status === 'Learning' ? 'text-blue-500' : 'text-muted-foreground'}>
+                {cert.status}
+              </span>
+            </div>
+          </div>
+        </CardHeader>
+
+        <CardContent className="space-y-5 relative z-10">
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+            {cert.description}
+          </p>
+          
+          {/* Enhanced credential info */}
+          <div className="p-4 rounded-xl bg-gradient-to-r from-background/50 to-muted/30 backdrop-blur-sm border border-border/50 space-y-2">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-medium text-foreground">Credential</span>
+              <code className="text-muted-foreground font-mono bg-muted/50 px-2 py-1 rounded">
+                {cert.credentialId || 'N/A'}
+              </code>
+            </div>
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-medium text-foreground">Validity</span>
+              <span className={cert.expiryDate === 'No Expiry' ? 'text-green-500 font-medium' : 'text-muted-foreground'}>
+                {cert.expiryDate}
+              </span>
+            </div>
+          </div>
+          
+          {/* Skills showcase */}
+          <div>
+            <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+              <Star className="h-4 w-4 text-yellow-500" />
+              Skills & Technologies
+            </h5>
+            <div className="flex flex-wrap gap-2">
+              {cert.skills.map((skill: string, skillIndex: number) => (
+                <motion.div
+                  key={skillIndex}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                >
+                  <Badge 
+                    variant="secondary" 
+                    className="text-xs hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </CardContent>
+      </div>
+    </motion.div>
+  );
+};
+
 const Certifications = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const controls = useAnimation();
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [controls, isInView]);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const cardIndex = parseInt(entry.target.getAttribute('data-card-index') || '0');
+            setVisibleCards(prev => new Set([...prev, cardIndex]));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const cardElements = sectionRef.current.querySelectorAll('[data-card-index]');
+    cardElements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [activeFilter]);
 
   const certifications = [
     {
@@ -141,39 +351,60 @@ const Certifications = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
-    <section id="certifications" className="py-4 bg-indigo-600/20">
-      <div className="container mx-auto mb-14 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
-            Certifications
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-            Professional certifications, learning progress, and future learning goals
-          </p>
+    <section id="certifications" className="relative py-16 bg-gradient-to-br from-background via-background/80 to-muted/20 overflow-hidden">
+      {/* Animated background particles */}
+      <FloatingParticles />
+      
+      <div ref={sectionRef} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          animate={controls}
+          variants={containerVariants}
+        >
+          <motion.div
+            className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full border border-primary/20"
+            variants={itemVariants}
+          >
+            <Trophy className="h-6 w-6 text-primary" />
+            <span className="text-sm font-medium text-primary">Professional Credentials</span>
+          </motion.div>
           
-          {/* Certification Filter
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {[
-              { id: 'all', label: 'All Certifications' },
-              { id: 'web', label: 'Web Development' },
-              { id: 'cloud', label: 'Cloud & Network' },
-              { id: 'ai', label: 'AI/ML' }
-            ].map((filter) => (
-              <button
-                key={filter.id}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`px-4 py-2 rounded-full transition-smooth ${
-                  activeFilter === filter.id 
-                    ? 'bg-gradient-primary text-primary-foreground shadow-glow' 
-                    : 'bg-muted hover:bg-muted/80'
-                }`}
-              >
-                {filter.label}
-              </button>
-            ))}
-          </div> */}
-        </div>
+          <motion.h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+            variants={itemVariants}
+          >
+            Certifications & Achievements
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
+            variants={itemVariants}
+          >
+            A showcase of my professional certifications, ongoing learning journey, and commitment to continuous skill development
+          </motion.p>
+        </motion.div>
 
         <Tabs defaultValue="certifications" className="w-full">
           {/* <TabsList className="grid w-full grid-cols-4 mb-8">
@@ -208,72 +439,25 @@ const Certifications = () => {
             </div> */}
 
             {/* Enhanced Certifications Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6 mb-16">
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+              variants={containerVariants}
+              initial="hidden"
+              animate={controls}
+            >
               {filteredCertifications.map((cert, index) => (
-                <Card key={index} className="hover-lift shadow-card  group relative overflow-hidden">
-                  <div className="absolute top-2 right-2 z-10">
-                    {['CCNA Certification', 'JavaScript Algorithms and Data Structures'].includes(cert.name) && (
-                      <Badge variant="destructive" className="text-xs animate-pulse">Featured</Badge>
-                    )}
-                  </div>
-                  <CardHeader className="text-center">
-                    <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden shadow-elegant group-hover:shadow-glow transition-smooth relative">
-                      <img
-                        src={cert.badge}
-                        alt={cert.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform"
-                        onError={(e) => {
-                          e.currentTarget.src = 'https://via.placeholder.com/80/9333ea/ffffff?text=' + cert.issuer.charAt(0);
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                    </div>
-                    <CardTitle className="text-lg">{cert.name}</CardTitle>
-                    <p className="text-sm text-muted-foreground font-medium">{cert.issuer}</p>
-                    <div className="flex items-center justify-center gap-2 mt-2">
-                      <Badge variant={cert.status === 'Active' ? 'default' : 'secondary'} className="relative">
-                        {cert.status === 'Active' && <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>}
-                        {cert.status}
-                      </Badge>
-                      <Badge variant="outline" className="text-xs">
-                        {cert.date}
-                      </Badge>
-                    </div>
-                  </CardHeader>
-              
-                  <CardContent className="space-y-4">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{cert.description}</p>
-                    
-                    <div className="bg-gradient-hero p-3 rounded-lg space-y-2">
-                      <div className="text-xs">
-                        <span className="font-medium text-foreground">Credential ID: </span>
-                        <span className="text-muted-foreground font-mono">{cert.credentialId}</span>
-                      </div>
-                      <div className="text-xs">
-                        <span className="font-medium text-foreground">Expires: </span>
-                        <span className={`${cert.expiryDate === 'No Expiry' ? 'text-green-600' : 'text-muted-foreground'}`}>
-                          {cert.expiryDate}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h5 className="text-sm font-medium text-foreground mb-2 flex items-center gap-1">
-                        <Star className="h-3 w-3" />
-                        Skills Covered:
-                      </h5>
-                      <div className="flex flex-wrap gap-1">
-                        {cert.skills.map((skill, skillIndex) => (
-                          <Badge key={skillIndex} variant="secondary" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors">
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <div 
+                  key={index} 
+                  data-card-index={index}
+                >
+                  <CertificateCard 
+                    cert={cert} 
+                    index={index} 
+                    isVisible={visibleCards.has(index)} 
+                  />
+                </div>
               ))}
-            </div>
+            </motion.div>
           </TabsContent>
 
           <TabsContent value="progress" className="space-y-8">
@@ -383,39 +567,68 @@ const Certifications = () => {
           </TabsContent>
         </Tabs>
 
-        {/* Skill Categories Summary - Always Visible */}
-        <div className="bg-gradient-hero rounded-2xl p-8 mt-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gradient">
-            Certified Skill Areas
-          </h3>
+        {/* Enhanced Skill Categories Summary */}
+        <motion.div 
+          className="relative mt-20 p-8 rounded-3xl bg-gradient-to-br from-primary/5 via-background/80 to-secondary/5 backdrop-blur-xl border border-primary/20"
+          initial={{ opacity: 0, y: 50 }}
+          animate={controls}
+          variants={itemVariants}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl blur-2xl -z-10" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.h3 
+            className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+            variants={itemVariants}
+          >
+            Certified Expertise Areas
+          </motion.h3>
+          
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            variants={containerVariants}
+          >
             {skillCategories.map((category, index) => (
-              <Card key={index} className="text-center hover-lift shadow-card">
-                <CardContent className="p-6">
-                  <div className="text-2xl font-bold text-gradient mb-2">
-                    {category.count}
-                  </div>
-                  <h4 className="text-sm font-bold text-foreground mb-3">
-                    {category.category}
-                  </h4>
-                  <div className="space-y-1">
-                    {category.skills.slice(0, 3).map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="outline" className="text-xs mx-1">
-                        {skill}
-                      </Badge>
-                    ))}
-                    {category.skills.length > 3 && (
-                      <Badge variant="secondary" className="text-xs mx-1">
-                        +{category.skills.length - 3} more
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="text-center relative overflow-hidden border-0 bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <CardContent className="p-6 relative z-10">
+                    <motion.div 
+                      className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-3"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      {category.count}
+                    </motion.div>
+                    <h4 className="text-sm font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                      {category.category}
+                    </h4>
+                    <div className="space-y-2">
+                      {category.skills.slice(0, 3).map((skill, skillIndex) => (
+                        <Badge 
+                          key={skillIndex} 
+                          variant="outline" 
+                          className="text-xs mx-1 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                      {category.skills.length > 3 && (
+                        <Badge variant="secondary" className="text-xs mx-1 bg-gradient-to-r from-primary/20 to-secondary/20">
+                          +{category.skills.length - 3} more
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
