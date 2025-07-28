@@ -23,7 +23,6 @@ import {
   Layers,
   Zap
 } from 'lucide-react';
-import CoursesSection from './CoursesSection';
 
 const skillCategories = [
   {
@@ -33,18 +32,16 @@ const skillCategories = [
     color: 'from-blue-500 to-cyan-500',
     description: 'Frontend & Backend web development stack',
     skills: [
-      { name: 'React', level: 90, experience: 'Expert', icon: Code2, trending: true },
-      { name: 'JavaScript', level: 92, experience: 'Expert', icon: FileCode, trending: false },
-      { name: 'TypeScript', level: 85, experience: 'Advanced', icon: FileCode, trending: true },
+      { name: 'React', level: 50, experience: 'Intermediate', icon: Code2, trending: true },
+      { name: 'JavaScript', level: 55, experience: 'Intermeditae', icon: FileCode, trending: false },
       { name: 'HTML5', level: 95, experience: 'Expert', icon: Code2, trending: false },
       { name: 'CSS3', level: 90, experience: 'Expert', icon: Palette, trending: false },
-      { name: 'Tailwind CSS', level: 88, experience: 'Advanced', icon: Palette, trending: true },
-      { name: 'Node.js', level: 82, experience: 'Advanced', icon: Server, trending: true },
-      { name: 'Express.js', level: 80, experience: 'Intermediate', icon: Server, trending: false },
-      { name: 'Java', level: 85, experience: 'Advanced', icon: Code2, trending: false },
-      { name: 'Spring Boot', level: 75, experience: 'Intermediate', icon: Layers, trending: true },
-      { name: 'SQL', level: 88, experience: 'Advanced', icon: Database, trending: false },
-      { name: 'MongoDB', level: 70, experience: 'Intermediate', icon: Database, trending: true },
+      { name: 'Tailwind CSS', level: 60, experience: 'Intermediate', icon: Palette, trending: false },
+      { name: 'Java', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
+      { name: 'Python', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
+      { name: 'Django', level: 40, experience: 'Beginner', icon: FileCode, trending: false },
+      { name: 'SQL', level: 65, experience: 'Intermediate', icon: Database, trending: false },
+      { name: 'MongoDB', level: 30, experience: 'Beginner', icon: Database, trending: true },
     ]
   },
   {
@@ -57,13 +54,12 @@ const skillCategories = [
       { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: GitBranch, trending: false },
       { name: 'VS Code', level: 95, experience: 'Expert', icon: Code2, trending: false },
       { name: 'Eclipse IDE', level: 85, experience: 'Advanced', icon: Code2, trending: false },
-      { name: 'IntelliJ IDEA', level: 78, experience: 'Intermediate', icon: Code2, trending: true },
-      { name: 'Postman', level: 82, experience: 'Advanced', icon: Zap, trending: false },
-      { name: 'Docker', level: 70, experience: 'Intermediate', icon: Server, trending: true },
+      { name: 'n8n', level: 85, experience: 'Advanced', icon: Code2, trending: false },
       { name: 'Firebase', level: 75, experience: 'Intermediate', icon: Cloud, trending: true },
       { name: 'Vercel', level: 80, experience: 'Advanced', icon: Cloud, trending: true },
       { name: 'Figma', level: 72, experience: 'Intermediate', icon: Palette, trending: false },
-      { name: 'Adobe XD', level: 68, experience: 'Intermediate', icon: Palette, trending: false },
+      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: FileCode, trending: false },
+
     ]
   },
   {
@@ -74,15 +70,18 @@ const skillCategories = [
     description: 'Artificial intelligence & machine learning technologies',
     skills: [
       { name: 'Python', level: 85, experience: 'Advanced', icon: Code2, trending: true },
-      { name: 'TensorFlow', level: 65, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'Generative AI', level: 65, experience: 'Beginner', icon: Brain, trending: true },
       { name: 'OpenAI API', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Scikit-learn', level: 72, experience: 'Intermediate', icon: Settings, trending: true },
+      { name: 'Gemini API', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
+      { name: 'Agentic AI', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
+      { name: 'AI Agents', level: 72, experience: 'Intermediate', icon: Settings, trending: true },
       { name: 'Pandas', level: 80, experience: 'Advanced', icon: Database, trending: false },
-      { name: 'NumPy', level: 78, experience: 'Advanced', icon: Settings, trending: false },
-      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: FileCode, trending: false },
+      { name: 'Fuzzy Logic', level: 78, experience: 'Advanced', icon: Settings, trending: false },
       { name: 'Machine Learning', level: 70, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Data Analysis', level: 75, experience: 'Intermediate', icon: Database, trending: true },
+      { name: 'Deep Learning', level: 75, experience: 'Intermediate', icon: Database, trending: true },
       { name: 'Neural Networks', level: 60, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'LangChain', level: 78, experience: 'Advanced', icon: Settings, trending: false },
+
     ]
   }
 ];
@@ -150,7 +149,7 @@ const SkillCard = ({ skill, index, isVisible }: { skill: any; index: number; isV
       className="group relative"
       style={{ perspective: '1000px' }}
     >
-      <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background/80 to-muted/40 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+    <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background/60 to-muted/60 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden">
         {/* Glassmorphism overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -371,7 +370,7 @@ const SkillsEnhanced = () => {
   };
 
   return (
-    <section className="relative py-12 px-4 bg-gradient-to-br from-background via-background/50 to-muted/30 overflow-hidden">
+  <section className="relative py-8 px-4 mb-10 bg-gradient-to-br from-primary/5 via-secondary/10 to-muted/30 overflow-hidden">
       {/* Animated background */}
       <CodeParticles />
       
@@ -382,13 +381,7 @@ const SkillsEnhanced = () => {
           animate={controls}
           variants={containerVariants}
         >
-          <motion.div
-            className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full border border-primary/20"
-            variants={itemVariants}
-          >
-            <Cpu className="h-6 w-6 text-primary" />
-            <span className="text-sm font-medium text-primary">Technical Expertise</span>
-          </motion.div>
+         
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
             variants={itemVariants}
@@ -461,8 +454,7 @@ const SkillsEnhanced = () => {
           )}
         </motion.div>
 
-        {/* Courses Section */}
-        <CoursesSection />
+       
 
         {/* AI Keywords Section */}
         <motion.div 
@@ -472,14 +464,12 @@ const SkillsEnhanced = () => {
           variants={itemVariants}
         >
           <h3 className="text-2xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Technology Keywords
+            Key Areas of Expertise
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
             {[
-              'Machine Learning', 'Neural Networks', 'Deep Learning', 'Computer Vision', 
-              'Natural Language Processing', 'API Integration', 'Cloud Computing', 
-              'Microservices', 'DevOps', 'Continuous Integration', 'Automated Testing',
-              'Performance Optimization', 'Scalable Architecture', 'Data Analytics'
+              'Data Structures', 'Algorithms','Problem Solving', 'Logic Building', 'PC Building', 
+              'Server Building', 'Web Hosting', 'Agentic AI', 'Generative AI', 'OpenAI API',
             ].map((keyword, index) => (
               <motion.div
                 key={keyword}

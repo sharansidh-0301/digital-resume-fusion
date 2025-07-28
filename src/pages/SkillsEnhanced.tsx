@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
-import SkillsEnhanced from '@/components/SkillsEnhanced';
+import SkillsEnhanced from '@/components/Skills';
 import Footer from '@/components/Footer';
 
 const SkillsEnhancedPage = () => {

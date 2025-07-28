@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
-import HeroEnhanced from '@/components/HeroEnhanced';
+import HeroEnhanced from '@/components/Hero';
 import Footer from '@/components/Footer';
 
 const Home = () => {
