@@ -11,21 +11,19 @@ import {
   Server, 
   Database, 
   Cloud, 
-  Smartphone, 
   Globe, 
   GitBranch, 
   Terminal,
   Brain,
-  Zap,
-  TrendingUp,
-  Star,
-  Target,
-  Calendar,
-  Award,
-  Cpu,
   Sparkles,
-  ChevronRight
+  Cpu,
+  Palette,
+  FileCode,
+  Settings,
+  Layers,
+  Zap
 } from 'lucide-react';
+import CoursesSection from './CoursesSection';
 
 const skillCategories = [
   {
@@ -35,18 +33,18 @@ const skillCategories = [
     color: 'from-blue-500 to-cyan-500',
     description: 'Frontend & Backend web development stack',
     skills: [
-      { name: 'React', level: 90, experience: 'Expert', icon: '⚛️', trending: true },
-      { name: 'JavaScript', level: 92, experience: 'Expert', icon: '🟨', trending: false },
-      { name: 'TypeScript', level: 85, experience: 'Advanced', icon: '🔷', trending: true },
-      { name: 'HTML5', level: 95, experience: 'Expert', icon: '🟧', trending: false },
-      { name: 'CSS3', level: 90, experience: 'Expert', icon: '🎨', trending: false },
-      { name: 'Tailwind CSS', level: 88, experience: 'Advanced', icon: '💨', trending: true },
-      { name: 'Node.js', level: 82, experience: 'Advanced', icon: '🟢', trending: true },
-      { name: 'Express.js', level: 80, experience: 'Intermediate', icon: '🚀', trending: false },
-      { name: 'Java', level: 85, experience: 'Advanced', icon: '☕', trending: false },
-      { name: 'Spring Boot', level: 75, experience: 'Intermediate', icon: '🍃', trending: true },
-      { name: 'SQL', level: 88, experience: 'Advanced', icon: '🗄️', trending: false },
-      { name: 'MongoDB', level: 70, experience: 'Intermediate', icon: '🍃', trending: true },
+      { name: 'React', level: 90, experience: 'Expert', icon: Code2, trending: true },
+      { name: 'JavaScript', level: 92, experience: 'Expert', icon: FileCode, trending: false },
+      { name: 'TypeScript', level: 85, experience: 'Advanced', icon: FileCode, trending: true },
+      { name: 'HTML5', level: 95, experience: 'Expert', icon: Code2, trending: false },
+      { name: 'CSS3', level: 90, experience: 'Expert', icon: Palette, trending: false },
+      { name: 'Tailwind CSS', level: 88, experience: 'Advanced', icon: Palette, trending: true },
+      { name: 'Node.js', level: 82, experience: 'Advanced', icon: Server, trending: true },
+      { name: 'Express.js', level: 80, experience: 'Intermediate', icon: Server, trending: false },
+      { name: 'Java', level: 85, experience: 'Advanced', icon: Code2, trending: false },
+      { name: 'Spring Boot', level: 75, experience: 'Intermediate', icon: Layers, trending: true },
+      { name: 'SQL', level: 88, experience: 'Advanced', icon: Database, trending: false },
+      { name: 'MongoDB', level: 70, experience: 'Intermediate', icon: Database, trending: true },
     ]
   },
   {
@@ -56,16 +54,16 @@ const skillCategories = [
     color: 'from-green-500 to-emerald-500',
     description: 'Development environment & productivity tools',
     skills: [
-      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: '🐙', trending: false },
-      { name: 'VS Code', level: 95, experience: 'Expert', icon: '💙', trending: false },
-      { name: 'Eclipse IDE', level: 85, experience: 'Advanced', icon: '🌑', trending: false },
-      { name: 'IntelliJ IDEA', level: 78, experience: 'Intermediate', icon: '🧠', trending: true },
-      { name: 'Postman', level: 82, experience: 'Advanced', icon: '📮', trending: false },
-      { name: 'Docker', level: 70, experience: 'Intermediate', icon: '🐳', trending: true },
-      { name: 'Firebase', level: 75, experience: 'Intermediate', icon: '🔥', trending: true },
-      { name: 'Vercel', level: 80, experience: 'Advanced', icon: '▲', trending: true },
-      { name: 'Figma', level: 72, experience: 'Intermediate', icon: '🎨', trending: false },
-      { name: 'Adobe XD', level: 68, experience: 'Intermediate', icon: '🟣', trending: false },
+      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: GitBranch, trending: false },
+      { name: 'VS Code', level: 95, experience: 'Expert', icon: Code2, trending: false },
+      { name: 'Eclipse IDE', level: 85, experience: 'Advanced', icon: Code2, trending: false },
+      { name: 'IntelliJ IDEA', level: 78, experience: 'Intermediate', icon: Code2, trending: true },
+      { name: 'Postman', level: 82, experience: 'Advanced', icon: Zap, trending: false },
+      { name: 'Docker', level: 70, experience: 'Intermediate', icon: Server, trending: true },
+      { name: 'Firebase', level: 75, experience: 'Intermediate', icon: Cloud, trending: true },
+      { name: 'Vercel', level: 80, experience: 'Advanced', icon: Cloud, trending: true },
+      { name: 'Figma', level: 72, experience: 'Intermediate', icon: Palette, trending: false },
+      { name: 'Adobe XD', level: 68, experience: 'Intermediate', icon: Palette, trending: false },
     ]
   },
   {
@@ -75,16 +73,16 @@ const skillCategories = [
     color: 'from-purple-500 to-pink-500',
     description: 'Artificial intelligence & machine learning technologies',
     skills: [
-      { name: 'Python', level: 85, experience: 'Advanced', icon: '🐍', trending: true },
-      { name: 'TensorFlow', level: 65, experience: 'Beginner', icon: '🧠', trending: true },
-      { name: 'OpenAI API', level: 75, experience: 'Intermediate', icon: '🤖', trending: true },
-      { name: 'Scikit-learn', level: 72, experience: 'Intermediate', icon: '📊', trending: true },
-      { name: 'Pandas', level: 80, experience: 'Advanced', icon: '🐼', trending: false },
-      { name: 'NumPy', level: 78, experience: 'Advanced', icon: '🔢', trending: false },
-      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: '📓', trending: false },
-      { name: 'Machine Learning', level: 70, experience: 'Intermediate', icon: '🤯', trending: true },
-      { name: 'Data Analysis', level: 75, experience: 'Intermediate', icon: '📈', trending: true },
-      { name: 'Neural Networks', level: 60, experience: 'Beginner', icon: '🧮', trending: true },
+      { name: 'Python', level: 85, experience: 'Advanced', icon: Code2, trending: true },
+      { name: 'TensorFlow', level: 65, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'OpenAI API', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
+      { name: 'Scikit-learn', level: 72, experience: 'Intermediate', icon: Settings, trending: true },
+      { name: 'Pandas', level: 80, experience: 'Advanced', icon: Database, trending: false },
+      { name: 'NumPy', level: 78, experience: 'Advanced', icon: Settings, trending: false },
+      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: FileCode, trending: false },
+      { name: 'Machine Learning', level: 70, experience: 'Intermediate', icon: Brain, trending: true },
+      { name: 'Data Analysis', level: 75, experience: 'Intermediate', icon: Database, trending: true },
+      { name: 'Neural Networks', level: 60, experience: 'Beginner', icon: Brain, trending: true },
     ]
   }
 ];
@@ -164,11 +162,11 @@ const SkillCard = ({ skill, index, isVisible }: { skill: any; index: number; isV
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <motion.div 
-                className="text-2xl"
+                className="p-2 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20"
                 animate={isHovered ? { scale: 1.2, rotate: 360 } : {}}
                 transition={{ duration: 0.5 }}
               >
-                {skill.icon}
+                <skill.icon className="h-6 w-6 text-primary" />
               </motion.div>
               <div>
                 <h3 className="font-bold text-lg">{skill.name}</h3>
@@ -463,6 +461,9 @@ const SkillsEnhanced = () => {
           )}
         </motion.div>
 
+        {/* Courses Section */}
+        <CoursesSection />
+
         {/* AI Keywords Section */}
         <motion.div 
           className="mt-20 text-center"
@@ -471,7 +472,7 @@ const SkillsEnhanced = () => {
           variants={itemVariants}
         >
           <h3 className="text-2xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            AI-Powered Development Keywords
+            Technology Keywords
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
             {[
