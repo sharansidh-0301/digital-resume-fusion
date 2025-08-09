@@ -3,7 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail, Download, ChevronRight, Sparkles, Co
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import profilePhoto from '@/assets/myPic.png';
-import resume from '@/assets/SHARANSIDH_Jr_Software_Developer_Resume.pdf';
+import resume from '@/assets/SHARANSIDH_JR_SOFTWARE_ENGINEER.pdf';
 
 const HeroEnhanced = () => {
   const [currentRole, setCurrentRole] = useState(0);

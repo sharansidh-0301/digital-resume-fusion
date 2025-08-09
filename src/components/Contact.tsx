@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import resume from '@/assets/SHARANSIDH_Jr_Software_Developer_Resume.pdf';
+import resume from '@/assets/SHARANSIDH_JR_SOFTWARE_ENGINEER.pdf';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
