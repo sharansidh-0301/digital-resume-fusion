@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, Target, User, BookOpen, TrendingUp, Award, Clock, Globe } from 'lucide-react';
+import { Calendar, MapPin, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, Target, User, BookOpen, TrendingUp, Award, Clock, Globe, Video, Play } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
@@ -423,6 +423,136 @@ const About = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Professional Vlogs Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Video className="h-6 w-6 text-primary" />
+              <h3 className="text-2xl md:text-3xl font-bold text-gradient">
+                Professional Gallery
+              </h3>
+            </div>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Career insights, achievements, and milestones from my professional journey
+            </p>
+          </div>
+
+          {/* Featured Vlog */}
+          <div className="mb-8">
+            <Card className="overflow-hidden hover-lift shadow-card group">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative aspect-video md:aspect-square bg-gradient-hero">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-smooth">
+                      <Play className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="default">Featured</Badge>
+                  </div>
+                  <div className="absolute bottom-4 right-4">
+                    <Badge variant="secondary">New</Badge>
+                  </div>
+                </div>
+                <CardContent className="p-8 flex flex-col justify-center">
+                  <Badge variant="outline" className="w-fit mb-4">Career Milestone</Badge>
+                  <h4 className="text-2xl font-bold mb-4 text-gradient">
+                    From Student to Software Engineer
+                  </h4>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    A comprehensive look at my transition from college to the professional world, 
+                    highlighting key learnings, challenges overcome, and skills developed along the way.
+                  </p>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4" />
+                      <span>Dec 2024</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <TrendingUp className="h-4 w-4" />
+                      <span>Professional Growth</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </div>
+            </Card>
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'First Full-Stack Project',
+                category: 'Achievement',
+                description: 'Building my first complete web application from scratch',
+                date: 'Nov 2024',
+                badge: 'Milestone'
+              },
+              {
+                title: 'Learning Journey',
+                category: 'Career Insight',
+                description: 'How I mastered React and modern web development',
+                date: 'Oct 2024',
+                badge: 'Learning'
+              },
+              {
+                title: 'Problem Solving Skills',
+                category: 'Achievement',
+                description: 'Reaching 150+ problems on LeetCode',
+                date: 'Sep 2024',
+                badge: 'Technical'
+              },
+              {
+                title: 'Team Collaboration',
+                category: 'Career Insight',
+                description: 'Lessons learned from group projects and hackathons',
+                date: 'Aug 2024',
+                badge: 'Teamwork'
+              },
+              {
+                title: 'Portfolio Development',
+                category: 'Achievement',
+                description: 'Creating a professional portfolio to showcase my work',
+                date: 'Jul 2024',
+                badge: 'Creative'
+              },
+              {
+                title: 'Continuous Learning',
+                category: 'Career Insight',
+                description: 'Staying updated with latest technologies and trends',
+                date: 'Jun 2024',
+                badge: 'Growth'
+              }
+            ].map((vlog, index) => (
+              <Card key={index} className="overflow-hidden hover-lift shadow-card group cursor-pointer">
+                <div className="relative aspect-video bg-gradient-hero">
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
+                    <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                      <Play className="h-6 w-6 text-primary" />
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3">
+                    <Badge variant="secondary" className="text-xs">{vlog.badge}</Badge>
+                  </div>
+                </div>
+                <CardContent className="p-5">
+                  <Badge variant="outline" className="mb-3 text-xs">{vlog.category}</Badge>
+                  <h4 className="font-bold mb-2 text-foreground line-clamp-1">
+                    {vlog.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+                    {vlog.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <Clock className="h-3 w-3" />
+                    <span>{vlog.date}</span>
+                  </div>
+                </CardContent>
               </Card>
             ))}
           </div>
