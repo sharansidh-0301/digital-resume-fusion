@@ -3,7 +3,13 @@ import { Calendar, MapPin, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import chat from '../assets/momentum.jpg';
+import sih from '../assets/momentum.jpg';
+import pic1 from '../assets/pic1.jpg';
+import pic from '../assets/pic.jpg';
+import auro from '../assets/auro.jpg';
+import idea from '../assets/idea.jpg';
+import debate from '../assets/debate.jpg';
+import { link } from 'fs';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -42,10 +48,6 @@ const About = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20 ">
         {/* Header with Live Status */}
         <div className="text-center mb-5">
-          {/* <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm text-muted-foreground">Currently available for opportunities</span>
-          </div> */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
             About Me
           </h2>
@@ -159,11 +161,6 @@ const About = () => {
                           <div className="text-sm text-muted-foreground">CGPA / 10.0</div>
                         </div>
                   </div>
-                      {/* <div className='text-end'>
-                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
-                          {/* First Class with Distinction 
-                        </Badge>
-                      </div> */}
                   </div>
                 </div>
 
@@ -181,11 +178,6 @@ const About = () => {
                           <div className="text-sm text-muted-foreground">Percentage / 100</div>
                         </div>
                   </div>
-                      {/* <div className='text-end'>
-                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
-                          {/* First Class with Distinction 
-                        </Badge>
-                      </div> */}
                   </div>
                 </div>
 
@@ -205,137 +197,14 @@ const About = () => {
                           <div className="text-sm text-muted-foreground">Percentage / 100</div>
                         </div>
                   </div>
-                      {/* <div className='text-end'>
-                        <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/20">
-                          {/* First Class with Distinction 
-                        </Badge>
-                      </div> */}
                   </div>
                 </div>
 
 
-                {/* <div>
-                  <h6 className="font-semibold text-foreground mb-3">Core Subjects & Grades:</h6>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {[
-                      { subject: 'Data Structures & Algorithms', grade: 'A+' },
-                      { subject: 'Database Management Systems', grade: 'A' },
-                      { subject: 'Web Technologies', grade: 'A+' },
-                      { subject: 'Software Engineering', grade: 'A' },
-                      { subject: 'Computer Networks', grade: 'A' },
-                      { subject: 'Operating Systems', grade: 'A' },
-                      { subject: 'Machine Learning Fundamentals', grade: 'A+' },
-                      { subject: 'Object-Oriented Programming', grade: 'A+' }
-                    ].map((item, index) => (
-                      <div key={index} className="flex justify-between items-center p-2 bg-muted rounded">
-                        <span className="text-sm">{item.subject}</span>
-                        <Badge variant={item.grade === 'A+' ? 'default' : 'secondary'}>{item.grade}</Badge>
-                      </div>
-                    ))}
-                  </div>
-                </div> */}
-
-                {/* <div>
-                  <h6 className="font-semibold text-foreground mb-3">Academic Achievements:</h6>
-                  <div className="space-y-2">
-                    {[
-                      'Dean\'s List for 6 consecutive semesters',
-                      'Best Project Award for Final Year Capstone',
-                      'Merit Scholarship recipient (2022-2024)',
-                      'Published research paper on AI/ML applications'
-                    ].map((achievement, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <Award className="h-4 w-4 text-primary" />
-                        <span className="text-sm text-muted-foreground">{achievement}</span>
-                      </div>
-                    ))}
-                  </div> 
-                </div>*/}
               </CardContent>
             </Card>
           </div>
         )}
-{/* 
-        {activeTab === 'metrics' && (
-          <div className="max-w-6xl mx-auto animate-fade-in">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="hover-lift shadow-card">
-                <CardHeader>
-                  <CardTitle className="text-gradient">Personal Development Metrics</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {personalMetrics.map((metric, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{metric.label}</span>
-                        <span className="text-sm text-muted-foreground">{metric.value}%</span>
-                      </div>
-                      <Progress value={metric.value} className="h-3" />
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              <Card className="hover-lift shadow-card">
-                <CardHeader>
-                  <CardTitle className="text-gradient">Current Focus Areas</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {[
-                      { area: 'Full-Stack Development', progress: 80, status: 'Advanced' },
-                      { area: 'AI/ML Integration', progress: 60, status: 'Learning' },
-                      { area: 'Cloud Technologies', progress: 40, status: 'Exploring' },
-                      { area: 'DevOps Practices', progress: 35, status: 'Beginning' }
-                    ].map((item, index) => (
-                      <div key={index} className="p-3 bg-gradient-hero rounded-lg">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="font-medium">{item.area}</span>
-                          <Badge variant="outline">{item.status}</Badge>
-                        </div>
-                        <Progress value={item.progress} className="h-2" />
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        )} */}
-
-        {/* {activeTab === 'timeline' && (
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-primary"></div>
-              <div className="space-y-8">
-                {timeline.map((item, index) => (
-                  <div key={index} className="relative pl-12">
-                    <div className={`absolute left-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                      item.status === 'current' ? 'bg-gradient-primary animate-glow' : 'bg-muted'
-                    }`}>
-                      <div className="w-3 h-3 bg-background rounded-full"></div>
-                    </div>
-                    <Card className="hover-lift shadow-card">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant={item.status === 'current' ? 'default' : 'secondary'}>
-                            {item.year}
-                          </Badge>
-                          {item.status === 'current' && (
-                            <Badge variant="outline" className="animate-pulse">Current</Badge>
-                          )}
-                        </div>
-                        <h4 className="text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                        <p className="text-muted-foreground">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}  */}
-
 
         {/* Professional Vlogs Section */}
         <div className="mt-20">
@@ -356,50 +225,51 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'First Full-Stack Project',
+                title: 'Smart India  Hackathon - 2023 Finalist',
                 category: 'Achievement',
-                img: chat,
-                description: 'Building my first complete web application from scratch',
-                date: 'Nov 2024',
+                img: sih,
+                link: 'https://www.linkedin.com/posts/sharansidh-jr_newabrdelhi-sihgrandfinale-hackathonexperience-activity-7151229167886307328-GCko?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM',
+                description: 'Got selected as a finalist in SIH 2023 among 50000+ teams nationwide',
+                date: 'Dec 2023',
                 badge: 'Milestone'
               },
               {
-                title: 'Learning Journey',
+                title: '1st Prize in National Level Sysmposium',
                 category: 'Career Insight',
-                img: chat,
-                description: 'How I mastered React and modern web development',
-                date: 'Oct 2024',
+                img: pic1,
+                description: 'Got 1st prize for my innovative project presentation at the symposium',
+                date: 'March 2025',
                 badge: 'Learning'
               },
               {
-                title: 'Problem Solving Skills',
+                title: '3rd Prize in Paper Presentation',
                 category: 'Achievement',
-                img: chat,
-                description: 'Reaching 150+ problems on LeetCode',
-                date: 'Sep 2024',
+                img: pic,
+                description: 'Grabbed 3rd prize for presenting research on emerging tech trends',
+                date: 'January 2024',
                 badge: 'Technical'
               },
               {
                 title: 'Team Collaboration',
                 category: 'Career Insight',
-                img: chat,
+                img: auro,
                 description: 'Lessons learned from group projects and hackathons',
                 date: 'Aug 2024',
                 badge: 'Teamwork'
               },
               {
-                title: 'Portfolio Development',
+                title: 'Inter College Ideathon',
                 category: 'Achievement',
-                img: chat,
+                img: idea,
                 description: 'Creating a professional portfolio to showcase my work',
                 date: 'Jul 2024',
                 badge: 'Creative'
               },
               {
-                title: 'Continuous Learning',
+                title: 'Debate on AI Technologies',
                 category: 'Career Insight',
-                img: chat,
-                description: 'Staying updated with latest technologies and trends',
+                img: debate,
+                description: 'Participated in a debate discussing the impact of AI on society',
                 date: 'Jun 2024',
                 badge: 'Growth'
               }
@@ -410,9 +280,10 @@ const About = () => {
                   <img src={vlog.img} alt={vlog.title} className="absolute inset-0 w-full h-full object-cover" />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                    <div className="w-40 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center text-sm text-white">
-                      View
+                    <a  target='_blank'  href={vlog.link}>
+                    <div className="w-40 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center text-sm text-white">View                      
                     </div>
+                    </a>
                   </div>
                   <div className="absolute top-3 right-3">
                     <Badge variant="secondary" className="text-xs">{vlog.badge}</Badge>
