@@ -4,7 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import project1 from '@/assets/portFolio.png';
-import project2 from '@/assets/project-2.jpg';
+import project2 from '@/assets/project-2.png';
 import project3 from '@/assets/QRProject.png';
 import project4 from '@/assets/ChatBOx.png';
 const Projects = () => {
@@ -24,13 +24,13 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Todo List Web App',
-      description: 'A full-stack todo application with user authentication, CRUD operations, and real-time updates. Built as a learning project to understand React hooks and state management.',
+      title: 'Shop Owner Module in Shopping Mall',
+      description: 'A full-stack Shop Owner Module in Shopping Mall application  CRUD operations, and real-time updates. Built as a learning project to understand React hooks and state management.',
       image: project2,
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+      technologies: ['Spring Boot', 'Angular', 'PostgreSQL', 'POSTMAN','JPA'],
       liveUrl: '0',
-      githubUrl: '0',
-      date: 'Oct 2023',
+      githubUrl: 'https://github.com/sharansidh-0301/TNSIF-JAVA-SHARANSIDH-JR/tree/master/ShopOwner%20Module',
+      date: 'Oct 2025',
       stars: 18,
       forks: 12,
       featured: true,
