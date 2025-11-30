@@ -7,17 +7,18 @@ import project1 from '@/assets/portFolio.png';
 import project2 from '@/assets/project-2.png';
 import project3 from '@/assets/QRProject.png';
 import project4 from '@/assets/ChatBOx.png';
+import project6 from '@/assets/project6.png';
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Personal Portfolio Website',
-      description: 'A responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills. Features smooth animations, dark mode support, and mobile-first design.',
-      image: project1,
-      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
-      liveUrl: 'https://sidh-profolio.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/PortFolio',
-      date: 'May 2025',
+      title: 'Generative AI SQL Querying Platform(AskMyDB AI)',
+      description: 'A GenAI-based SQL assistant that converts plain English prompts into safe MySQL queries using FastAPI and OpenRouter, featuring a real-time results dashboard and secure read-only operations.',
+      image: project6,
+      technologies: ['Python','MySQL','OpenRouter','React', 'Tailwind CSS', 'FastAPI', 'Responsive Design'],
+      liveUrl: '',
+      githubUrl: 'https://github.com/sharansidh-0301/SaaS/tree/main/askmydbai',
+      date: 'Nov 2025',
       stars: 2,
       forks: 1,
       featured: true,
@@ -27,7 +28,7 @@ const Projects = () => {
       title: 'Shop Owner Module in Shopping Mall',
       description: 'A full-stack Shop Owner Module in Shopping Mall application  CRUD operations, and real-time updates. Built as a learning project to understand React hooks and state management.',
       image: project2,
-      technologies: ['Spring Boot', 'Angular', 'PostgreSQL', 'POSTMAN','JPA'],
+      technologies: ['Spring Boot', 'REST   API','Angular', 'PostgreSQL', 'POSTMAN','JPA'],
       liveUrl: '0',
       githubUrl: 'https://github.com/sharansidh-0301/TNSIF-JAVA-SHARANSIDH-JR/tree/master/ShopOwner%20Module',
       date: 'Oct 2025',
@@ -61,39 +62,28 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: 'Simple Calculator',
-      description: 'A web-based calculator built with vanilla JavaScript, HTML, and CSS. Features basic arithmetic operations with a clean, intuitive interface.',
-      image: project2,
-      technologies: ['JavaScript', 'HTML5', 'CSS3', 'DOM Manipulation'],
-      githubUrl: '',
-      date: 'Apr 2023',
-      stars: 6,
-      forks: 2,
+       title: 'Personal Portfolio Website',
+      description: 'A responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills. Features smooth animations, dark mode support, and mobile-first design.',
+      image: project1,
+      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
+      liveUrl: 'https://sidh-profolio.vercel.app/',
+      githubUrl: 'https://github.com/sharansidh-0301/PortFolio',
+      date: 'May 2025',
+      stars: 2,
+      forks: 1,
       featured: false,
     },
-    // {
-    //   id: 6,
-    //   title: 'Landing Page Clone',
-    //   description: 'A pixel-perfect recreation of a popular company\'s landing page as a practice project. Focus on responsive design and modern CSS techniques.',
-    //   image: project3,
-    //   technologies: ['HTML5', 'CSS3', 'JavaScript', 'Flexbox'],
-    //   liveUrl: '#',
-    //   githubUrl: '#',
-    //   date: 'Feb 2023',
-    //   stars: 4,
-    //   forks: 1,
-    //   featured: false,
-    // },
+   
   ];
 
   const featuredProjects = projects.filter(project => project.featured);
   const otherProjects = projects.filter(project => !project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-hero">
+    <section id="projects" className="py-5 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-gradient">
             Featured Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

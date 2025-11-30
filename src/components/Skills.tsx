@@ -33,6 +33,7 @@ const skillCategories = [
     description: 'Frontend & Backend web development stack',
     skills: [
       { name: 'React', level: 50, experience: 'Intermediate', icon: Code2, trending: true },
+      { name: 'Spring Boot', level: 55, experience: 'Intermediate', icon: Zap, trending: true },
       { name: 'JavaScript', level: 55, experience: 'Intermeditae', icon: FileCode, trending: false },
       { name: 'HTML5', level: 95, experience: 'Expert', icon: Code2, trending: false },
       { name: 'CSS3', level: 90, experience: 'Expert', icon: Palette, trending: false },
@@ -69,18 +70,19 @@ const skillCategories = [
     color: 'from-purple-500 to-pink-500',
     description: 'Artificial intelligence & machine learning technologies',
     skills: [
-      { name: 'Python', level: 85, experience: 'Advanced', icon: Code2, trending: true },
-      { name: 'Generative AI', level: 65, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'OpenAI API', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Gemini API', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Agentic AI', level: 75, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'AI Agents', level: 72, experience: 'Intermediate', icon: Settings, trending: true },
-      { name: 'Pandas', level: 80, experience: 'Advanced', icon: Database, trending: false },
-      { name: 'Fuzzy Logic', level: 78, experience: 'Advanced', icon: Settings, trending: false },
-      { name: 'Machine Learning', level: 70, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Deep Learning', level: 75, experience: 'Intermediate', icon: Database, trending: true },
-      { name: 'Neural Networks', level: 60, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'LangChain', level: 78, experience: 'Advanced', icon: Settings, trending: false },
+      { name: 'Python', level: 85, experience: 'Intermediate', icon: Code2, trending: true },
+      { name: 'Generative AI', level: 45, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'MCP Protocol', level: 40, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'OpenAI API', level: 30, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'Gemini API', level: 30, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'Agentic AI', level: 20, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'AI Agents', level: 25, experience: 'Beginner', icon: Settings, trending: true },
+      { name: 'Pandas', level: 20, experience: 'Beginner', icon: Database, trending: false },
+      { name: 'Fuzzy Logic', level: 25, experience: 'Beginner', icon: Settings, trending: false },
+      { name: 'Machine Learning', level: 45, experience: 'Intermediate', icon: Brain, trending: true },
+      { name: 'Deep Learning', level: 40, experience: 'Intermediate', icon: Database, trending: true },
+      { name: 'Neural Networks', level: 40, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'LangChain', level: 55, experience: 'Intermediate', icon: Settings, trending: false },
 
     ]
   }
@@ -222,7 +224,7 @@ const SkillCard = ({ skill, index, isVisible }: { skill: any; index: number; isV
 // Category Timeline Component
 const CategoryTimeline = ({ categories, activeCategory, onCategoryChange }: any) => {
   return (
-    <div className="relative mb-12">
+    <div className="relative mb-  2">
       {/* Desktop horizontal timeline */}
       <div className="hidden lg:block">
         <div className="flex justify-center items-center relative">
@@ -370,20 +372,20 @@ const SkillsEnhanced = () => {
   };
 
   return (
-  <section className="relative py-8 px-4 mb-10 bg-gradient-to-br from-primary/5 via-secondary/10 to-muted/30 overflow-hidden">
+  <section className="relative py-4 px-4 mb-10 bg-gradient-to-br from-primary/5 via-secondary/10 to-muted/30 overflow-hidden">
       {/* Animated background */}
       <CodeParticles />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial="hidden"
           animate={controls}
           variants={containerVariants}
         >
          
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
             variants={itemVariants}
           >
             Skills & Technologies
@@ -412,25 +414,19 @@ const SkillsEnhanced = () => {
         {/* Skills Grid */}
         <motion.div 
           ref={skillsRef}
-          className="mt-16"
+          className="mt-8"
           initial="hidden"
           animate={controls}
           variants={containerVariants}
         >
           {currentCategory && (
-            <div className="space-y-8">
+            <div className="space-y-4">
               <motion.div 
                 className="text-center"
                 variants={itemVariants}
               >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <motion.div 
-                    className={`p-4 rounded-2xl bg-gradient-to-r ${currentCategory.color} shadow-lg`}
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <currentCategory.icon className="h-8 w-8 text-white" />
-                  </motion.div>
+                  {/* Icon removed as requested; keeping header spacing */}
                 </div>
                 <h3 className="text-3xl font-bold mb-2">{currentCategory.title}</h3>
                 <p className="text-muted-foreground text-lg">{currentCategory.description}</p>
@@ -458,7 +454,7 @@ const SkillsEnhanced = () => {
 
         {/* AI Keywords Section */}
         <motion.div 
-          className="mt-20 text-center"
+          className="mt-10 text-center"
           initial="hidden"
           animate={controls}
           variants={itemVariants}

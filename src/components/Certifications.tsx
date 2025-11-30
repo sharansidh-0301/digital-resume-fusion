@@ -21,7 +21,7 @@ const CertificateCard = ({ cert, index }: { cert: any; index: number }) => {
   };
 
   return (
-    <Card className="h-full hover-lift border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300">
+    <Card className="h-full hover-lift border-border/50  backdrop-blur-sm transition-all duration-300">
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="p-3 rounded-xl bg-primary/10">
@@ -78,6 +78,16 @@ const CertificateCard = ({ cert, index }: { cert: any; index: number }) => {
 const Certifications = () => {
   const certifications = [
     {
+      name: 'Java Full Stack Development',
+      issuer: 'TNS India Foundation',
+      date: '2025',
+      expiryDate: 'No Expiry',
+      description: 'A Java Full Stack Development program covering frontend and backend technologies',
+      credentialId: '',
+      skills: ['Core Java', 'Spring Boot','REST API', 'PostgreSQL'],
+      status: 'Learning'
+    },
+    {
       name: 'CCNA Certification',
       issuer: 'Cisco',
       date: '2023',
@@ -95,7 +105,7 @@ const Certifications = () => {
       description: 'Comprehensive Java Full Stack Development program',
       credentialId: '',
       skills: ['Java', 'Logic Building', 'Frontend', 'Spring Boot', 'SQL'],
-      status: 'Learning'
+      status: 'Active'
     },
     {
       name: 'SQL Basics',
@@ -147,18 +157,16 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-background">
+    <section id="certifications" className="py-5 bg-gradient-hero">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in">
+        <div className="text-center mb-4 animate-fade-in">
           <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
             <Award className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium text-primary">Professional Credentials</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-            Certifications & Achievements
-          </h2>
+        
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Professional certifications showcasing my commitment to continuous learning and skill development
