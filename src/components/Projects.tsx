@@ -16,7 +16,7 @@ const Projects = () => {
       description: 'A GenAI-based SQL assistant that converts plain English prompts into safe MySQL queries using FastAPI and OpenRouter, featuring a real-time results dashboard and secure read-only operations.',
       image: project6,
       technologies: ['Python','MySQL','OpenRouter','React', 'Tailwind CSS', 'FastAPI', 'Responsive Design'],
-      liveUrl: '',
+      liveUrl: 'https://askmydb-phi.vercel.app/',
       githubUrl: 'https://github.com/sharansidh-0301/SaaS/tree/main/askmydbai',
       date: 'Nov 2025',
       stars: 2,
