@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, Github, Linkedin, Mail, Download, ChevronRight, Sparkles, Code2, Brain, Rocket } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download, ChevronRight, ChevronDown, Sparkles, Code2, Brain, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import profilePhoto from '@/assets/myPic.png';
-import resume from '@/assets/SHARANSIDH_JR_SOFTWARE_ENGINEER.pdf';
+import resumeSoftware from '@/assets/SHARANSIDH_JR_SOFTWARE_ENGINEER.pdf';
+import resumeAI from '@/assets/SHARANSIDH_JR_AI_ENGINEER.pdf';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+} from '@/components/ui/dropdown-menu';
 
 const HeroEnhanced = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -97,7 +105,7 @@ const HeroEnhanced = () => {
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
                 Passionate software developer skilled in building efficient, scalable applications. Always eager to learn, solve real-world problems, and create meaningful user experiences.
-                Specializing in modern web development with a growing interest in AI/ML technologies.
+                Specializing in Software Developement with a growing interest in AI technologies.
               </p>
             </div>
 
@@ -126,13 +134,31 @@ const HeroEnhanced = () => {
                     <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
-                <Button variant="outline" size="lg" className="group" asChild>
-                  <a href={resume} download>
-                    <Download className="w-5 h-5 mr-2" />
-                    Download Resume
-                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="lg" className="group flex items-center gap-2">
+                      <Download className="w-5 h-5" />
+                      <span>Download Resume</span>
+                      <ChevronDown className="w-4 h-4 ml-2 opacity-80 transition-transform group-data-[state=open]:rotate-180" />
+                    </Button>
+                  </DropdownMenuTrigger>
+
+                  <DropdownMenuContent align="start" className="min-w-[14rem]">
+                    <DropdownMenuLabel className="px-3 text-xs text-muted-foreground">Select resume</DropdownMenuLabel>
+                    <DropdownMenuItem asChild className="mt-1 rounded-md">
+                      <a href={resumeAI} download className="flex items-center gap-3 px-3 py-2 text-sm">
+                        <Download className="w-4 h-4 text-primary" />
+                        <span>AI Engineer</span>
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild className="rounded-md">
+                      <a href={resumeSoftware} download className="flex items-center gap-3 px-3 py-2 text-sm">
+                        <Download className="w-4 h-4 text-primary" />
+                        <span>Software Engineer</span>
+                      </a>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
 
             {/* Social Links */}
