@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import profilePhoto from '@/assets/myPic.png';
 import resumeSoftware from '@/assets/SHARANSIDH_JR_SOFTWARE_ENGINEER.pdf';
 import resumeAI from '@/assets/SHARANSIDH_JR_AI_ENGINEER.pdf';
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -139,22 +140,22 @@ const HeroEnhanced = () => {
                     <Button variant="outline" size="lg" className="group flex items-center gap-2">
                       <Download className="w-5 h-5" />
                       <span>Download Resume</span>
-                      <ChevronDown className="w-4 h-4 ml-2 opacity-80 transition-transform group-data-[state=open]:rotate-180" />
+                      <ChevronDown className="w-4 h-4 opacity-80 transition-transform group-data-[state=open]:rotate-180" />
                     </Button>
                   </DropdownMenuTrigger>
 
-                  <DropdownMenuContent align="start" className="min-w-[14rem]">
-                    <DropdownMenuLabel className="px-3 text-xs text-muted-foreground">Select resume</DropdownMenuLabel>
-                    <DropdownMenuItem asChild className="mt-1 rounded-md">
+                  <DropdownMenuContent align="start" className="min-w-[16rem]">
+                    <DropdownMenuLabel className="px-3 text-xs text-muted-foreground">Select resume type</DropdownMenuLabel>
+                    <DropdownMenuItem asChild className="rounded-md cursor-pointer mt-1">
                       <a href={resumeAI} download className="flex items-center gap-3 px-3 py-2 text-sm">
                         <Download className="w-4 h-4 text-primary" />
-                        <span>AI Engineer</span>
+                        <span>AI Engineer Resume</span>
                       </a>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="rounded-md">
+                    <DropdownMenuItem asChild className="rounded-md cursor-pointer">
                       <a href={resumeSoftware} download className="flex items-center gap-3 px-3 py-2 text-sm">
                         <Download className="w-4 h-4 text-primary" />
-                        <span>Software Engineer</span>
+                        <span>Software Developer Resume</span>
                       </a>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
