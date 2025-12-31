@@ -77,40 +77,38 @@ const Achievements = () => {
       link:'https://www.linkedin.com/posts/sharansidh0301_velammal-chennai-third-activity-7167464915434156032-B79o?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM' ,
     },
   ];
-
-
-  const githubBadges = [
-    {
-      name: 'Pull Shark',
-      description: 'Opened multiple pull requests',
-      badge: 'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png',
-      rarity: 'Bronze'
-    },
-    {
-      name: 'Quickdraw',
-      description: 'Closed an issue or pull request within 5 minutes',
-      badge: 'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png',
-      rarity: 'Silver'
-    },
-    {
-      name: 'YOLO',
-      description: 'Merged a pull request without code review',
-      badge: 'https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png',
-      rarity: 'Bronze'
-    },
-    {
-      name: 'Arctic Code Vault Contributor',
-      description: 'Contributed code to repositories in 2020 GitHub Archive Program',
-      badge: 'https://github.githubassets.com/images/modules/profile/achievements/arctic-code-vault-contributor-default.png',
-      rarity: 'Special'
-    },
-  ];
+const githubBadges = [
+  {
+    name: 'YOLO',
+    description: 'Merged a pull request without code review',
+    badge: 'https://github.githubassets.com/images/modules/profile/achievements/yolo-default.png',
+    rarity: 'Bronze',
+  },
+  {
+    name: 'Pull Shark',
+    description: 'Opened multiple pull requests that were merged',
+    badge: 'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png',
+    rarity: 'Bronze',
+  },
+  {
+    name: 'Quickdraw',
+    description: 'Closed an issue or pull request within 5 minutes',
+    badge: 'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png',
+    rarity: 'Bronze',
+  },
+  {
+    name: 'Pair Extraordinaire',
+    description: 'Coauthored commits on merged pull requests',
+    badge: 'https://github.githubassets.com/images/modules/profile/achievements/pair-extraordinaire-default.png',
+    rarity: 'Bronze',
+  },
+];
 
   const githubStats = [
-    { label: 'Public Repositories', value: '30+' },
-    { label: 'Total Commits', value: '400+' },
-    { label: 'Followers', value: '5+' },
-    { label: 'Learning Streak', value: '50+ days' },
+    { label: 'Public Repositories', value: '40+' },
+    { label: 'Total Commits', value: '500+' },
+    { label: 'Followers', value: '9+' },
+    { label: 'Learning ', value: '100+ days' },
   ];
 
   const codingStats = [
@@ -216,30 +214,6 @@ const Achievements = () => {
           </div>
         </div>
 
-        {/* Coding Platform Statistics */}
-        <div className="mb-16">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            Coding Platform Stats
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {codingStats.map((stat, index) => (
-              <Card key={index} className="text-center hover-lift shadow-card">
-                <CardContent className="p-6">
-                  <div className="text-sm font-bold text-muted-foreground mb-2">
-                    {stat.platform}
-                  </div>
-                  <div className={`text-3xl font-bold mb-2 ${stat.color}`}>
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         {/* GitHub Stats */}
         <div className="bg-gradient-hero rounded-2xl p-8">

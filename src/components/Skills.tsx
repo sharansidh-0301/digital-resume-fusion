@@ -390,7 +390,7 @@ const SkillsEnhanced = () => {
         >
          
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
+            className="text-4xl py-10 -mt-10 md:text-5xl lg:text-5xl font-bold  bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
             variants={itemVariants}
           >
             Skills & Technologies
@@ -469,8 +469,8 @@ const SkillsEnhanced = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
             {[
-              'Data Structures', 'Algorithms','Problem Solving', 'Logic Building', 'PC Building', 
-              'Server Building', 'Web Hosting', 'Agentic AI', 'Generative AI', 'OpenAI API',
+              'Generative AI','Problem Solving', 'Logic Building', 'PC Building', 
+              'Server Building', 'Web Hosting', 'Agentic AI', 'Generative AI', 'LLMs',
             ].map((keyword, index) => (
               <motion.div
                 key={keyword}

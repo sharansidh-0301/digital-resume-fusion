@@ -45,7 +45,7 @@ const Projects = () => {
       technologies: ['ESP32','MQ-Sensors', 'REST API','React'],
       liveUrl: 'https://iot-sewage-gaurd-platform.vercel.app/',
       githubUrl: 'https://github.com/sharansidh-0301/IoT-SewageGaurd-Platform/',
-      date: 'Oct 2025',
+      date: '2023-25',
       stars: 1,
       forks: 2,
       featured: false,
@@ -148,7 +148,7 @@ const Projects = () => {
                 <a href={project.liveUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
                  <Button variant="default" size="sm"  className='flex-1'>
                   <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
+                    Live
                 </Button> 
                 </a>
                 <a href={project.githubUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
@@ -224,7 +224,7 @@ const Projects = () => {
                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex w-full">
                      <Button variant="ghost" size="sm" className="flex-1 text-xs">
                       <Github className="h-3 w-3 mr-1" />
-                       Code
+                       Source Code
                      </Button>
                  </a>
                   

@@ -176,5 +176,11 @@ All colors MUST be HSL.
   /* Text gradients */
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+    display: inline-block;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding-bottom: 0.25em;
+    line-height: 1.4;
+    overflow: visible;
   }
 }
