@@ -20,6 +20,7 @@ const HeroEnhanced = () => {
   const [isTyping, setIsTyping] = useState(true);
 
   const roles = [
+    'Gen AI Engineer',
     'Software Developer',
     'Frontend Enthusiast', 
     'AI Generalist',
@@ -105,8 +106,7 @@ const HeroEnhanced = () => {
               </div>
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Passionate software developer skilled in building efficient, scalable applications. Always eager to learn, solve real-world problems, and create meaningful user experiences.
-                Specializing in Software Developement with a growing interest in AI technologies.
+                Passionate software developer focused on building efficient, scalable applications, with a strong interest in AI-driven solutions. Enthusiastic about learning new technologies, solving real-world problems, and creating impactful, intelligent user experiences.
               </p>
             </div>
 

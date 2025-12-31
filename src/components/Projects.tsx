@@ -3,9 +3,9 @@ import { ExternalLink, Github, Calendar, Star, GitFork } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import project1 from '@/assets/portFolio.png';
+import project1 from '@/assets/llm-data-checker.png';
 import project2 from '@/assets/project-2.png';
-import project3 from '@/assets/QRProject.png';
+import project3 from '@/assets/iot-sewage.png';
 import project4 from '@/assets/ChatBOx.png';
 import project6 from '@/assets/project6.png';
 const Projects = () => {
@@ -16,17 +16,44 @@ const Projects = () => {
       description: 'A Generative AI-based SQL assistant that converts plain English prompts into safe MySQL queries using FastAPI and OpenRouter, featuring a real-time results dashboard and secure read-only operations.',
       image: project6,
       technologies: ['Python','MySQL','OpenRouter','React', 'Tailwind CSS', 'FastAPI', 'Responsive Design'],
-      liveUrl: 'https://querygen-ai.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/SaaS/tree/main/querygenai',
+      liveUrl: 'https://query-gen-ai-two.vercel.app/',
+      githubUrl: 'https://github.com/sharansidh-0301/Query-GenAI/',
       date: 'Nov 2025',
       stars: 2,
       forks: 1,
       featured: true,
     },
+    
     {
       id: 2,
+      title: 'LLM-Powered Data Quality Analyzer',
+      description: 'Built an AI-powered data quality analyzer that evaluates CSV datasets and uses LLM-driven reasoning to generate clear insights and actionable quality recommendations.',
+      image: project1,
+      technologies: ['GPT-2 LLM', 'Fast API','React', 'Pandas'],
+      liveUrl: 'https://llm-powered-data-quality-analyzer.vercel.app/',
+      githubUrl: 'https://github.com/sharansidh-0301/llm-powered-data-quality-checker',
+      date: 'Dec 2025',
+      stars: 2,
+      forks: 2,
+      featured: true,
+    },
+    {
+      id: 3,
+      title: 'IoT Based Sewage Sentinel System',
+      description: 'Full-stack IoT sewage gas monitoring system using ESP32 and MQ sensors with cloud integration for real-time monitoring and safety alerts.',
+      image: project3,
+      technologies: ['ESP32','MQ-Sensors', 'REST API','React'],
+      liveUrl: 'https://iot-sewage-gaurd-platform.vercel.app/',
+      githubUrl: 'https://github.com/sharansidh-0301/IoT-SewageGaurd-Platform/',
+      date: 'Oct 2025',
+      stars: 1,
+      forks: 2,
+      featured: false,
+    },
+    {
+      id: 4,
       title: 'Shop Owner Module in Shopping Mall',
-      description: 'A full-stack Shop Owner Module in Shopping Mall application  CRUD operations, and real-time updates. Built as a learning project to understand React hooks and state management.',
+      description: 'A full-stack Shop Owner Module in Shopping Mall application  CRUD operations, and real-time updates.',
       image: project2,
       technologies: ['Spring Boot', 'REST   API','Angular', 'PostgreSQL', 'POSTMAN','JPA'],
       liveUrl: '0',
@@ -34,10 +61,10 @@ const Projects = () => {
       date: 'Oct 2025',
       stars: 18,
       forks: 12,
-      featured: true,
+      featured: false,
     },
     {
-      id: 3,
+      id: 5,
       title: 'AI Assistant Chat Application',
       description: 'A real-time AI-assistant chat application build with python and Gemini API. It allows users to interact with an AI assistant for various tasks and queries.',      
       image: project4,
@@ -48,31 +75,8 @@ const Projects = () => {
       forks: 1,
       featured: false,
     },
-    {
-      id: 4,
-      title: 'QR Code Generator',
-      description: 'A recipe search application built with React that allows users to search for recipes by ingredients. Integrated with external recipe API for dynamic content.',
-      image: project3,
-      technologies: ['React', 'API', 'Tailwind', 'JavaScript'],
-      githubUrl: 'https://github.com/sharansidh-0301/QR-Code-Generator',
-      date: 'Jun 2024',
-      stars: 9,
-      forks: 3,
-      featured: false,
-    },
-    {
-      id: 5,
-       title: 'Personal Portfolio Website',
-      description: 'A responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills. Features smooth animations, dark mode support, and mobile-first design.',
-      image: project1,
-      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Responsive Design'],
-      liveUrl: 'https://sidh-profolio.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/PortFolio',
-      date: 'May 2025',
-      stars: 2,
-      forks: 1,
-      featured: false,
-    },
+    
+    
    
   ];
 

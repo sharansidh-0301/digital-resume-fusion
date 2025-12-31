@@ -25,15 +25,16 @@ import {
 } from 'lucide-react';
 
 const skillCategories = [
-  {
+  
+    {
     id: 'web',
     icon: Globe,
     title: 'Web Technologies',
     color: 'from-blue-500 to-cyan-500',
     description: 'Frontend & Backend web development stack',
     skills: [
-      { name: 'Java', level: 65, experience: 'Intermediate', icon: Code2, trending: false },
       { name: 'Python', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
+      { name: 'Java', level: 65, experience: 'Intermediate', icon: Code2, trending: false },
       { name: 'C', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
       { name: 'React', level: 50, experience: 'Intermediate', icon: Code2, trending: true },
       { name: 'Spring Boot', level: 55, experience: 'Intermediate', icon: Zap, trending: true },
@@ -46,6 +47,31 @@ const skillCategories = [
       { name: 'MongoDB', level: 30, experience: 'Beginner', icon: Database, trending: true },
     ]
   },
+  {
+    id: 'ai',
+    icon: Brain,
+    title: 'AI',
+    color: 'from-purple-500 to-pink-500',
+    description: 'Artificial intelligence',
+    skills: [
+      { name: 'Python', level: 85, experience: 'Intermediate', icon: Code2, trending: true },
+      { name: 'Generative AI', level: 45, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'RAG', level: 25, experience: 'Beginner', icon: Settings, trending: true },
+      { name: 'LangChain', level: 55, experience: 'Intermediate', icon: Settings, trending: false },
+      { name: 'MCP Server', level: 40, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'LLMs', level: 30, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'PyTorch', level: 25, experience: 'Beginner', icon: Settings, trending: false },
+      { name: 'Agentic AI', level: 20, experience: 'Beginner', icon: Brain, trending: true },
+      { name: 'AI Agents', level: 25, experience: 'Beginner', icon: Settings, trending: true },
+      { name: 'Pandas', level: 20, experience: 'Beginner', icon: Database, trending: false },
+      { name: 'Fuzzy Logic', level: 25, experience: 'Beginner', icon: Settings, trending: false },
+      { name: 'Machine Learning', level: 45, experience: 'Intermediate', icon: Brain, trending: false},
+      { name: 'Deep Learning', level: 40, experience: 'Intermediate', icon: Database, trending: false },
+      { name: 'Neural Networks', level: 40, experience: 'Beginner', icon: Brain, trending: false },
+
+    ]
+  },
+
   {
     id: 'tools',
     icon: Terminal,
@@ -62,29 +88,6 @@ const skillCategories = [
       { name: 'Vercel', level: 80, experience: 'Advanced', icon: Cloud, trending: true },
       { name: 'Figma', level: 72, experience: 'Intermediate', icon: Palette, trending: false },
       { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: FileCode, trending: false },
-
-    ]
-  },
-  {
-    id: 'ai',
-    icon: Brain,
-    title: 'AI/ML',
-    color: 'from-purple-500 to-pink-500',
-    description: 'Artificial intelligence & machine learning technologies',
-    skills: [
-      { name: 'Python', level: 85, experience: 'Intermediate', icon: Code2, trending: true },
-      { name: 'Generative AI', level: 45, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'MCP Protocol', level: 40, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'OpenAI API', level: 30, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'Gemini API', level: 30, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'Agentic AI', level: 20, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'AI Agents', level: 25, experience: 'Beginner', icon: Settings, trending: true },
-      { name: 'Pandas', level: 20, experience: 'Beginner', icon: Database, trending: false },
-      { name: 'Fuzzy Logic', level: 25, experience: 'Beginner', icon: Settings, trending: false },
-      { name: 'Machine Learning', level: 45, experience: 'Intermediate', icon: Brain, trending: true },
-      { name: 'Deep Learning', level: 40, experience: 'Intermediate', icon: Database, trending: true },
-      { name: 'Neural Networks', level: 40, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'LangChain', level: 55, experience: 'Intermediate', icon: Settings, trending: false },
 
     ]
   }

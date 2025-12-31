@@ -30,7 +30,7 @@ const About = () => {
   
 
   const interests = [
-    { icon: Coffee, label: 'Tech Enthusiast' },
+    { icon: Coffee, label: 'Tech Generalist' },
     { icon: Heart, label: 'Open Source Explorer' },
     { icon: Calendar, label: 'Continuous Learner' },
     { icon: MapPin, label: 'Problem Solver' },
@@ -92,15 +92,11 @@ const About = () => {
               </div>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Pursuing Electronic and Communication Engineering, I'm excited to begin my career in Software development. 
-                My journey started with curiosity about how websites work, and through dedicated learning 
-                and hands-on projects, I've developed strong skills in modern web technologies.
+               I’m passionate about building a career in software development with a strong interest in AI-driven applications. My journey began with curiosity about how modern platforms work, which led me to hands-on experience in building production-level, SaaS-style web applications using modern software engineering practices.
               </p>
               
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I believe in writing clean, efficient code and creating user-friendly interfaces. 
-                I'm always eager to learn new technologies and take on challenges that help me grow 
-                as a developer while contributing meaningful value to projects.
+               I focus on writing clean, efficient, and scalable code while creating reliable, user-centric systems. I enjoy building production-ready solutions, learning new technologies, and solving real-world problems, with a growing interest in integrating AI into scalable SaaS products that deliver meaningful impact.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mt-8">
