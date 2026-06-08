@@ -12,6 +12,8 @@ import ContactPage from "./pages/ContactPage";
 import SkillsEnhancedPage from "./pages/SkillsEnhanced";
 import CertificationsPage from "./pages/CertificationsPage";
 import NotFound from "./pages/NotFound";
+import ScrollProgress from "./components/ScrollProgress";
+import BackToTop from "./components/BackToTop";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollProgress />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/overview" element={<Index />} />
@@ -33,6 +36,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <BackToTop />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
