@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, Target, User, BookOpen, TrendingUp, Award, Clock, Globe, Video, Play } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import {
+  Calendar, Coffee, Heart, Code2, Zap, Users, Lightbulb, Rocket, Target,
+  User, BookOpen, TrendingUp, Award, Clock, Globe, Video, MapPin, ArrowUpRight,
+  Briefcase, GraduationCap, ExternalLink, Sparkles
+} from 'lucide-react';
 import sih from '../assets/momentum.jpg';
 import pic1 from '../assets/pic1.jpg';
 import pic from '../assets/pic.jpg';
@@ -10,363 +14,343 @@ import auro from '../assets/auro.jpg';
 import idea from '../assets/idea.jpg';
 import debate from '../assets/debate.jpg';
 
+const stats = [
+  { label: 'Problems Solved', value: '150+', icon: TrendingUp, hint: 'LeetCode / consistent' },
+  { label: 'Projects Built', value: '12+', icon: Rocket, hint: '2 in active dev' },
+  { label: 'Technologies', value: '15+', icon: Code2, hint: '.NET focused stack' },
+  { label: 'GitHub Commits', value: '400+', icon: Globe, hint: 'Daily active' },
+];
+
+const interests = [
+  { icon: Coffee, label: 'Tech Generalist' },
+  { icon: Heart, label: 'Open Source Explorer' },
+  { icon: Calendar, label: 'Continuous Learner' },
+  { icon: MapPin, label: 'Problem Solver' },
+];
+
+const education = [
+  {
+    degree: 'B.E. Electronics & Communication Engineering (Hons.)',
+    school: 'IFET College Of Engineering',
+    period: '2022 — 2026',
+    location: 'Villupuram, India',
+    score: '8.25',
+    scoreLabel: 'CGPA / 10',
+  },
+  {
+    degree: 'Higher Secondary',
+    school: 'Vivekananda Hr. Sec. School',
+    period: '2020 — 2022',
+    location: 'Sholavandan, Madurai',
+    score: '83.33%',
+    scoreLabel: 'Percentage',
+  },
+  {
+    degree: 'SSLC',
+    school: 'Saraswathi Matric Hr. Sec. School',
+    period: '2019 — 2020',
+    location: 'Villupuram',
+    score: '75.2%',
+    scoreLabel: 'Percentage',
+  },
+];
+
+const gallery = [
+  { title: 'Smart India Hackathon 2023 — Finalist', category: 'Achievement', img: sih, link: 'https://www.linkedin.com/posts/sharansidh-jr_newabrdelhi-sihgrandfinale-hackathonexperience-activity-7151229167886307328-GCko', description: 'Selected as a finalist among 50,000+ teams nationwide.', date: 'Dec 2023', badge: 'Milestone' },
+  { title: '1st Prize — National-Level Symposium', category: 'Recognition', img: pic1, description: 'Awarded for an innovative project presentation.', date: 'Mar 2025', badge: 'Winner' },
+  { title: '3rd Prize — Paper Presentation', category: 'Research', img: pic, description: 'Presented research on emerging tech trends.', date: 'Jan 2024', badge: 'Top 3' },
+  { title: 'Team Collaboration', category: 'Career Insight', img: auro, description: 'Lessons from group projects and hackathons.', date: 'Aug 2024', badge: 'Teamwork' },
+  { title: 'Inter-College Ideathon', category: 'Achievement', img: idea, description: 'Pitched a product idea at an inter-college ideathon.', date: 'Jul 2024', badge: 'Creative' },
+  { title: 'AI Technologies — Debate', category: 'Career Insight', img: debate, description: 'Discussed the impact of AI on society and industry.', date: 'Jun 2024', badge: 'Growth' },
+];
+
+const sets = [
+  { icon: Code2, title: 'Clean Code Advocate', description: 'Maintainable, well-documented code following industry standards.', badge: 'Quality' },
+  { icon: Briefcase, title: 'ERP & Payroll Domain', description: 'Hands-on with business logic, modules, and payroll workflows.', badge: 'Domain' },
+  { icon: Zap, title: 'Fast Learner', description: 'Adapts quickly to new tools, frameworks, and team conventions.', badge: 'Adaptable' },
+  { icon: Users, title: 'Team Collaborator', description: 'Comfortable in group projects, hackathons, and code reviews.', badge: 'Team' },
+  { icon: Lightbulb, title: 'Problem Solver', description: '150+ DSA problems solved with consistent daily practice.', badge: 'Analytical' },
+  { icon: Target, title: 'Goal Oriented', description: 'Structured approach to learning and shipping production work.', badge: 'Driven' },
+];
+
+const tabs = [
+  { id: 'overview', label: 'Overview', icon: User },
+  { id: 'education', label: 'Education', icon: BookOpen },
+];
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const stats = [
-    { label: 'Problem Solved', value: '150+', icon: TrendingUp, trend: '+15 this month' },
-    { label: 'Projects Built', value: '8+', icon: Rocket, trend: '2 in progress' },
-    { label: 'Technologies', value: '15+', icon: Code2, trend: '3 learning' },
-    { label: 'GitHub Commits', value: '400+', icon: Globe, trend: 'Daily active' },
-  ];
-
-  
-
-  const interests = [
-    { icon: Coffee, label: 'Tech Generalist' },
-    { icon: Heart, label: 'Open Source Explorer' },
-    { icon: Calendar, label: 'Continuous Learner' },
-    { icon: MapPin, label: 'Problem Solver' },
-  ];
-
-  const tabs = [
-    { id: 'overview', label: 'Overview', icon: User },
-    { id: 'education', label: 'Education', icon: BookOpen },
-    // { id: 'metrics', label: 'Metrics', icon: TrendingUp },
-    // { id: 'timeline', label: 'Journey', icon: Clock }
-  ];
 
   return (
-    <section id="about" className="py-3 bg-gradient-hero ">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20 ">
-        {/* Header with Live Status */}
-        <div className="text-center mb-5">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gradient">
-            About Me
+    <section id="about" className="relative pt-28 pb-24 bg-gradient-hero noise overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" aria-hidden />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs tracking-wide text-muted-foreground mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            About me
+          </div>
+          <h2 className="font-serif text-5xl md:text-6xl leading-[1] mb-5">
+            A <span className="text-gradient italic">software developer</span><br />
+            building things that ship.
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Get to know more about my journey, passion, and what drives me as a fresh graduate
+          <p className="text-base md:text-lg text-muted-foreground">
+            Focused on the .NET ecosystem and ERP & Payroll domain. I care about clean architecture,
+            reliable systems, and developer experience.
           </p>
-          <div className="text-sm text-muted-foreground mt-2">
-            Last updated: {currentTime.toLocaleString()}
+        </div>
+
+        {/* Tabs */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex items-center gap-1 rounded-full glass p-1">
+            {tabs.map((t) => {
+              const active = activeTab === t.id;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setActiveTab(t.id)}
+                  className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-smooth ${
+                    active ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {active && <span className="absolute inset-0 rounded-full bg-gradient-gold shadow-soft" />}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <t.icon className="h-4 w-4" />
+                    {t.label}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Interactive Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full transition-smooth ${
-                activeTab === tab.id 
-                  ? 'bg-gradient-primary text-primary-foreground shadow-glow' 
-                  : 'bg-card hover:bg-muted border border-border'
-              }`}
-            >
-              <tab.icon className="h-4 w-4" />
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Dynamic Content Based on Active Tab */}
+        {/* OVERVIEW */}
         {activeTab === 'overview' && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-fade-in">
-            {/* Enhanced Profile Content */}
-            <div className="space-y-6">
-              <div className="relative">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Ready to Start My Tech Journey
-                </h3>
-                <div className="absolute -top-2 -right-2">
-                  <Badge variant="secondary" className="animate-pulse">🚀 Fresh Graduate</Badge>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 items-start"
+          >
+            {/* Story card */}
+            <Card className="glass border-border/60 overflow-hidden">
+              <CardContent className="p-8 md:p-10 space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="h-8 w-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
+                    <User className="w-4 h-4 text-primary" />
+                  </span>
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">My story</span>
                 </div>
-              </div>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-               I’m passionate about building a career in software development with a strong interest in AI-driven applications. My journey began with curiosity about how modern platforms work, which led me to hands-on experience in building production-level, SaaS-style web applications using modern software engineering practices.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-               I focus on writing clean, efficient, and scalable code while creating reliable, user-centric systems. I enjoy building production-ready solutions, learning new technologies, and solving real-world problems, with a growing interest in integrating AI into scalable SaaS products that deliver meaningful impact.
-              </p>
 
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {interests.map((interest, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-card hover-lift transition-smooth hover:scale-105">
-                    <interest.icon className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">{interest.label}</span>
+                <h3 className="font-serif text-3xl md:text-4xl leading-tight">
+                  Building reliable business apps in the <span className="text-primary italic">.NET</span> world.
+                </h3>
+
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    I'm a software developer focused on the .NET ecosystem with hands-on experience across
+                    <span className="text-foreground"> ERP and Payroll </span> systems. My work emphasizes clean
+                    architecture, predictable data models, and code that's easy for the next developer to read.
+                  </p>
+                  <p>
+                    Currently learning <span className="text-foreground">ASP.NET</span> in depth alongside modern
+                    web tooling. I enjoy turning messy business requirements into small, well-tested pieces of software.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 pt-2">
+                  {interests.map((i) => (
+                    <div key={i.label} className="flex items-center gap-3 rounded-xl border border-border/60 bg-card/40 px-4 py-3 hover:border-primary/40 transition-smooth">
+                      <i.icon className="h-4 w-4 text-primary" />
+                      <span className="text-sm text-foreground">{i.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.05 * i }}
+                  className="group relative rounded-2xl glass p-6 hover:border-primary/40 transition-smooth overflow-hidden"
+                >
+                  <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <s.icon className="w-5 h-5 text-primary mb-4" />
+                  <div className="font-serif text-4xl md:text-5xl text-gradient leading-none mb-2">
+                    {s.value}
                   </div>
+                  <div className="text-sm font-medium text-foreground">{s.label}</div>
+                  <div className="text-[11px] text-muted-foreground mt-1 font-mono">{s.hint}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* EDUCATION */}
+        {activeTab === 'education' && (
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="relative pl-6 md:pl-8">
+              {/* Timeline rail */}
+              <div className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border to-transparent" />
+
+              <div className="space-y-6">
+                {education.map((e, i) => (
+                  <motion.div
+                    key={e.degree}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.08 * i }}
+                    className="relative"
+                  >
+                    {/* Dot */}
+                    <span className="absolute -left-[22px] md:-left-[26px] top-7 h-3 w-3 rounded-full bg-primary shadow-glow ring-4 ring-background" />
+
+                    <Card className="glass border-border/60 hover:border-primary/40 transition-smooth">
+                      <CardContent className="p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-6 justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <GraduationCap className="w-4 h-4 text-primary" />
+                            <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground font-mono">
+                              {e.period}
+                            </span>
+                          </div>
+                          <h4 className="font-serif text-xl md:text-2xl text-foreground leading-snug mb-1">{e.degree}</h4>
+                          <p className="text-sm text-muted-foreground">{e.school}</p>
+                          <p className="text-xs text-muted-foreground/80 mt-1 flex items-center gap-1.5">
+                            <MapPin className="w-3 h-3" /> {e.location}
+                          </p>
+                        </div>
+                        <div className="text-center md:text-right md:min-w-[120px]">
+                          <div className="font-serif text-3xl text-gradient leading-none">{e.score}</div>
+                          <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{e.scoreLabel}</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
             </div>
-
-            {/* Enhanced Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <Card key={index} className="text-center hover-lift shadow-card group">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center group-hover:animate-glow">
-                      <stat.icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium mb-1">
-                      {stat.label}
-                    </div>
-                    <div className="text-xs text-primary">
-                      {stat.trend}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         )}
 
-        {activeTab === 'education' && (
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <Card className="hover-lift shadow-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-gradient">
-                  <BookOpen className="h-6 w-6" />
-                  Educational Background
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-               <div className="bg-gradient-hero p-6 rounded-lg border">
-                  <div className="flex items-start justify-between ">
-                        <div>
-                          <h5 className="text-xl font-bold text-foreground">B.E. Electronics And Communication Engineering (Hons.)</h5>
-                              <p className="text-muted-foreground">IFET College Of Engineering  • 2022- 2026</p>   
-                              <p className="text-muted-foreground">Villupuram - 605108</p>
-
-                        </div>
-                        <div className=" ">
-                        <div className="text-center p-5 bg-card rounded-lg">
-                          <div className="text-2xl font-bold text-gradient">8.25</div>
-                          <div className="text-sm text-muted-foreground">CGPA / 10.0</div>
-                        </div>
-                  </div>
-                  </div>
-                </div>
-
-             <div className="bg-gradient-hero p-6 rounded-lg border">
-                  <div className="flex items-start justify-between ">
-                        <div>
-                          <h5 className="text-xl font-bold text-foreground">Higher Secondary</h5>
-                              <p className="text-muted-foreground">Vivekananda Hr Sec School  • 2020- 2022</p>   
-                              <p className="text-muted-foreground">Sholavandan, Madurai - 625214</p>
-
-                        </div>
-                        <div className=" ">
-                        <div className="text-center p-5 bg-card rounded-lg">
-                          <div className="text-2xl font-bold text-gradient">83.33%</div>
-                          <div className="text-sm text-muted-foreground">Percentage / 100</div>
-                        </div>
-                  </div>
-                  </div>
-                </div>
-
-
-
-                <div className="bg-gradient-hero p-6 rounded-lg border">
-                  <div className="flex items-start justify-between ">
-                        <div>
-                          <h5 className="text-xl font-bold text-foreground">SSLC</h5>
-                              <p className="text-muted-foreground">Saraswathi Matric Hr Sec School • 2019-2020</p>   
-                              <p className="text-muted-foreground">Villupuram - 605602</p>
-
-                        </div>
-                        <div className=" ">
-                        <div className="text-center p-5 bg-card rounded-lg">
-                          <div className="text-2xl font-bold text-gradient">75.2%</div>
-                          <div className="text-sm text-muted-foreground">Percentage / 100</div>
-                        </div>
-                  </div>
-                  </div>
-                </div>
-
-
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
-        {/* Professional Vlogs Section */}
-        <div className="mt-20">
+        {/* What sets me apart */}
+        <div className="mt-28">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Video className="h-6 w-6 text-primary" />
-              <h3 className="text-2xl md:text-3xl font-bold text-gradient">
-                Professional Gallery
-              </h3>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs tracking-wide text-muted-foreground mb-5">
+              <Award className="w-3.5 h-3.5 text-primary" />
+              What sets me apart
             </div>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight">
+              Engineering <span className="text-gradient italic">strengths</span> recruiters care about.
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {sets.map((s, i) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.04 * i }}
+                className="group relative rounded-2xl glass p-6 hover-lift overflow-hidden"
+              >
+                <div className="absolute top-4 right-4">
+                  <Badge variant="outline" className="text-[10px] font-mono border-border/60 text-muted-foreground">
+                    {s.badge}
+                  </Badge>
+                </div>
+                <div className="h-11 w-11 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-smooth">
+                  <s.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground" />
+                </div>
+                <h4 className="font-serif text-xl text-foreground mb-2">{s.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Professional Gallery */}
+        <div className="mt-28">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs tracking-wide text-muted-foreground mb-5">
+              <Video className="w-3.5 h-3.5 text-primary" />
+              Professional Gallery
+            </div>
+            <h3 className="font-serif text-4xl md:text-5xl leading-tight mb-3">
+              Career <span className="text-gradient italic">moments</span> & milestones.
+            </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Career insights, achievements, and milestones from my professional journey
+              Hackathons, recognitions, and learning experiences from my professional journey.
             </p>
           </div>
 
-
-          {/* Gallery Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Smart India  Hackathon - 2023 Finalist',
-                category: 'Achievement',
-                img: sih,
-                link: 'https://www.linkedin.com/posts/sharansidh-jr_newabrdelhi-sihgrandfinale-hackathonexperience-activity-7151229167886307328-GCko?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM',
-                description: 'Got selected as a finalist in SIH 2023 among 50000+ teams nationwide',
-                date: 'Dec 2023',
-                badge: 'Milestone'
-              },
-              {
-                title: '1st Prize in National Level Sysmposium',
-                category: 'Career Insight',
-                img: pic1,
-                description: 'Got 1st prize for my innovative project presentation at the symposium',
-                date: 'March 2025',
-                badge: 'Learning'
-              },
-              {
-                title: '3rd Prize in Paper Presentation',
-                category: 'Achievement',
-                img: pic,
-                description: 'Grabbed 3rd prize for presenting research on emerging tech trends',
-                date: 'January 2024',
-                badge: 'Technical'
-              },
-              {
-                title: 'Team Collaboration',
-                category: 'Career Insight',
-                img: auro,
-                description: 'Lessons learned from group projects and hackathons',
-                date: 'Aug 2024',
-                badge: 'Teamwork'
-              },
-              {
-                title: 'Inter College Ideathon',
-                category: 'Achievement',
-                img: idea,
-                description: 'Creating a professional portfolio to showcase my work',
-                date: 'Jul 2024',
-                badge: 'Creative'
-              },
-              {
-                title: 'Debate on AI Technologies',
-                category: 'Career Insight',
-                img: debate,
-                description: 'Participated in a debate discussing the impact of AI on society',
-                date: 'Jun 2024',
-                badge: 'Growth'
-              }
-            ].map((vlog, index) => (
-              <Card key={index} className="overflow-hidden hover-lift shadow-card group cursor-pointer">
-                <div className="relative aspect-video bg-gradient-hero">
-                  {/* Visible thumbnail */}
-                  <img src={vlog.img} alt={vlog.title} className="absolute inset-0 w-full h-full object-cover" />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-smooth">
-                    <a  target='_blank'  href={vlog.link}>
-                    <div className="w-40 h-12 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center text-sm text-white">View                      
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {gallery.map((g, i) => (
+              <motion.div
+                key={g.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.04 * i }}
+              >
+                <Card className="group glass border-border/60 overflow-hidden hover-lift">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={g.img}
+                      alt={g.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <Badge className="bg-background/70 backdrop-blur text-foreground border border-border/60 text-[10px]">
+                        {g.badge}
+                      </Badge>
                     </div>
-                    </a>
+                    {g.link && (
+                      <a
+                        href={g.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${g.title}`}
+                        className="absolute top-3 right-3 h-8 w-8 rounded-full glass-strong flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-smooth"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
-                  <div className="absolute top-3 right-3">
-                    <Badge variant="secondary" className="text-xs">{vlog.badge}</Badge>
-                  </div>
-                </div>
-                <CardContent className="p-5">
-                  <Badge variant="outline" className="mb-3 text-xs">{vlog.category}</Badge>
-                  <h4 className="font-bold mb-2 text-foreground line-clamp-1">
-                    {vlog.title}
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                    {vlog.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Clock className="h-3 w-3" />
-                    <span>{vlog.date}</span>
-                  </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-5">
+                    <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground mb-2 font-mono">
+                      <span>{g.category}</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" /> {g.date}
+                      </span>
+                    </div>
+                    <h4 className="font-serif text-lg text-foreground leading-snug mb-2 line-clamp-2">
+                      {g.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                      {g.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-
-
-
-        {/* What Sets Me Apart - Always Visible */}
-        <div className="mt-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            What Sets Me Apart as a Fresh Graduate
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Code2,
-                title: 'Clean Code Advocate',
-                description: 'I prioritize writing maintainable, well-documented code following industry best practices and coding standards.',
-                badge: 'Quality First'
-              },
-              {
-                icon: Zap,
-                title: 'Fast Learner',
-                description: 'Quickly adapt to new technologies and frameworks. Always eager to expand my skill set and take on new challenges.',
-                badge: 'Adaptable'
-              },
-              {
-                icon: Users,
-                title: 'Team Collaborator',
-                description: 'Experience working in team environments through group projects, hackathons, and open source contributions.',
-                badge: 'Team Player'
-              },
-              {
-                icon: Lightbulb,
-                title: 'Problem Solver',
-                description: 'Strong analytical thinking with 150+ LeetCode problems solved and consistent practice on coding platforms.',
-                badge: 'Analytical'
-              },
-              {
-                icon: Rocket,
-                title: 'Innovation Focused',
-                description: 'Passionate about emerging technologies like AI/ML and always exploring new ways to solve problems efficiently.',
-                badge: 'Future Ready'
-              },
-              {
-                icon: Target,
-                title: 'Goal Oriented',
-                description: 'Committed to continuous learning with clear career goals and a structured approach to skill development.',
-                badge: 'Driven'
-              }
-            ].map((item, index) => (
-              <Card key={index} className="text-center hover-lift shadow-card p-6 group relative overflow-hidden">
-                <div className="absolute top-2 right-2">
-                  <Badge variant="outline" className="text-xs">{item.badge}</Badge>
-                </div>
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-primary rounded-full flex items-center justify-center group-hover:animate-glow">
-                  <item.icon className="h-8 w-8 text-primary-foreground" />
-                </div>
-                <h4 className="text-xl font-bold mb-3 text-gradient">{item.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-
       </div>
     </section>
   );
