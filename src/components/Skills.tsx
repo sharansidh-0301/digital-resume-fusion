@@ -1,490 +1,237 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { 
-  Code2, 
-  Server, 
-  Database, 
-  Cloud, 
-  Globe, 
-  GitBranch, 
-  Terminal,
-  Brain,
-  Sparkles,
-  Cpu,
-  Palette,
-  FileCode,
-  Settings,
-  Layers,
-  Zap
+import {
+  Code2, Globe, GitBranch, Terminal, Brain, Sparkles, Database, Cloud, Palette,
+  FileCode, Boxes, Bot, Layers, Cpu, Wrench, Server, Hash, Triangle, Container,
+  Workflow, BookOpen, Network, ArrowUpRight
 } from 'lucide-react';
 
-const skillCategories = [
-  
-    {
+type Level = 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+
+interface Skill {
+  name: string;
+  level: Level;
+  icon: any;
+  trending?: boolean;
+}
+
+interface Category {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: any;
+  skills: Skill[];
+}
+
+const categories: Category[] = [
+  {
     id: 'web',
-    icon: Globe,
     title: 'Web Technologies',
-    color: 'from-blue-500 to-cyan-500',
-    description: 'Frontend & Backend web development stack',
+    subtitle: 'Frontend, backend, and the languages I ship with',
+    icon: Globe,
     skills: [
-      { name: 'Python', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
-      { name: 'Java', level: 65, experience: 'Intermediate', icon: Code2, trending: false },
-      { name: 'C', level: 50, experience: 'Intermediate', icon: Code2, trending: false },
-      { name: 'React', level: 50, experience: 'Intermediate', icon: Code2, trending: true },
-      { name: 'Spring Boot', level: 55, experience: 'Intermediate', icon: Zap, trending: true },
-      { name: 'Django', level: 40, experience: 'Beginner', icon: FileCode, trending: false },
-      { name: 'JavaScript', level: 55, experience: 'Intermeditae', icon: FileCode, trending: false },
-      { name: 'HTML5', level: 95, experience: 'Expert', icon: Code2, trending: false },
-      { name: 'CSS3', level: 90, experience: 'Expert', icon: Palette, trending: false },
-      { name: 'Tailwind CSS', level: 60, experience: 'Intermediate', icon: Palette, trending: false },
-      { name: 'SQL', level: 65, experience: 'Intermediate', icon: Database, trending: false },
-      { name: 'MongoDB', level: 30, experience: 'Beginner', icon: Database, trending: true },
-    ]
+      { name: 'JavaScript', level: 'Intermediate', icon: FileCode },
+      { name: 'TypeScript', level: 'Intermediate', icon: FileCode, trending: true },
+      { name: 'React', level: 'Intermediate', icon: Code2, trending: true },
+      { name: 'HTML5', level: 'Expert', icon: Code2 },
+      { name: 'CSS3', level: 'Expert', icon: Palette },
+      { name: 'Tailwind CSS', level: 'Intermediate', icon: Palette },
+      { name: 'Java', level: 'Intermediate', icon: Code2 },
+      { name: 'Python', level: 'Intermediate', icon: Code2 },
+      { name: 'C', level: 'Intermediate', icon: Code2 },
+      { name: 'Spring Boot', level: 'Intermediate', icon: Boxes, trending: true },
+      { name: 'Django', level: 'Beginner', icon: Server },
+      { name: 'REST APIs', level: 'Intermediate', icon: Network },
+      { name: 'SQL', level: 'Intermediate', icon: Database },
+      { name: 'MongoDB', level: 'Beginner', icon: Database, trending: true },
+    ],
   },
   {
     id: 'ai',
+    title: 'AI / ML',
+    subtitle: 'Models, agents, and the surrounding tooling',
     icon: Brain,
-    title: 'AI',
-    color: 'from-purple-500 to-pink-500',
-    description: 'Artificial intelligence',
     skills: [
-      { name: 'Python', level: 85, experience: 'Intermediate', icon: Code2, trending: true },
-      { name: 'Generative AI', level: 45, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'RAG', level: 25, experience: 'Beginner', icon: Settings, trending: true },
-      { name: 'LangChain', level: 55, experience: 'Intermediate', icon: Settings, trending: false },
-      { name: 'MCP Server', level: 40, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'LLMs', level: 30, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'PyTorch', level: 25, experience: 'Beginner', icon: Settings, trending: false },
-      { name: 'Agentic AI', level: 20, experience: 'Beginner', icon: Brain, trending: true },
-      { name: 'AI Agents', level: 25, experience: 'Beginner', icon: Settings, trending: true },
-      { name: 'Pandas', level: 20, experience: 'Beginner', icon: Database, trending: false },
-      { name: 'Fuzzy Logic', level: 25, experience: 'Beginner', icon: Settings, trending: false },
-      { name: 'Machine Learning', level: 45, experience: 'Intermediate', icon: Brain, trending: false},
-      { name: 'Deep Learning', level: 40, experience: 'Intermediate', icon: Database, trending: false },
-      { name: 'Neural Networks', level: 40, experience: 'Beginner', icon: Brain, trending: false },
-
-    ]
+      { name: 'Python', level: 'Advanced', icon: Code2, trending: true },
+      { name: 'Machine Learning', level: 'Intermediate', icon: Brain },
+      { name: 'Deep Learning', level: 'Intermediate', icon: Cpu },
+      { name: 'Neural Networks', level: 'Beginner', icon: Network },
+      { name: 'PyTorch', level: 'Beginner', icon: Cpu },
+      { name: 'Generative AI', level: 'Beginner', icon: Sparkles, trending: true },
+      { name: 'LLMs', level: 'Beginner', icon: Brain, trending: true },
+      { name: 'LangChain', level: 'Intermediate', icon: Workflow },
+      { name: 'RAG', level: 'Beginner', icon: BookOpen, trending: true },
+      { name: 'Agentic AI', level: 'Beginner', icon: Bot, trending: true },
+      { name: 'AI Agents', level: 'Beginner', icon: Bot, trending: true },
+      { name: 'MCP Server', level: 'Beginner', icon: Server, trending: true },
+      { name: 'Pandas', level: 'Beginner', icon: Database },
+      { name: 'Fuzzy Logic', level: 'Beginner', icon: Layers },
+    ],
   },
-
   {
     id: 'tools',
-    icon: Terminal,
     title: 'Developer Tools',
-    color: 'from-green-500 to-emerald-500',
-    description: 'Development environment & productivity tools',
+    subtitle: 'My day-to-day environment and productivity stack',
+    icon: Terminal,
     skills: [
-      { name: 'Git/GitHub', level: 90, experience: 'Expert', icon: GitBranch, trending: false },
-      { name: 'VS Code', level: 95, experience: 'Expert', icon: Code2, trending: false },
-      { name: 'Eclipse IDE', level: 85, experience: 'Advanced', icon: Code2, trending: false },
-      { name: 'PyCharm', level: 40, experience: 'Beginner', icon: Code2, trending: false },
-      { name: 'n8n', level: 85, experience: 'Advanced', icon: Code2, trending: false },
-      { name: 'Firebase', level: 75, experience: 'Intermediate', icon: Cloud, trending: true },
-      { name: 'Vercel', level: 80, experience: 'Advanced', icon: Cloud, trending: true },
-      { name: 'Figma', level: 72, experience: 'Intermediate', icon: Palette, trending: false },
-      { name: 'Jupyter Notebook', level: 82, experience: 'Advanced', icon: FileCode, trending: false },
-
-    ]
-  }
+      { name: 'Git / GitHub', level: 'Expert', icon: GitBranch },
+      { name: 'VS Code', level: 'Expert', icon: Code2 },
+      { name: 'Eclipse IDE', level: 'Advanced', icon: Code2 },
+      { name: 'PyCharm', level: 'Beginner', icon: Code2 },
+      { name: 'Jupyter Notebook', level: 'Advanced', icon: FileCode },
+      { name: 'n8n', level: 'Advanced', icon: Workflow },
+      { name: 'Firebase', level: 'Intermediate', icon: Cloud, trending: true },
+      { name: 'Vercel', level: 'Advanced', icon: Triangle, trending: true },
+      { name: 'Figma', level: 'Intermediate', icon: Palette },
+      { name: 'Postman', level: 'Intermediate', icon: Network },
+    ],
+  },
 ];
 
-// Animated background particles component
-const CodeParticles = () => {
-  const particles = ['{ }', '< />', '[ ]', '( )', '=>', '&&', '||', '++', '--', '==='];
-  
+const levelStyles: Record<Level, { dot: string; label: string; dots: number }> = {
+  Beginner:     { dot: 'bg-muted-foreground/60', label: 'text-muted-foreground',   dots: 1 },
+  Intermediate: { dot: 'bg-primary/70',          label: 'text-primary/90',         dots: 2 },
+  Advanced:     { dot: 'bg-primary',             label: 'text-primary',            dots: 3 },
+  Expert:       { dot: 'bg-primary-glow',        label: 'text-primary-glow',       dots: 4 },
+};
+
+const LevelDots = ({ level }: { level: Level }) => {
+  const { dots } = levelStyles[level];
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle, index) => (
-        <motion.div
-          key={index}
-          className="absolute text-primary/20 font-mono text-sm"
-          initial={{ 
-            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-            opacity: 0 
-          }}
-          animate={{
-            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
-            y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-            opacity: [0, 0.7, 0],
-          }}
-          transition={{
-            duration: 10 + Math.random() * 10,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        >
-          {particle}
-        </motion.div>
+    <div className="flex items-center gap-0.5" aria-label={`${level} proficiency`}>
+      {[0, 1, 2, 3].map((i) => (
+        <span
+          key={i}
+          className={`h-1 w-3 rounded-full ${i < dots ? levelStyles[level].dot : 'bg-border'}`}
+        />
       ))}
     </div>
   );
 };
 
-// 3D Skill Card Component
-const SkillCard = ({ skill, index, isVisible }: { skill: any; index: number; isVisible: boolean }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const getExperienceBadge = (experience: string) => {
-    const variants = {
-      'Beginner': 'bg-gradient-to-r from-green-400 to-green-600',
-      'Intermediate': 'bg-gradient-to-r from-blue-400 to-blue-600', 
-      'Advanced': 'bg-gradient-to-r from-purple-400 to-purple-600',
-      'Expert': 'bg-gradient-to-r from-orange-400 to-orange-600'
-    };
-    return variants[experience] || variants['Beginner'];
-  };
+const SkillsEnhanced = () => {
+  const [active, setActive] = useState<string>('web');
+  const current = categories.find((c) => c.id === active)!;
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, rotateY: -30 }}
-      animate={isVisible ? { opacity: 1, y: 0, rotateY: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ 
-        scale: 1.05, 
-        rotateY: 10,
-        rotateX: 5,
-        transition: { duration: 0.3 }
-      }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      className="group relative"
-      style={{ perspective: '1000px' }}
-    >
-    <div className="relative p-6 rounded-2xl bg-gradient-to-br from-background/60 to-muted/60 backdrop-blur-xl border border-border/50 hover:border-primary/30 transition-all duration-500 overflow-hidden">
-        {/* Glassmorphism overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-        
-        <div className="relative z-10">
-          {/* Header with icon and trending indicator */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <motion.div 
-                className="p-2 rounded-lg bg-gradient-to-r from-primary/20 to-secondary/20"
-                animate={isHovered ? { scale: 1.2, rotate: 360 } : {}}
-                transition={{ duration: 0.5 }}
-              >
-                <skill.icon className="h-6 w-6 text-primary" />
-              </motion.div>
-              <div>
-                <h3 className="font-bold text-lg">{skill.name}</h3>
-                {skill.trending && (
-                  <motion.div 
-                    className="flex items-center gap-1 text-xs text-orange-500"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <Sparkles className="h-3 w-3" />
-                    <span>Trending</span>
-                  </motion.div>
-                )}
-              </div>
-            </div>
-            
-            {/* Experience badge */}
-            <div className={`px-3 py-1 rounded-full text-xs font-medium text-white ${getExperienceBadge(skill.experience)}`}>
-              {skill.experience}
-            </div>
-          </div>
-
-          {/* Progress section */}
-          <div className="space-y-3">
-            <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground">Proficiency</span>
-              <span className="font-medium">{skill.level}%</span>
-            </div>
-            
-            <div className="relative">
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={isVisible ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                />
-              </div>
-              {/* Glow effect on progress bar */}
-              <motion.div
-                className="absolute inset-0 h-2 bg-gradient-to-r from-primary/50 to-primary/30 rounded-full blur-sm"
-                initial={{ opacity: 0 }}
-                animate={isVisible ? { opacity: 0.6 } : {}}
-                transition={{ duration: 1, delay: index * 0.1 }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+  const totals = categories.reduce(
+    (acc, c) => acc + c.skills.length,
+    0
   );
-};
 
-// Category Timeline Component
-const CategoryTimeline = ({ categories, activeCategory, onCategoryChange }: any) => {
   return (
-    <div className="relative mb-  2">
-      {/* Desktop horizontal timeline */}
-      <div className="hidden lg:block">
-        <div className="flex justify-center items-center relative">
-          <div className="absolute h-1 bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20 w-full rounded-full" />
-          
-          {categories.map((category: any, index: number) => {
-            const IconComponent = category.icon;
-            const isActive = activeCategory === category.id;
-            
-            return (
-              <motion.div
-                key={category.id}
-                className="relative flex flex-col items-center cursor-pointer group"
-                style={{ flex: 1 }}
-                whileHover={{ scale: 1.1 }}
-                onClick={() => onCategoryChange(category.id)}
-              >
-                <motion.div
-                  className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    isActive 
-                      ? `bg-gradient-to-r ${category.color} shadow-lg` 
-                      : 'bg-background border-2 border-border hover:border-primary/50'
-                  }`}
-                  animate={isActive ? { scale: 1.2 } : { scale: 1 }}
-                >
-                  <IconComponent className={`h-6 w-6 ${isActive ? 'text-white' : 'text-muted-foreground'}`} />
-                  
-                  {/* Glow effect */}
-                  {isActive && (
-                    <motion.div
-                      className={`absolute inset-0 rounded-full bg-gradient-to-r ${category.color} blur-xl opacity-50`}
-                      animate={{ scale: [1, 1.5, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  )}
-                </motion.div>
-                
-                <motion.div
-                  className="mt-4 text-center"
-                  animate={isActive ? { y: 0, opacity: 1 } : { y: 10, opacity: 0.7 }}
-                >
-                  <h3 className={`font-semibold ${isActive ? 'text-primary' : 'text-muted-foreground'}`}>
-                    {category.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-1">{category.description}</p>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+    <section className="relative pt-28 pb-24 bg-gradient-hero noise overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" aria-hidden />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-xs tracking-wide text-muted-foreground mb-6">
+            <Hash className="w-3.5 h-3.5 text-primary" />
+            Skills & Stack
+          </div>
+          <h2 className="font-serif text-5xl md:text-6xl leading-[1] mb-5">
+            The <span className="text-gradient italic">toolkit</span> I build with.
+          </h2>
+          <p className="text-base md:text-lg text-muted-foreground">
+            {totals}+ technologies across web, AI/ML, and developer tooling — grouped by category so it's easy to scan.
+          </p>
         </div>
-      </div>
 
-      {/* Mobile carousel */}
-      <div className="lg:hidden">
-        <Carousel className="w-full max-w-sm mx-auto">
-          <CarouselContent>
-            {categories.map((category: any) => {
-              const IconComponent = category.icon;
-              const isActive = activeCategory === category.id;
-              
+        {/* Category tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex flex-wrap items-center gap-1 rounded-full glass p-1">
+            {categories.map((c) => {
+              const isActive = active === c.id;
               return (
-                <CarouselItem key={category.id} className="basis-1/2">
-                  <motion.div
-                    className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
-                      isActive 
-                        ? `bg-gradient-to-r ${category.color} text-white border-transparent` 
-                        : 'bg-background border-border hover:border-primary/50'
-                    }`}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => onCategoryChange(category.id)}
-                  >
-                    <div className="text-center">
-                      <IconComponent className="h-8 w-8 mx-auto mb-2" />
-                      <h3 className="font-semibold text-sm">{category.title}</h3>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
+                <button
+                  key={c.id}
+                  onClick={() => setActive(c.id)}
+                  className={`relative flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium transition-smooth ${
+                    isActive ? 'text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {isActive && <span className="absolute inset-0 rounded-full bg-gradient-gold shadow-soft" />}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <c.icon className="h-4 w-4" />
+                    {c.title}
+                    <span className="hidden sm:inline-block text-[10px] font-mono opacity-70">
+                      ({c.skills.length})
+                    </span>
+                  </span>
+                </button>
               );
             })}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
-      </div>
-    </div>
-  );
-};
+          </div>
+        </div>
 
-const SkillsEnhanced = () => {
-  const [activeCategory, setActiveCategory] = useState('web');
-  const [visibleSkills, setVisibleSkills] = useState<Set<string>>(new Set());
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimation();
-  const isInView = useInView(skillsRef, { once: true, amount: 0.3 });
+        {/* Category header */}
+        <div className="text-center mb-8">
+          <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-1">{current.title}</h3>
+          <p className="text-sm text-muted-foreground">{current.subtitle}</p>
+        </div>
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-
-  useEffect(() => {
-    if (!skillsRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const skillName = entry.target.getAttribute('data-skill');
-            if (skillName) {
-              setVisibleSkills(prev => new Set([...prev, skillName]));
-            }
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    const skillElements = skillsRef.current.querySelectorAll('[data-skill]');
-    skillElements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, [activeCategory]);
-
-  const currentCategory = skillCategories.find(cat => cat.id === activeCategory);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
-  return (
-  <section className="relative py-4 px-4 mb-10 bg-gradient-to-br from-primary/5 via-secondary/10 to-muted/30 overflow-hidden">
-      {/* Animated background */}
-      <CodeParticles />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div 
-          className="text-center mb-10"
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-        >
-         
-          <motion.h2 
-            className="text-4xl py-10 -mt-10 md:text-5xl lg:text-5xl font-bold  bg-gradient-to-r from-primary via-primary/80 to-secondary bg-clip-text text-transparent"
-            variants={itemVariants}
+        {/* Skills grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current.id}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 max-w-6xl mx-auto"
           >
-            Skills & Technologies
-          </motion.h2>
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
-            variants={itemVariants}
-          >
-            A comprehensive overview of my technical capabilities across web development, developer tools, and artificial intelligence
-          </motion.p>
-        </motion.div>
-
-        {/* Category Timeline/Carousel */}
-        <motion.div
-          initial="hidden"
-          animate={controls}
-          variants={itemVariants}
-        >
-          <CategoryTimeline 
-            categories={skillCategories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-        </motion.div>
-
-        {/* Skills Grid */}
-        <motion.div 
-          ref={skillsRef}
-          className="mt-8"
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-        >
-          {currentCategory && (
-            <div className="space-y-4">
-              <motion.div 
-                className="text-center"
-                variants={itemVariants}
-              >
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  {/* Icon removed as requested; keeping header spacing */}
-                </div>
-                <h3 className="text-3xl font-bold mb-2">{currentCategory.title}</h3>
-                <p className="text-muted-foreground text-lg">{currentCategory.description}</p>
-              </motion.div>
-
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                variants={containerVariants}
-              >
-                {currentCategory.skills.map((skill, index) => (
-                  <div key={skill.name} data-skill={skill.name}>
-                    <SkillCard 
-                      skill={skill} 
-                      index={index}
-                      isVisible={visibleSkills.has(skill.name)}
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          )}
-        </motion.div>
-
-       
-
-        {/* AI Keywords Section */}
-        <motion.div 
-          className="mt-10 text-center"
-          initial="hidden"
-          animate={controls}
-          variants={itemVariants}
-        >
-          <h3 className="text-2xl font-bold mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Key Areas of Expertise
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
-            {[
-              'Generative AI','Problem Solving', 'Logic Building', 'PC Building', 
-              'Server Building', 'Web Hosting', 'Agentic AI', 'Generative AI', 'LLMs',
-            ].map((keyword, index) => (
+            {current.skills.map((s, i) => (
               <motion.div
-                key={keyword}
-                className="px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 text-sm font-medium backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, backgroundColor: 'rgba(var(--primary), 0.1)' }}
+                key={`${current.id}-${s.name}`}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: i * 0.025 }}
+                className="group relative rounded-2xl glass p-4 hover:border-primary/40 hover-lift overflow-hidden"
               >
-                {keyword}
+                {/* Gold corner accent */}
+                <div className="absolute -top-10 -right-10 w-24 h-24 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {s.trending && (
+                  <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 text-[9px] uppercase tracking-wider font-mono text-primary">
+                    <Sparkles className="w-2.5 h-2.5" />
+                    Hot
+                  </span>
+                )}
+
+                <div className="relative flex items-start gap-3 mb-4">
+                  <div className="h-10 w-10 rounded-xl bg-card/60 border border-border/60 flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/10 transition-smooth">
+                    <s.icon className="w-4.5 h-4.5 text-primary" />
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="text-sm font-medium text-foreground leading-tight mb-3 truncate">
+                    {s.name}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <LevelDots level={s.level} />
+                    <span className={`text-[10px] uppercase tracking-wider font-mono ${levelStyles[s.level].label}`}>
+                      {s.level}
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Legend / footer */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[11px] font-mono text-muted-foreground">
+          {(['Beginner', 'Intermediate', 'Advanced', 'Expert'] as Level[]).map((lv) => (
+            <div key={lv} className="flex items-center gap-2">
+              <LevelDots level={lv} />
+              <span className={levelStyles[lv].label}>{lv}</span>
+            </div>
+          ))}
+          <span className="hidden md:inline-flex items-center gap-1 text-primary">
+            <Sparkles className="w-3 h-3" /> Trending — actively learning
+          </span>
+        </div>
       </div>
     </section>
   );
