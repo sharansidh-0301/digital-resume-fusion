@@ -9,7 +9,7 @@ import pic from '../assets/pic.jpg';
 import auro from '../assets/auro.jpg';
 import idea from '../assets/idea.jpg';
 import debate from '../assets/debate.jpg';
-import { link } from 'fs';
+
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('overview');
