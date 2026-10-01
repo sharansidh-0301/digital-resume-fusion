@@ -1,255 +1,35 @@
-import React from 'react';
-import { ExternalLink, Github, Calendar, Star, GitFork } from 'lucide-react';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink, Github, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import project1 from '@/assets/llm-data-checker.png';
-import project2 from '@/assets/project-2.png';
-import project3 from '@/assets/iot-sewage.png';
-import project4 from '@/assets/ChatBOx.png';
-import project6 from '@/assets/project6.png';
-const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: 'Query Gen AI - An Intelligent SQL Assistant',
-      description: 'A Generative AI-based SQL assistant that converts plain English prompts into safe MySQL queries using FastAPI and OpenRouter, featuring a real-time results dashboard and secure read-only operations.',
-      image: project6,
-      technologies: ['Python','MySQL','OpenRouter','React', 'Tailwind CSS', 'FastAPI', 'Responsive Design'],
-      liveUrl: 'https://query-gen-ai-two.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/Query-GenAI/',
-      date: 'Nov 2025',
-      stars: 2,
-      forks: 1,
-      featured: true,
-    },
-    
-    {
-      id: 2,
-      title: 'LLM-Powered Data Quality Analyzer',
-      description: 'Built an AI-powered data quality analyzer that evaluates CSV datasets and uses LLM-driven reasoning to generate clear insights and actionable quality recommendations.',
-      image: project1,
-      technologies: ['GPT-2 LLM', 'Fast API','React', 'Pandas'],
-      liveUrl: 'https://llm-powered-data-quality-analyzer.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/llm-powered-data-quality-checker',
-      date: 'Dec 2025',
-      stars: 2,
-      forks: 2,
-      featured: true,
-    },
-    {
-      id: 3,
-      title: 'IoT Based Sewage Sentinel System',
-      description: 'Full-stack IoT sewage gas monitoring system using ESP32 and MQ sensors with cloud integration for real-time monitoring and safety alerts.',
-      image: project3,
-      technologies: ['ESP32','MQ-Sensors', 'REST API','React'],
-      liveUrl: 'https://iot-sewage-gaurd-platform.vercel.app/',
-      githubUrl: 'https://github.com/sharansidh-0301/IoT-SewageGaurd-Platform/',
-      date: '2023-25',
-      stars: 1,
-      forks: 2,
-      featured: false,
-    },
-    {
-      id: 4,
-      title: 'Shop Owner Module in Shopping Mall',
-      description: 'A full-stack Shop Owner Module in Shopping Mall application  CRUD operations, and real-time updates.',
-      image: project2,
-      technologies: ['Spring Boot', 'REST   API','Angular', 'PostgreSQL', 'POSTMAN','JPA'],
-      liveUrl: '0',
-      githubUrl: 'https://github.com/sharansidh-0301/TNSIF-JAVA-SHARANSIDH-JR/tree/master/ShopOwner%20Module',
-      date: 'Oct 2025',
-      stars: 18,
-      forks: 12,
-      featured: false,
-    },
-    {
-      id: 5,
-      title: 'AI Assistant Chat Application',
-      description: 'A real-time AI-assistant chat application build with python and Gemini API. It allows users to interact with an AI assistant for various tasks and queries.',      
-      image: project4,
-      technologies: ['Python', 'Gemini API', 'VS Code'],
-      githubUrl: 'https://github.com/sharansidh-0301/Pythom-Agents/tree/main/ChatBox%20Using%20Gemini',
-      date: 'June 2025',
-      stars: 1,
-      forks: 1,
-      featured: false,
-    },
-    
-    
-   
-  ];
+import queryImage from '@/assets/project6.webp';
+import shopImage from '@/assets/project-2.webp';
+import sewageImage from '@/assets/iot-sewage.webp';
 
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
+const projects = [
+  { code: 'CASE-001', title: 'Query Gen AI — Natural Language to SQL', description: 'Converts plain-language questions into SQL queries through a FastAPI and React workflow backed by MySQL, Python, and NLP.', image: queryImage, technologies: ['Python', 'FastAPI', 'React', 'MySQL', 'NLP'], liveUrl: 'https://query-gen-ai-two.vercel.app/', githubUrl: 'https://github.com/sharansidh-0301/Query-GenAI/', signal: 'Data access & query safety' },
+  { code: 'CASE-002', title: 'IoT Sewage Gas Monitoring', description: 'Monitors sewage gas levels using ESP32 and MQ sensors, with a React interface and REST API for visibility and safety alerts.', image: sewageImage, technologies: ['ESP32', 'MQ Sensors', 'React', 'REST API'], liveUrl: 'https://iot-sewage-gaurd-platform.vercel.app/', githubUrl: 'https://github.com/sharansidh-0301/IoT-SewageGaurd-Platform/', signal: 'Monitoring & alerting' },
+  { code: 'CASE-003', title: 'Shopping Mall — Shop Owner Module', description: 'A Java and Spring Boot module for shop-owner operations, persistence, and REST-based workflows using PostgreSQL.', image: shopImage, technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'REST APIs'], githubUrl: 'https://github.com/sharansidh-0301/TNSIF-JAVA-SHARANSIDH-JR/tree/master/ShopOwner%20Module', signal: 'Application & API foundations' },
+];
 
-  return (
-    <section id="projects" className="py-5 bg-gradient-hero">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-gradient">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my best work and the projects I'm most proud of
-          </p>
-        </div>
-
-        {/* Featured Projects */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {featuredProjects.map((project) => (
-            <Card key={project.id} className="overflow-hidden hover-lift shadow-card group">
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover transition-smooth group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-smooth"></div>
-                <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
-                  Featured
-                </Badge>
-              </div>
-              
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
-                    {project.date}
-                  </div>
-                </div>
-              </CardHeader>
-              
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-                
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4" />
-                    {project.stars}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <GitFork className="h-4 w-4" />
-                    {project.forks}
-                  </div>
-                </div>
-              </CardContent>
-              
-              <CardFooter className="flex gap-3">
-                <a href={project.liveUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
-                 <Button variant="default" size="sm"  className='flex-1'>
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                    Live
-                </Button> 
-                </a>
-                <a href={project.githubUrl} className="flex  w-full" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className='flex-1'>
-                  <Github className="h-4 w-4 mr-2" />
-                  Source Code
-                </Button>
-                </a>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-
-        {/* Other Projects Grid */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gradient">
-            Other Projects
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover-lift shadow-card group">
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-smooth group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 transition-smooth"></div>
-                </div>
-                
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-lg font-bold">{project.title}</CardTitle>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      {project.date}
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="pt-0">
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-3">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {project.technologies.slice(0, 3).map((tech, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.technologies.length - 3}
-                      </Badge>
-                    )}
-                  </div>
-                  
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                    <div className="flex items-center gap-1">
-                      <Star className="h-3 w-3" />
-                      {project.stars}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <GitFork className="h-3 w-3" />
-                      {project.forks}
-                    </div>
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="flex gap-2 pt-0">
-                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex w-full">
-                     <Button variant="ghost" size="sm" className="flex-1 text-xs">
-                      <Github className="h-3 w-3 mr-1" />
-                       Source Code
-                     </Button>
-                 </a>
-                  
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold mb-4">Want to see more of my work?</h3>
-          <p className="text-muted-foreground mb-8">
-            Check out my GitHub profile for more projects and contributions
-          </p>
-          <Button variant="hero" size="lg">
-            <a href="https://github.com/sharansidh-0301?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex items-center">
-              <Github className="h-5 w-5 mr-2" />
-            View All Projects on GitHub
-            </a>
-          </Button>
-        </div>
+const Projects = () => (
+  <section id="projects" className="relative min-h-screen overflow-hidden bg-gradient-hero pt-24 pb-20 noise">
+    <div className="absolute inset-0 bg-grid-pattern opacity-45" aria-hidden />
+    <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid gap-8 border-b border-border pb-10 lg:grid-cols-[.7fr_1.3fr]"><div className="font-mono text-xs uppercase text-primary">Project intelligence / 03 case files</div><div><h1 className="text-4xl sm:text-5xl lg:text-6xl">Systems examined through an engineering lens.</h1><p className="mt-4 max-w-2xl text-muted-foreground">Résumé-backed work across data, monitoring, APIs, and application logic—foundations that support secure-system thinking.</p></div></div>
+      <div className="mt-10 space-y-6">
+        {projects.map((project, index) => (
+          <article key={project.code} className="grid overflow-hidden border border-border bg-card/55 lg:grid-cols-[.75fr_1.25fr]">
+            <div className="relative min-h-64 overflow-hidden border-b border-border lg:border-b-0 lg:border-r"><img src={project.image} alt={project.title} loading="lazy" className="absolute inset-0 h-full w-full object-cover grayscale transition duration-300 hover:grayscale-0" /><div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" /><span className="absolute left-4 top-4 bg-background/90 px-3 py-2 font-mono text-[10px] text-primary">{project.code}</span></div>
+            <div className="flex flex-col p-6 sm:p-8">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase text-primary"><ShieldCheck className="h-4 w-4" />{project.signal}</div>
+              <h2 className="mt-4 text-2xl sm:text-3xl">{project.title}</h2><p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">{project.description}</p>
+              <div className="mt-6 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="border border-border px-3 py-1.5 font-mono text-[10px] uppercase text-muted-foreground">{tech}</span>)}</div>
+              <div className="mt-8 flex flex-wrap gap-3 lg:mt-auto lg:pt-8">{project.liveUrl && <Button asChild className="rounded-none"><a href={project.liveUrl} target="_blank" rel="noreferrer"><ExternalLink />Live system</a></Button>}<Button variant="outline" asChild className="rounded-none"><a href={project.githubUrl} target="_blank" rel="noreferrer"><Github />Source code</a></Button></div>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
-  );
-};
-
+      <div className="mt-10 text-center"><Button variant="outline" asChild className="rounded-none border-primary/50"><a href="https://github.com/sharansidh-0301?tab=repositories" target="_blank" rel="noreferrer"><Github />View all GitHub repositories</a></Button></div>
+    </div>
+  </section>
+);
 export default Projects;
