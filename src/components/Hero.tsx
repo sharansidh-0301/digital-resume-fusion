@@ -57,7 +57,7 @@ const Hero = () => (
       <div className="group relative mx-auto w-full max-w-sm md:col-span-4">
         <div className="hud-corners relative aspect-[4/5] overflow-hidden bg-secondary grayscale contrast-125 transition-all duration-500 hover:grayscale-0">
           <div className="portrait-scan absolute inset-x-0 top-0 z-20 h-px bg-primary/50 shadow-glow" aria-hidden />
-          <img src={profilePhoto} alt="Sharansidh J R" className="h-full w-full object-cover object-top" loading="eager" fetchPriority="high" />
+          <img src={profilePhoto} alt="Sharansidh J R" className="h-full w-full object-cover object-top" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" aria-hidden />
           <div className="absolute bottom-5 left-5 font-mono text-[10px] uppercase">
             <span className="text-primary">Bio_Sync Active</span>
