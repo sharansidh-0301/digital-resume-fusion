@@ -19,8 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				serif: ['"Instrument Serif"', 'Times New Roman', 'serif'],
-				sans: ['"Work Sans"', 'system-ui', 'sans-serif'],
+				display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+				serif: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+				sans: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
 				mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
 			},
 			colors: {

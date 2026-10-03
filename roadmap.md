@@ -1,3 +1,4 @@
-- [ ] Replace stale profile, skills, experience, education, project highlights, certifications and contact résumé links with uploaded résumé details.
-- [ ] Reduce initial and runtime weight with lazy route loading, static/lightweight interactions, compressed image imports, and removal of confirmed-unused packages.
-- [ ] Verify the preview, build output, and affected page content.
+- [x] Replace stale profile, skills, experience, education, project highlights, certifications and contact résumé links with uploaded résumé details.
+- [x] Reduce initial and runtime weight with lazy route loading, static/lightweight interactions, compressed image imports, and removal of confirmed-unused packages.
+- [x] Apply the selected Tactical HUD interface to the Hunter homepage.
+- [x] Verify the homepage on desktop and mobile, with no horizontal overflow.
