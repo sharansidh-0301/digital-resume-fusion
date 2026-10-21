@@ -7,6 +7,28 @@ const achievements = [
   { icon: Target, title: '2nd Prize — Intra-college Ideathon', detail: 'Recognized for an innovative solution presented through team collaboration.', year: '2025', link: 'https://www.linkedin.com/posts/sharansidh0301_ideathon-decibalclub-teamwork-activity-7347247904077598722-Cuj8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM' },
   { icon: Award, title: '3rd Prize — Paper Presentation', detail: 'Awarded at Velammal Engineering College, Ambattur.', year: '2024', link: 'https://www.linkedin.com/posts/sharansidh0301_velammal-chennai-third-activity-7167464915434156032-B79o?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEl4bRIBUsO19sMARa770vyYHWdCfQvkSPM' },
 ];
+const bugBounties = [
+  {
+    code: 'BB-01',
+    title: 'Admin Account Takeover via Weak Credentials',
+    cwe: 'CWE-1391',
+    severity: 'Critical',
+    score: '9.8',
+    vector: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H',
+    summary: 'Subdomain enumeration and GitHub OSINT reconnaissance uncovered sensitive data exposing password patterns. Harvesting active corporate emails and running a targeted credential-stuffing attack achieved full administrative account takeover, exposing the organization\'s cloud environment and sensitive client PII, including GST details and tax invoices for 200+ clients.',
+    tools: ['Subfinder', 'Burp Suite', 'OSINT'],
+  },
+  {
+    code: 'BB-02',
+    title: 'Improper Input Validation Leading to Fee Manipulation',
+    cwe: 'CWE-20',
+    severity: 'High',
+    score: '8.6',
+    vector: 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:H/A:N',
+    summary: 'During a payment workflow assessment, identified a server-side input validation flaw in the transaction pipeline. An unauthenticated remote attacker can intercept transactional traffic and manipulate parameter values such as the fee amount, bypassing financial controls to complete registrations for an arbitrarily reduced value.',
+    tools: ['Traffic interception', 'Parameter tampering'],
+  },
+];
 const badges = [
   { name: 'Pull Shark', detail: 'Pull requests successfully merged.', image: 'https://github.githubassets.com/images/modules/profile/achievements/pull-shark-default.png' },
   { name: 'Quickdraw', detail: 'Issue or pull request closed quickly.', image: 'https://github.githubassets.com/images/modules/profile/achievements/quickdraw-default.png' },
