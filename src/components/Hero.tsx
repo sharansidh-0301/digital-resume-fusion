@@ -1,7 +1,7 @@
 import { ArrowRight, Github, Linkedin, Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import profilePhoto from '@/assets/myPic.webp';
-import resume from '@/assets/Sharansidh_JR_SoftwareDeveloper.pdf';
+import resume from '@/assets/Sharansidh_JR.pdf';
 
 const Hero = () => (
   <section id="home" className="relative flex min-h-screen items-center overflow-hidden bg-background px-5 pb-14 pt-24 sm:px-8 lg:px-12">
@@ -27,7 +27,7 @@ const Hero = () => (
 
         <div>
           <h1 className="font-display text-5xl font-bold uppercase leading-none text-foreground sm:text-7xl lg:text-8xl">
-            Sharansidh
+            Sharan<span className="text-amber-500" >sidh</span> 
             <span className="hud-outline mt-1 block">J R</span>
           </h1>
           <p className="mt-6 max-w-2xl font-mono text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -43,7 +43,7 @@ const Hero = () => (
             <a href="mailto:sharansidh0301@gmail.com"><Mail />Establish contact<ArrowRight /></a>
           </Button>
           <Button variant="outline" size="lg" asChild className="rounded-none border-border uppercase hover:border-primary hover:text-primary">
-            <a href={resume} download="Sharansidh_JR_SoftwareDeveloper.pdf"><Download />Fetch credentials.pdf</a>
+            <a href={resume} download="Sharansidh_JR.pdf"><Download />Fetch credentials.pdf</a>
           </Button>
         </div>
 

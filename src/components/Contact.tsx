@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, Download, Radio } from 'lu
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import resume from '@/assets/Sharansidh_JR_SoftwareDeveloper.pdf';
+import resume from '@/assets/Sharansidh_JR.pdf';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
