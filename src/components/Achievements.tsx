@@ -1,4 +1,4 @@
-import { Award, Trophy, Target, ExternalLink, Github } from 'lucide-react';
+import { Award, Trophy, Target, ExternalLink, Github, Bug } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const achievements = [
