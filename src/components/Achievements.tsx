@@ -44,6 +44,30 @@ const Achievements = () => (
           <article key={item.title} className="bg-background p-6 sm:p-8"><div className="flex items-center justify-between"><item.icon className="h-5 w-5 text-primary" /><span className="font-mono text-[10px] text-muted-foreground">REC-0{index + 1} / {item.year}</span></div><h2 className="mt-8 font-sans text-xl font-semibold">{item.title}</h2><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>{item.link && <Button variant="link" asChild className="mt-4 h-auto p-0 font-mono text-xs uppercase"><a href={item.link} target="_blank" rel="noreferrer">View evidence <ExternalLink /></a></Button>}</article>
         ))}
       </div>
+      <div className="mt-20 grid gap-8 lg:grid-cols-[.7fr_1.3fr]">
+        <div>
+          <div className="flex items-center gap-2 font-mono text-xs uppercase text-primary"><Bug className="h-4 w-4" />Offensive security / verified reports</div>
+          <h2 className="mt-3 text-3xl">Bug bounty findings</h2>
+          <p className="mt-3 text-sm text-muted-foreground">Disclosed vulnerabilities from security assessments, mapped to CWE and scored with CVSS v3.1.</p>
+        </div>
+        <div className="space-y-6">
+          {bugBounties.map((finding) => (
+            <article key={finding.code} className="hud-corners relative border border-border bg-card/55 p-6 sm:p-8">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <span className="font-mono text-[10px] uppercase text-primary">{finding.code} // {finding.cwe}</span>
+                <span className="flex items-center gap-2 border border-primary/50 bg-primary/10 px-3 py-1 font-mono text-[10px] uppercase text-primary">
+                  <span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping opacity-60" /><span className="relative inline-flex h-2 w-2 bg-primary" /></span>
+                  {finding.severity} · CVSS {finding.score}
+                </span>
+              </div>
+              <h3 className="mt-5 font-sans text-xl font-semibold">{finding.title}</h3>
+              <p className="mt-3 font-mono text-[10px] text-muted-foreground">{finding.vector}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{finding.summary}</p>
+              <div className="mt-5 flex flex-wrap gap-2">{finding.tools.map((tool) => <span key={tool} className="border border-border px-3 py-1.5 font-mono text-[10px] uppercase text-muted-foreground">{tool}</span>)}</div>
+            </article>
+          ))}
+        </div>
+      </div>
       <div className="mt-20 grid gap-8 lg:grid-cols-[.7fr_1.3fr]"><div><div className="flex items-center gap-2 font-mono text-xs uppercase text-primary"><Github className="h-4 w-4" />GitHub signals</div><h2 className="mt-3 text-3xl">Achievement badges</h2><p className="mt-3 text-sm text-muted-foreground">Badges listed from the supplied profile details.</p></div><div className="grid gap-4 sm:grid-cols-2">{badges.map((badge) => <article key={badge.name} className="flex items-center gap-5 border border-border bg-card/55 p-5"><img src={badge.image} alt={`${badge.name} GitHub badge`} loading="lazy" className="h-20 w-20" /><div><h3 className="font-sans text-lg font-semibold">{badge.name}</h3><p className="mt-2 text-sm text-muted-foreground">{badge.detail}</p></div></article>)}</div></div>
     </div>
   </section>
